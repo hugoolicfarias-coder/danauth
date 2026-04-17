@@ -199,6 +199,16 @@ section {
   background-position: center;
 }
 
+/* AI Labs Hero */
+.ai-labs-hero {
+  padding: 10rem 0 6rem;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--bg-dark)), url('/assets/ai-labs-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -408,13 +418,73 @@ section {
   transform: translateY(0);
 }
 
-/* Mobile Menu */
-.mobile-menu-btn {
-  display: none;
-  background: transparent;
-  border: none;
-  color: white;
+/* Chat Agent - Floating Bubble */
+.chat-bubble {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-bubble:hover {
+  transform: scale(1.1);
+}
+
+.chat-bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1999;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.chat-window.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.chat-header {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 991px) {

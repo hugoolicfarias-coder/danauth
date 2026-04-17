@@ -51,7 +51,7 @@
       </div>
       
       <div class="poster-grid">
-        <!-- Movies (Placeholder images with cinematic effect) -->
+        <!-- Movies -->
         <div class="poster-card reveal glass">
           <img src="https://image.tmdb.org/t/p/w500/8Gxv0mYmUpepXUssvSbuozp9Cfs.jpg" alt="Dune">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
@@ -69,7 +69,7 @@
         </div>
 
         <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/gx620Xp97v3v9v9v9v9v9v9v9v9.jpg" alt="Batman" onerror="this.src='https://image.tmdb.org/t/p/w500/b0EjjbsSfs9bbqzvcAeoYvyz9pB.jpg'">
+          <img src="https://image.tmdb.org/t/p/w500/b0EjjbsSfs9bbqzvcAeoYvyz9pB.jpg" alt="Batman">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
             <h3 style="font-size: 1.2rem;">The Batman II</h3>
             <p style="font-size: 0.8rem; color: var(--accent-cinema);">Crime • Ação</p>
@@ -77,10 +77,42 @@
         </div>
 
         <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/yOu97v3v9v9v9v9v9v9v9v9v9.jpg" alt="Joker" onerror="this.src='https://image.tmdb.org/t/p/w500/udDclSRHqzR9EbCDzgMs9t9pIFM.jpg'">
+          <img src="https://image.tmdb.org/t/p/w500/udDclSRHqzR9EbCDzgMs9t9pIFM.jpg" alt="Joker">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
             <h3 style="font-size: 1.2rem;">Joker: Folie à Deux</h3>
             <p style="font-size: 0.8rem; color: var(--accent-cinema);">Drama • Musical</p>
+          </div>
+        </div>
+
+        <div class="poster-card reveal glass">
+          <img src="https://image.tmdb.org/t/p/w500/z66tXGof1m98fD8mH7x8WzL4zRk.jpg" alt="Furiosa">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
+            <h3 style="font-size: 1.2rem;">Furiosa: Mad Max</h3>
+            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Sci-Fi</p>
+          </div>
+        </div>
+
+        <div class="poster-card reveal glass">
+          <img src="https://image.tmdb.org/t/p/w500/dB6S7VTp46p62fkp7S9vP8pS9vG.jpg" alt="Gladiator">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
+            <h3 style="font-size: 1.2rem;">Gladiator II</h3>
+            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Épico • Ação</p>
+          </div>
+        </div>
+
+        <div class="poster-card reveal glass">
+          <img src="https://image.tmdb.org/t/p/w500/r59vP8pS9vGv9v9v9v9v9v9v9v9.jpg" alt="Sonic" onerror="this.src='https://image.tmdb.org/t/p/w500/1D4T5T9K6Yj4Gv8W6j556p9y6Y.jpg'">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
+            <h3 style="font-size: 1.2rem;">Sonic the Hedgehog 3</h3>
+            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Animação • Família</p>
+          </div>
+        </div>
+
+        <div class="poster-card reveal glass">
+          <img src="https://image.tmdb.org/t/p/w500/v9v9v9v9v9v9v9v9v9v9v9v9v9v.jpg" alt="Avengers" onerror="this.src='https://image.tmdb.org/t/p/w500/kY9vP8pS9vGv9v9v9v9v9v9v9v9.jpg'">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
+            <h3 style="font-size: 1.2rem;">Avengers: Secret Wars</h3>
+            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Heróis</p>
           </div>
         </div>
       </div>
@@ -138,6 +170,28 @@
       </div>
     </div>
   </footer>
+
+  <!-- Authie Chat Agent (Floating Bubble) -->
+  <div class="chat-bubble" id="chat-bubble">
+    <img src="/assets/authie.png" alt="Authie IA">
+  </div>
+  <div class="chat-window glass" id="chat-window">
+    <div class="chat-header">
+      <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
+        <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div>
+        <div style="font-weight: 700; font-size: 0.95rem;">Authie AI</div>
+        <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
+          <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
+        </div>
+      </div>
+    </div>
+    <div class="chat-messages"></div>
+    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
+      <input type="text" placeholder="Como posso te ajudar?" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: 12px; color: white; outline: none; font-size: 0.9rem;">
+    </div>
+  </div>
 
   <script type="module" src="/main.js"></script>
 </body>
