@@ -26,75 +26,82 @@
   </header>
 
   <main style="padding-top: var(--header-height);">
-    <!-- AI Labs Hero -->
     <section class="container" style="padding: 6rem 0;">
       <div class="section-title reveal">
-        <span class="section-label" style="border-color: var(--accent-secondary); color: var(--accent-secondary);">Innovation Gallery</span>
-        <h1 style="font-size: 3.5rem;">IA <span>Generativa</span></h1>
-        <p>Explore o poder da inteligência artificial na criação de conteúdos visuais e audiovisuais de última geração.</p>
+        <span class="section-label" style="border-color: var(--accent-secondary); color: var(--accent-secondary);">Innovation Lab</span>
+        <h1 style="font-size: 3.5rem;">Laboratório de <span>IA Generativa</span></h1>
+        <p>Onde a criatividade encontra a engenharia. Veja o que é possível criar com modelos de última geração.</p>
       </div>
 
-      <div class="detailed-services">
-        <!-- AI Images Showcase -->
-        <div class="service-detail glass reveal">
-          <div class="service-info">
-            <h2>Geração de Imagens</h2>
-            <p>Utilizamos os modelos mais avançados (Midjourney v6, Flux, DALL-E 3) para criar visuais hiper-realistas e artísticos.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-               <div style="aspect-ratio: 1; border-radius: 12px; background: url('https://images.unsplash.com/photo-1675271591211-126ad5cc0625?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
-               <div style="aspect-ratio: 1; border-radius: 12px; background: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
-            </div>
-          </div>
-          <div class="service-visual">🎨</div>
+      <div class="service-grid">
+        <!-- AI Image Showcase -->
+        <div class="service-card glass reveal">
+          <div style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1675271591211-126ad5cc0625?auto=format&fit=crop&q=80&w=800') center/cover; margin-bottom: 2rem; border: 1px solid var(--border-light);"></div>
+          <h3>Síntese de Imagem Estática</h3>
+          <p>Criação de visuais hiper-realistas para branding, publicidade e concept art utilizando Midjourney v6 e Flux.1.</p>
         </div>
 
         <!-- AI Video Showcase -->
-        <div class="service-detail glass reveal">
-          <div class="service-info">
-            <h2>Geração de Vídeos</h2>
-            <p>Transformamos ideias em movimento com tecnologias como Sora, Runway Gen-2 e Pika Labs.</p>
-            <div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; background: #000; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-light);">
-               <div style="text-align: center;">
-                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                 <div style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">Prévia do Player IA</div>
-               </div>
+        <div class="service-card glass reveal">
+          <div style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-md); background: #000; border: 1px solid var(--border-light); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+              <source src="https://video.wixstatic.com/video/c837a6_7378fc79e46a48d88e7d7f7c1664d990/1080p/mp4/file.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; z-index: 2; text-align: center;">
+               <div style="font-size: 2rem;">🎬</div>
+               <div style="font-size: 0.8rem; margin-top: 0.5rem; color: #fff; font-weight: 700;">AI VIDEO PREVIEW</div>
             </div>
           </div>
-          <div class="service-visual">🎬</div>
+          <h3>Cinemática Generativa</h3>
+          <p>Produção de vídeos curtos e loops imersivos com movimento natural, baseados em tecnologias como Sora e Runway Gen-3.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-info">
-        <a href="/" class="logo">DAN<span>AUTH</span></a>
-        <p>O futuro da criatividade é sintético.</p>
-      </div>
-      <div class="footer-links">
-        <div class="link-group">
-          <h4>Explorar</h4>
-          <a href="/shopping.html">Shopping</a>
-          <a href="/ai-labs.html">AI Labs</a>
-          <a href="/entertainment.html">Cinema</a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col reveal">
+          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">DAN<span>AUTH</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">In</a>
+            <a href="#" class="social-icon">Ig</a>
+          </div>
         </div>
-        <div class="link-group">
-          <h4>Legal</h4>
-          <a href="/terms.html">Termos</a>
-          <a href="/privacy.html">Privacidade</a>
+        <div class="footer-col reveal">
+          <h4>Plataforma</h4>
+          <ul>
+            <li><a href="/services.html">Nossas Soluções</a></li>
+            <li><a href="/shopping.html">Danauth Shopping</a></li>
+            <li><a href="/ai-labs.html">AI Labs Gallery</a></li>
+            <li><a href="/entertainment.html">Cine Hub</a></li>
+          </ul>
+        </div>
+        <div class="footer-col reveal">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/contact.html">Falar com Consultor</a></li>
+            <li><a href="/terms.html">Termos de Uso</a></li>
+            <li><a href="/privacy.html">Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="footer-col reveal">
+          <h4>Newsletter</h4>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Receba novidades semanais sobre IA e Tech.</p>
+          <div class="newsletter-box">
+            <input type="email" placeholder="Seu e-mail">
+            <button class="btn btn-primary" style="padding: 0 1.5rem; border-radius: 10px; font-size: 0.8rem;">Assinar</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom container">
-      <p>&copy; 2026 Danauth Digital. Todos os direitos reservados.</p>
+      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
+        <p>&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
-
-  <!-- Authie Chat Agent -->
-  <div class="chat-bubble" id="chat-bubble">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-  </div>
 
   <script type="module" src="/main.js"></script>
 </body>

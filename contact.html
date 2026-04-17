@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato | Danauth</title>
+  <title>Contato | Danauth Digital</title>
   <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
-<body class="bg-dark">
+<body>
   <header id="header">
     <div class="container nav-container">
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/services.html">Serviços</a></li>
-        <li><a href="/contact.html">Contato</a></li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li><a href="/entertainment.html">Cinema</a></li>
+        <li><a href="/contact.html" class="active">Contato</a></li>
       </ul>
       <button class="mobile-menu-btn" id="mobile-menu-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -24,152 +28,87 @@
   <main style="padding-top: var(--header-height);">
     <section class="container" style="padding: 6rem 0;">
       <div class="section-title reveal">
-        <h1 style="font-size: 3.5rem;">Fale <span>Conosco</span></h1>
-        <p>Pronto para o próximo nível? Envie uma mensagem e responderemos em breve.</p>
+        <span class="section-label">Contato</span>
+        <h1 style="font-size: 3.5rem;">Fale com um <span>Especialista</span></h1>
+        <p>Pronto para iniciar sua transformação digital? Envie uma mensagem e nossa equipe entrará em contato em breve.</p>
       </div>
 
-      <div class="contact-wrap reveal">
-        <form class="contact-form glass" id="contact-form">
-          <div class="form-group">
-            <label for="name">Nome Completo</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome..." required>
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-top: 4rem;" class="reveal">
+        <form class="glass" style="padding: 3rem; border-radius: var(--radius-xl);">
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Nome Completo</label>
+            <input type="text" placeholder="Seu nome..." style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none;">
           </div>
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">E-mail Corporativo</label>
+            <input type="email" placeholder="seu@email.com" style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none;">
           </div>
-          <div class="form-group">
-            <label for="service">Serviço de Interesse</label>
-            <select id="service" name="service">
-              <option value="web-dev">Desenvolvimento Web</option>
-              <option value="web-apps">Web Apps & SaaS</option>
-              <option value="automations">Automações</option>
-              <option value="ai">Agentes de IA</option>
-              <option value="other">Outro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message" rows="5" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Como podemos ajudar?</label>
+            <textarea rows="5" placeholder="Conte-nos sobre seu projeto..." style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
         </form>
 
-        <div class="contact-info">
-          <div class="info-card glass">
-            <h3>Nossas Redes</h3>
-            <p>Acompanhe nosso trabalho e novidades tecnológicas.</p>
-            <div class="social-links">
-              <!-- Icons could be added here -->
-              <span>LinkedIn</span>
-              <span>Twitter</span>
-              <span>GitHub</span>
-            </div>
+        <div>
+          <div class="glass" style="padding: 2.5rem; border-radius: var(--radius-xl); margin-bottom: 2rem;">
+            <h3>Canais Diretos</h3>
+            <p style="color: var(--text-secondary); margin: 1rem 0;">Se prefere uma conversa imediata, utilize nossos canais diretos:</p>
+            <div style="font-weight: 700; color: var(--accent-secondary);">suporte@danauth.info</div>
           </div>
-          <div class="info-card glass">
-            <h3>Tempo de Resposta</h3>
-            <p>Geralmente respondemos em menos de 24 horas úteis.</p>
+          <div class="glass" style="padding: 2.5rem; border-radius: var(--radius-xl);">
+            <h3>Horário de Atendimento</h3>
+            <p style="color: var(--text-secondary); margin-top: 1rem;">Segunda a Sexta<br>09h às 18h (BRT)</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-info">
-        <a href="/" class="logo">DAN<span>AUTH</span></a>
-        <p>Inovação e eficiência em cada linha de código.</p>
-      </div>
-      <div class="footer-links">
-        <div class="link-group">
-          <h4>Links Rápidos</h4>
-          <a href="/">Home</a>
-          <a href="/services.html">Serviços</a>
-          <a href="/contact.html">Contato</a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col reveal">
+          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">DAN<span>AUTH</span></a>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">In</a>
+            <a href="#" class="social-icon">Ig</a>
+          </div>
         </div>
-        <div class="link-group">
-          <h4>Legal</h4>
-          <a href="/terms.html">Termos de Serviço</a>
-          <a href="/privacy.html">Privacidade</a>
+        <div class="footer-col reveal">
+          <h4>Plataforma</h4>
+          <ul>
+            <li><a href="/services.html">Nossas Soluções</a></li>
+            <li><a href="/shopping.html">Danauth Shopping</a></li>
+            <li><a href="/ai-labs.html">AI Labs Gallery</a></li>
+            <li><a href="/entertainment.html">Cine Hub</a></li>
+          </ul>
+        </div>
+        <div class="footer-col reveal">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/contact.html">Falar com Consultor</a></li>
+            <li><a href="/terms.html">Termos de Uso</a></li>
+            <li><a href="/privacy.html">Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="footer-col reveal">
+          <h4>Newsletter</h4>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Receba novidades semanais sobre IA e Tech.</p>
+          <div class="newsletter-box">
+            <input type="email" placeholder="Seu e-mail">
+            <button class="btn btn-primary" style="padding: 0 1.5rem; border-radius: 10px; font-size: 0.8rem;">Assinar</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom container">
-      <p>&copy; 2026 Danauth. Todos os direitos reservados.</p>
+      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
+        <p>&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
 
   <script type="module" src="/main.js"></script>
-
-  <style>
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .contact-form {
-      padding: 3rem;
-      border-radius: var(--radius-lg);
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      color: white;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-primary);
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .info-card {
-      padding: 2rem;
-      border-radius: var(--radius-lg);
-    }
-    .info-card h3 {
-      margin-bottom: 1rem;
-    }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .social-links span {
-      background: var(--glass-bg);
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-      .contact-form {
-        padding: 1.5rem;
-      }
-    }
-  </style>
 </body>
 </html>

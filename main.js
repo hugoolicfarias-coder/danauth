@@ -1,68 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.getElementById('header');
-  const revealElements = document.querySelectorAll('.reveal');
+  const header = document.querySelector('header');
+  const chatBubble = document.getElementById('chat-bubble');
+  const chatWindow = document.getElementById('chat-window');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
 
-  // Header scroll effect
-  const handleScroll = () => {
+  // Header Scroll Effect
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
+      header.classList.add('scrolled');
     } else {
-      header?.classList.remove('scrolled');
+      header.classList.remove('scrolled');
     }
-    revealOnScroll();
-  };
+  });
 
-  // Reveal on scroll animation
+  // Scroll Reveal Animation
+  const revealElements = document.querySelectorAll('.reveal');
   const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const revealPoint = 100;
-
     revealElements.forEach(el => {
-      const revealTop = el.getBoundingClientRect().top;
-      if (revealTop < windowHeight - revealPoint) {
+      const elementTop = el.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (elementTop < windowHeight - 100) {
         el.classList.add('active');
       }
     });
   };
-
-  window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initial check
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Initial check
 
   // Mobile Menu Toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (mobileMenuBtn && navLinks) {
+  if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('mobile-active');
-      const isExpanded = navLinks.classList.contains('mobile-active');
-      document.body.style.overflow = isExpanded ? 'hidden' : '';
+      if (navLinks.classList.contains('mobile-active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     });
   }
 
-  // Authie Chat Agent Logic
-  const initAuthie = () => {
-    const chatBubble = document.getElementById('chat-bubble');
-    const chatWindow = document.getElementById('chat-window');
-    
-    if (chatBubble && chatWindow) {
-      chatBubble.addEventListener('click', () => {
-        chatWindow.classList.toggle('active');
-      });
+  // Authie Chat Logic
+  if (chatBubble && chatWindow) {
+    chatBubble.addEventListener('click', () => {
+      chatWindow.classList.toggle('active');
+    });
 
-      // Simple auto-greeting after 2 seconds
-      setTimeout(() => {
-        const messagesContainer = document.querySelector('.chat-messages');
-        if (messagesContainer && messagesContainer.children.length === 0) {
-          const greeting = document.createElement('div');
-          greeting.className = 'msg bot';
-          greeting.textContent = 'Olá! Eu sou a Authie, sua assistente virtual. Como posso ajudar você hoje?';
-          messagesContainer.appendChild(greeting);
-        }
-      }, 2000);
-    }
-  };
+    const messagesContainer = chatWindow.querySelector('.chat-messages');
 
-  initAuthie();
+    const addMessage = (text, type) => {
+      const msg = document.createElement('div');
+      msg.className = `message ${type}`;
+      msg.textContent = text;
+      msg.style.margin = '5px 0';
+      msg.style.padding = '8px 12px';
+      msg.style.borderRadius = '10px';
+      msg.style.fontSize = '0.85rem';
+      msg.style.maxWidth = '80%';
+      
+      if (type === 'bot') {
+        msg.style.background = 'rgba(255,255,255,0.05)';
+        msg.style.alignSelf = 'flex-start';
+      } else {
+        msg.style.background = 'var(--accent)';
+        msg.style.color = '#000';
+        msg.style.alignSelf = 'flex-end';
+      }
+      
+      messagesContainer.appendChild(msg);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    };
+
+    // Auto Greeting after 3 seconds
+    setTimeout(() => {
+      if (!chatWindow.classList.contains('active')) {
+        addMessage("Olá! Sou a Authie. Como posso ajudar com o seu projeto digital hoje?", "bot");
+      }
+    }, 3000);
+  }
 });
-
