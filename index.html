@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Danauth - Especialista em Desenvolvimento Web, Aplicativos, Automações e Agentes de IA Personalizados para Empresas.">
-  <title>Danauth | Desenvolvimento Web & IA</title>
+  <title>Danauth | Tecnologia & Inteligência Artificial</title>
   <link rel="stylesheet" href="/index.css">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
   <header id="header">
     <div class="container nav-container">
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
+        <li><a href="/" class="active">Home</a></li>
         <li><a href="/services.html">Serviços</a></li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
       <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -24,56 +27,65 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Premium Hero Section -->
     <section class="hero" id="home">
-      <div class="hero-background" style="background-image: url('/images/hero-bg.png');"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="reveal">Transforme sua empresa com <span>Tecnologia Inteligente</span></h1>
-        <p class="reveal">Desenvolvimento web de alta performance, automações de processos e Agentes de IA treinados para o seu negócio.</p>
-        <div class="hero-btns reveal">
-          <a href="/services.html" class="btn btn-primary">Nossos Serviços</a>
-          <a href="/contact.html" class="btn btn-outline">Fale Conosco</a>
+      <div class="container hero-content text-center" style="width: 100%;">
+        <span class="section-label reveal">Next-Gen Digital Solutions</span>
+        <h1 class="reveal">Inovação que <span>Impulsiona</span> o seu Futuro</h1>
+        <p class="reveal" style="margin: 0 auto 2.5rem;">Desenvolvimento de alta performance, automações inteligentes e ecossistemas de IA projetados para escala global.</p>
+        <div class="hero-btns reveal" style="justify-content: center;">
+          <a href="/services.html" class="btn btn-primary">Nossas Soluções</a>
+          <a href="/contact.html" class="btn btn-outline">Iniciar Projeto</a>
         </div>
       </div>
     </section>
 
-    <!-- Services Brief -->
-    <section class="services-brief container reveal">
-      <div class="section-title">
-        <h2>O que fazemos</h2>
-        <p>Soluções completas para a era digital.</p>
+    <!-- Professional Services Section -->
+    <section class="services-brief container">
+      <div class="section-title reveal">
+        <span class="section-label">Especialidades</span>
+        <h2>O que <span>entregamos</span></h2>
       </div>
       <div class="services-grid">
-        <div class="service-card glass">
-          <div class="icon">💻</div>
-          <h3>Web Dev</h3>
-          <p>Sites institucionais e landing pages otimizadas para conversão.</p>
-        </div>
-        <div class="service-card glass">
-          <div class="icon">📱</div>
-          <h3>Web Apps</h3>
-          <p>Sistemas complexos e dashboards personalizados para sua gestão.</p>
-        </div>
-        <div class="service-card glass">
-          <div class="icon">⚙️</div>
-          <h3>Automações</h3>
-          <p>Integrações via n8n e Zapier para eliminar tarefas repetitivas.</p>
-        </div>
-        <div class="service-card glass">
+        <div class="service-card glass reveal">
           <div class="icon">🤖</div>
-          <h3>IA Agents</h3>
-          <p>Agentes inteligentes treinados na base de dados da sua empresa.</p>
+          <h3>Agentes Inteligentes</h3>
+          <p>Automação avançada para WhatsApp e Instagram, convertendo leads 24/7 com IA humanizada.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon">🚀</div>
+          <h3>Ecossistema de Conteúdo</h3>
+          <p>Workflows de postagem e engajamento automatizados para Instagram e TikTok impulsionados por IA.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon">🎯</div>
+          <h3>Landing Pages</h3>
+          <p>Páginas de alta performance focadas radicalmente em conversão e experiência do usuário.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon">🏢</div>
+          <h3>Sites Institucionais</h3>
+          <p>Presença digital moderna com design minimalista que transmite autoridade e confiança.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon">📰</div>
+          <h3>Portais & Labs</h3>
+          <p>Blogs e hubs de informação otimizados para SEO, escala e distribuição de conteúdo.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon">⚡</div>
+          <h3>Engine de Otimização</h3>
+          <p>Maximização de Core Web Vitals para ranking superior e velocidade instantânea.</p>
         </div>
       </div>
     </section>
 
-    <!-- Trust Section -->
+    <!-- Trust/CTA Section -->
     <section class="trust reveal">
-      <div class="container glass trust-content">
-        <h2>Pronto para escalar?</h2>
-        <p>Utilizamos as tecnologias mais recentes para garantir que seu projeto seja rápido, seguro e escalável.</p>
-        <a href="/contact.html" class="btn btn-primary">Iniciar Projeto</a>
+      <div class="container glass trust-content" style="border-radius: var(--radius-xl);">
+        <h2>Pronto para escalar seu negócio?</h2>
+        <p>Utilizamos as tecnologias mais disruptivas para garantir que seu projeto seja o líder no seu nicho.</p>
+        <a href="/contact.html" class="btn btn-primary">Falar com um Especialista</a>
       </div>
     </section>
   </main>
@@ -82,27 +94,47 @@
     <div class="container footer-content">
       <div class="footer-info">
         <a href="/" class="logo">DAN<span>AUTH</span></a>
-        <p>Inovação e eficiência em cada linha de código.</p>
+        <p>Expertise em engenharia de software e inteligência artificial.</p>
       </div>
       <div class="footer-links">
         <div class="link-group">
-          <h4>Links Rápidos</h4>
-          <a href="/">Home</a>
-          <a href="/services.html">Serviços</a>
-          <a href="/contact.html">Contato</a>
+          <h4>Explorar</h4>
+          <a href="/shopping.html">Shopping</a>
+          <a href="/ai-labs.html">AI Labs</a>
+          <a href="/entertainment.html">Cinema</a>
         </div>
         <div class="link-group">
-          <h4>Legal</h4>
-          <a href="/terms.html">Termos de Serviço</a>
+          <h4>Fale Conosco</h4>
+          <a href="/contact.html">Contato</a>
+          <a href="/terms.html">Termos</a>
           <a href="/privacy.html">Privacidade</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom container">
-      <p>&copy; 2026 Danauth. Todos os direitos reservados.</p>
+      <p>&copy; 2026 Danauth Digital. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- Authie Chat Agent -->
+  <div class="chat-bubble" id="chat-bubble">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </div>
+  <div class="chat-window glass" id="chat-window">
+    <div class="chat-header">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #000; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">A</div>
+      <div>
+        <div style="font-weight: 700; font-size: 0.9rem;">Authie</div>
+        <div style="font-size: 0.7rem; opacity: 0.6;">Online agora</div>
+      </div>
+    </div>
+    <div class="chat-messages d-flex flex-column"></div>
+    <div style="padding: 1rem; border-top: 1px solid var(--border-light);">
+      <input type="text" placeholder="Digite sua dúvida..." style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.7rem; border-radius: 10px; color: white; outline: none;">
+    </div>
+  </div>
 
   <script type="module" src="/main.js"></script>
 </body>
 </html>
+

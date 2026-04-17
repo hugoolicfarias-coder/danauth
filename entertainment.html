@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema | Danauth Entertainment</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body style="background-color: #000;">
+  <header id="header">
+    <div class="container nav-container">
+      <a href="/" class="logo">DAN<span>AUTH</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Serviços</a></li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li><a href="/entertainment.html" class="active">Cinema</a></li>
+        <li><a href="/contact.html">Contato</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Cinematic Hero Section -->
+    <section class="cinema-hero reveal">
+      <video class="video-bg" autoplay muted loop playsinline poster="https://p2.wixstatic.com/media/c837a6_7378fc79e46a48d88e7d7f7c1664d990~mv2.jpg/v1/fill/w_1349,h_779,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c837a6_7378fc79e46a48d88e7d7f7c1664d990~mv2.jpg">
+        <source src="https://video.wixstatic.com/video/c837a6_7378fc79e46a48d88e7d7f7c1664d990/1080p/mp4/file.mp4" type="video/mp4">
+      </video>
+      <div class="cinema-overlay"></div>
+      <div class="cinema-content">
+        <span class="section-label" style="border-color: var(--accent-cinema); color: var(--accent-cinema);">Destaque da Semana</span>
+        <h1>Dune: <span class="cinema-accent">A Profecia</span></h1>
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Explore as origens da irmandade em uma jornada épica através das areias do destino.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn btn-primary" style="background: var(--accent-cinema); color: white;">Assistir Trailer</a>
+          <a href="#" class="btn btn-outline">Mais Informações</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Movies Grid -->
+    <section class="container" style="padding: 4rem 0;">
+      <div class="section-title reveal" style="text-align: left; margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem;">Lançamentos <span class="cinema-accent">do Ano</span></h2>
+      </div>
+      
+      <div class="poster-grid">
+        <!-- Poster 1 -->
+        <div class="poster-card reveal">
+          <img src="https://static.wixstatic.com/media/c837a6_46067da002574e9297bfd3e3f36f90d1~mv2.jpg/v1/fill/w_310,h_465,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_46067da002574e9297bfd3e3f36f90d1~mv2.jpg" alt="Filme 1">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(0deg, black, transparent);">
+            <div style="font-weight: 700; font-size: 1.1rem;">Cavalos Selvagens</div>
+            <div style="font-size: 0.8rem; color: var(--accent-cinema);">Aventura • 2024</div>
+          </div>
+        </div>
+        <!-- Poster 2 -->
+        <div class="poster-card reveal">
+          <img src="https://static.wixstatic.com/media/c837a6_70604be475e6480186937e096f2e8f19~mv2.jpg/v1/fill/w_310,h_465,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_70604be475e6480186937e096f2e8f19~mv2.jpg" alt="Filme 2">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(0deg, black, transparent);">
+            <div style="font-weight: 700; font-size: 1.1rem;">Sombras do Passado</div>
+            <div style="font-size: 0.8rem; color: var(--accent-cinema);">Suspense • 2024</div>
+          </div>
+        </div>
+        <!-- Poster 3 -->
+        <div class="poster-card reveal">
+          <img src="https://static.wixstatic.com/media/c837a6_c5890e7a17734a66a36f56f4d36f90d1~mv2.jpg/v1/fill/w_310,h_465,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_c5890e7a17734a66a36f56f4d36f90d1~mv2.jpg" alt="Filme 3">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(0deg, black, transparent);">
+            <div style="font-weight: 700; font-size: 1.1rem;">O Horizonte</div>
+            <div style="font-size: 0.8rem; color: var(--accent-cinema);">Sci-Fi • 2024</div>
+          </div>
+        </div>
+        <!-- Poster 4 -->
+        <div class="poster-card reveal">
+          <img src="https://static.wixstatic.com/media/c837a6_90604be475e6480186937e096f2e8f19~mv2.jpg/v1/fill/w_310,h_465,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c837a6_90604be475e6480186937e096f2e8f19~mv2.jpg" alt="Filme 4">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(0deg, black, transparent);">
+            <div style="font-weight: 700; font-size: 1.1rem;">A Dança</div>
+            <div style="font-size: 0.8rem; color: var(--accent-cinema);">Drama • 2024</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Genre Section -->
+    <section class="container glass" style="padding: 4rem; border-radius: var(--radius-xl); margin-bottom: 6rem;">
+       <div style="display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 1rem;">
+          <div style="flex-shrink: 0; padding: 2rem 4rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-align: center; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent-cinema)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <h3 style="margin-bottom: 0.5rem;">Ação</h3>
+            <p style="font-size: 0.8rem; opacity: 0.6;">124 títulos</p>
+          </div>
+          <div style="flex-shrink: 0; padding: 2rem 4rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-align: center; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent-cinema)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <h3 style="margin-bottom: 0.5rem;">Comédia</h3>
+            <p style="font-size: 0.8rem; opacity: 0.6;">89 títulos</p>
+          </div>
+          <div style="flex-shrink: 0; padding: 2rem 4rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-align: center; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--accent-cinema)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <h3 style="margin-bottom: 0.5rem;">Terror</h3>
+            <p style="font-size: 0.8rem; opacity: 0.6;">56 títulos</p>
+          </div>
+       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <a href="/" class="logo">DAN<span>AUTH</span></a>
+        <p>Expertise em engenharia de software e inteligência artificial.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>Explorar</h4>
+          <a href="/shopping.html">Shopping</a>
+          <a href="/ai-labs.html">AI Labs</a>
+          <a href="/entertainment.html">Cinema</a>
+        </div>
+        <div class="link-group">
+          <h4>Fale Conosco</h4>
+          <a href="/contact.html">Contato</a>
+          <a href="/terms.html">Termos</a>
+          <a href="/privacy.html">Privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Danauth Digital. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Authie Chat Agent -->
+  <div class="chat-bubble" id="chat-bubble">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </div>
+  <div class="chat-window glass" id="chat-window">
+    <div class="chat-header">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #000; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">A</div>
+      <div>
+        <div style="font-weight: 700; font-size: 0.9rem;">Authie</div>
+        <div style="font-size: 0.7rem; opacity: 0.6;">Online agora</div>
+      </div>
+    </div>
+    <div class="chat-messages d-flex flex-column"></div>
+    <div style="padding: 1rem; border-top: 1px solid var(--border-light);">
+      <input type="text" placeholder="Digite sua dúvida..." style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.7rem; border-radius: 10px; color: white; outline: none;">
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

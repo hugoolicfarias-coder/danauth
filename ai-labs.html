@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Labs | Danauth Intelligence</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header id="header">
+    <div class="container nav-container">
+      <a href="/" class="logo">DAN<span>AUTH</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Serviços</a></li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li><a href="/ai-labs.html" class="active">AI Labs</a></li>
+        <li><a href="/entertainment.html">Cinema</a></li>
+        <li><a href="/contact.html">Contato</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--header-height);">
+    <!-- AI Labs Hero -->
+    <section class="container" style="padding: 6rem 0;">
+      <div class="section-title reveal">
+        <span class="section-label" style="border-color: var(--accent-secondary); color: var(--accent-secondary);">Innovation Gallery</span>
+        <h1 style="font-size: 3.5rem;">IA <span>Generativa</span></h1>
+        <p>Explore o poder da inteligência artificial na criação de conteúdos visuais e audiovisuais de última geração.</p>
+      </div>
+
+      <div class="detailed-services">
+        <!-- AI Images Showcase -->
+        <div class="service-detail glass reveal">
+          <div class="service-info">
+            <h2>Geração de Imagens</h2>
+            <p>Utilizamos os modelos mais avançados (Midjourney v6, Flux, DALL-E 3) para criar visuais hiper-realistas e artísticos.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+               <div style="aspect-ratio: 1; border-radius: 12px; background: url('https://images.unsplash.com/photo-1675271591211-126ad5cc0625?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+               <div style="aspect-ratio: 1; border-radius: 12px; background: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=400') center/cover;"></div>
+            </div>
+          </div>
+          <div class="service-visual">🎨</div>
+        </div>
+
+        <!-- AI Video Showcase -->
+        <div class="service-detail glass reveal">
+          <div class="service-info">
+            <h2>Geração de Vídeos</h2>
+            <p>Transformamos ideias em movimento com tecnologias como Sora, Runway Gen-2 e Pika Labs.</p>
+            <div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; background: #000; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-light);">
+               <div style="text-align: center;">
+                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                 <div style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">Prévia do Player IA</div>
+               </div>
+            </div>
+          </div>
+          <div class="service-visual">🎬</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <a href="/" class="logo">DAN<span>AUTH</span></a>
+        <p>O futuro da criatividade é sintético.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>Explorar</h4>
+          <a href="/shopping.html">Shopping</a>
+          <a href="/ai-labs.html">AI Labs</a>
+          <a href="/entertainment.html">Cinema</a>
+        </div>
+        <div class="link-group">
+          <h4>Legal</h4>
+          <a href="/terms.html">Termos</a>
+          <a href="/privacy.html">Privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Danauth Digital. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Authie Chat Agent -->
+  <div class="chat-bubble" id="chat-bubble">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
