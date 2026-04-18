@@ -180,32 +180,35 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initLab = () => {
-    const generatorSection = document.getElementById('generator-section');
-    if (!generatorSection) return;
-
+    // Global UI Sync (Header)
     updateAuthUI();
-    fetchGallery();
-    
-    // Event Listeners
-    document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
-    document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
-    document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
-    document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
-    document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
-    
-    // Enter key support for OTP
-    document.getElementById('lab-otp')?.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') handleVerify();
-    });
-    
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        LabState.currentTab = e.target.dataset.tab;
-        fetchGallery();
+
+    // AI Lab specific logic (only if on Lab page)
+    const labContent = document.querySelector('.generator-panel');
+    if (labContent) {
+      fetchGallery();
+      
+      // Event Listeners for Lab
+      document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
+      document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
+      document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
+      document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
+      document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
+      
+      // Enter key support for OTP
+      document.getElementById('lab-otp')?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleVerify();
       });
-    });
+      
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          LabState.currentTab = e.target.dataset.tab;
+          fetchGallery();
+        });
+      });
+    }
   };
 
   async function handleLogin(isResend = false) {
