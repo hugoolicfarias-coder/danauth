@@ -6,31 +6,33 @@
   <title>Acessar Lab | Danauth Digital Hub</title>
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     body, html {
       height: 100%;
       margin: 0;
-      overflow: hidden;
       background: #000;
       font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
 
     .login-container {
       display: flex;
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
     }
 
     /* Left Side - Form */
     .login-form-side {
       flex: 1;
-      max-width: 500px;
+      max-width: 550px;
       padding: 4rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       background: #0a0a0a;
       z-index: 10;
+      overflow-y: auto;
     }
 
     .login-logo {
@@ -38,7 +40,7 @@
       font-weight: 800;
       color: white;
       text-decoration: none;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .login-logo span {
@@ -55,14 +57,59 @@
 
     .login-header p {
       color: var(--text-secondary);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
-    /* Steps */
-    .auth-step {
+    /* Toggle Switch */
+    .auth-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .toggle-btn.active {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    /* Forms */
+    .auth-form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.2rem;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .input-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
     }
 
     .glass-input {
@@ -92,6 +139,7 @@
       color: #000;
       border: none;
       cursor: pointer;
+      margin-top: 1.5rem;
       transition: all 0.3s;
     }
 
@@ -100,9 +148,29 @@
       box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
     }
 
-    .btn-login:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    /* Google Button Wrapper */
+    .google-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      color: rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .google-divider::before,
+    .google-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    #google-login-btn {
+      display: flex;
+      justify-content: center;
     }
 
     /* Right Side - Visual */
@@ -142,26 +210,13 @@
       font-size: 1.1rem;
     }
 
-    /* Resend Link */
-    .resend-link {
-       margin-top: 1rem;
-       text-align: center;
-       color: var(--text-secondary);
-       font-size: 0.9rem;
-    }
-
-    .resend-link span {
-       color: var(--accent-secondary);
-       cursor: pointer;
-       text-decoration: underline;
-    }
-
     @media (max-width: 900px) {
       .login-visual-side {
         display: none;
       }
       .login-form-side {
         max-width: 100%;
+        padding: 2.5rem;
       }
     }
   </style>
@@ -171,30 +226,76 @@
     <div class="login-form-side">
       <a href="/" class="login-logo">DAN<span>AUTH</span></a>
       
+      <div class="auth-toggle">
+        <button class="toggle-btn active" id="toggle-signup" onclick="setAuthMode('signup')">Criar conta</button>
+        <button class="toggle-btn" id="toggle-login" onclick="setAuthMode('login')">Entrar</button>
+      </div>
+
       <div id="auth-flow">
-        <!-- Step 1: Email -->
-        <div id="step-1" class="auth-step">
+        <!-- Main Form (SignUp or Login) -->
+        <div id="step-1" class="auth-form">
           <div class="login-header">
-            <h1>Crie uma conta</h1>
-            <p>Comece a criar imagens e vídeos com IA em segundos.</p>
+            <h1 id="auth-title">Crie sua conta</h1>
+            <p id="auth-subtitle">Comece a criar imagens e vídeos com IA em segundos.</p>
           </div>
-          <input type="email" id="lab-email" placeholder="Endereço de e-mail" class="glass-input">
+
+          <div id="signup-fields">
+            <div class="input-row">
+              <div class="input-group">
+                <label>Nome</label>
+                <input type="text" id="lab-first-name" placeholder="Ex: Hugo" class="glass-input">
+              </div>
+              <div class="input-group">
+                <label>Sobrenome</label>
+                <input type="text" id="lab-last-name" placeholder="Ex: D." class="glass-input">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>E-mail</label>
+            <input type="email" id="lab-email" placeholder="seu@email.com" class="glass-input">
+          </div>
+
+          <div class="input-group">
+            <label>Senha</label>
+            <input type="password" id="lab-password" placeholder="••••••••" class="glass-input">
+          </div>
+
           <button id="btn-lab-login" class="btn-login">Continuar</button>
+
+          <div class="google-divider">ou acesse com</div>
           
-          <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; color: #555; font-size: 0.8rem; text-align: center;">
-            <p>Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.</p>
+          <div id="google-login-btn">
+             <div id="g_id_onload"
+                  data-client_id="1016363962096-v6l5d5ctmqvvps0o6nf9e968rb59gu7j.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-callback="handleGoogleResponse"
+                  data-auto_prompt="false">
+             </div>
+             <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="rectangular"
+                  data-theme="outline"
+                  data-text="signin_with"
+                  data-size="large"
+                  data-logo_alignment="left">
+             </div>
           </div>
         </div>
 
-        <!-- Step 2: OTP -->
-        <div id="step-2" class="auth-step" style="display: none;">
+        <!-- Step 2: OTP (Only for Registration) -->
+        <div id="step-2" class="auth-form" style="display: none;">
           <div class="login-header">
             <h1>Verifique seu e-mail</h1>
-            <p>Enviamos um código de 6 dígitos para o seu e-mail.</p>
+            <p>Enviamos um código para confirmar seu cadastro.</p>
           </div>
-          <input type="text" id="lab-otp" placeholder="Código de 6 dígitos" class="glass-input" maxlength="6" style="text-align: center; letter-spacing: 0.5rem; font-weight: 800;">
-          <button id="btn-lab-verify" class="btn-login">Confirmar Acesso</button>
-          <div class="resend-link">Não recebeu? <span id="btn-lab-resend">Reenviar código</span></div>
+          <div class="input-group">
+            <label>Código de confirmação</label>
+            <input type="text" id="lab-otp" placeholder="6 dígitos" class="glass-input" maxlength="6" style="text-align: center; letter-spacing: 0.5rem; font-weight: 800;">
+          </div>
+          <button id="btn-lab-verify" class="btn-login">Finalizar Cadastro</button>
         </div>
       </div>
     </div>
@@ -207,6 +308,25 @@
     </div>
   </div>
 
-  <script type="module" src="/main.js"></script>
+  <script src="/main.js" type="module"></script>
+  <script>
+    let authMode = 'signup';
+    
+    function setAuthMode(mode) {
+      authMode = mode;
+      document.getElementById('toggle-signup').classList.toggle('active', mode === 'signup');
+      document.getElementById('toggle-login').classList.toggle('active', mode === 'login');
+      
+      document.getElementById('auth-title').innerText = mode === 'signup' ? 'Crie sua conta' : 'Bem-vindo de volta';
+      document.getElementById('auth-subtitle').innerText = mode === 'signup' ? 'Comece a criar imagens e vídeos com IA em segundos.' : 'Insira seus dados para acessar o laboratório.';
+      document.getElementById('btn-lab-login').innerText = mode === 'signup' ? 'Criar conta' : 'Entrar';
+      
+      document.getElementById('signup-fields').style.display = mode === 'signup' ? 'block' : 'none';
+      window.currentAuthMode = mode; // Make it accessible to main.js
+    }
+    
+    // Set default mode
+    setAuthMode('signup');
+  </script>
 </body>
 </html>

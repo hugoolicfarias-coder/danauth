@@ -183,16 +183,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Global UI Sync (Header)
     updateAuthUI();
 
+    // Authentication Listeners (Global - works on Lab page and Login page)
+    document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
+    document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
+    document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
+    document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
+
     // AI Lab specific logic (only if on Lab page)
     const labContent = document.querySelector('.generator-panel');
     if (labContent) {
       fetchGallery();
-      
-      // Event Listeners for Lab
-      document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
-      document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
-      document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
-      document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
       document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
       
       // Enter key support for OTP
@@ -212,9 +212,24 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   async function handleLogin(isResend = false) {
-    const email = document.getElementById('lab-email').value.trim();
+    const email = document.getElementById('lab-email')?.value.trim();
+    const password = document.getElementById('lab-password')?.value.trim();
+    const firstName = document.getElementById('lab-first-name')?.value.trim();
+    const lastName = document.getElementById('lab-last-name')?.value.trim();
+    const mode = window.currentAuthMode || 'signup';
+
     if (!email || !email.includes('@')) {
       alert('Por favor, insira um e-mail válido.');
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      alert('A senha deve ter pelo menos 6 caracteres.');
+      return;
+    }
+
+    if (mode === 'signup' && (!firstName || !lastName)) {
+      alert('Por favor, preencha seu nome e sobrenome.');
       return;
     }
 
@@ -222,18 +237,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalText = btn.innerText;
     
     btn.disabled = true;
-    btn.innerText = 'Enviando...';
+    btn.innerText = 'Processando...';
 
     try {
       const resp = await fetch(LAB_CONFIG.authWebhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ 
+          email, 
+          password, 
+          firstName, 
+          lastName, 
+          mode, 
+          isResend 
+        })
       });
       const data = await resp.json();
       
       if (data.success) {
-        // Toggle steps (Works for both inline and login.html)
+        if (data.directLogin) {
+          // Password Login Successful (Existing User)
+          LabState.user = {
+            email,
+            token: data.sessionToken,
+            credits: data.credits
+          };
+          localStorage.setItem('lab_user', JSON.stringify(LabState.user));
+          updateAuthUI();
+          alert('Login realizado com sucesso!');
+          window.location.href = '/ai-labs.html';
+          return;
+        }
+
+        // Registration Mode: Toggle steps
         const s1 = document.getElementById('step-1') || document.getElementById('auth-step-1');
         const s2 = document.getElementById('step-2') || document.getElementById('auth-step-2');
         
@@ -244,21 +280,46 @@ document.addEventListener('DOMContentLoaded', () => {
           if (otpInput) setTimeout(() => otpInput.focus(), 100);
         }
         
-        // Cooldown for Resend
-        if (isResend) {
-          startResendCooldown(btn);
-        }
-        
-        alert('Código de verificação enviado! Verifique sua caixa de entrada (e o spam).');
+        if (isResend) startResendCooldown(btn);
+        alert(data.message || 'Código enviado! Verifique seu e-mail.');
+      } else {
+        alert(data.message || 'Erro ao processar. Tente novamente.');
       }
     } catch (err) {
       console.error('Login Error:', err);
-      alert('Erro ao enviar código. Tente novamente.');
+      alert('Erro ao conectar com o servidor. Tente novamente.');
     } finally {
       if (!isResend) {
         btn.disabled = false;
         btn.innerText = originalText;
       }
+    }
+  }
+
+  // Google Login Callback
+  window.handleGoogleResponse = async function(response) {
+    try {
+      const resp = await fetch(LAB_CONFIG.authWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          googleToken: response.credential,
+          mode: 'google'
+        })
+      });
+      const data = await resp.json();
+      if (data.success) {
+        LabState.user = {
+          email: data.email,
+          token: data.sessionToken,
+          credits: data.credits
+        };
+        localStorage.setItem('lab_user', JSON.stringify(LabState.user));
+        updateAuthUI();
+        window.location.href = '/ai-labs.html';
+      }
+    } catch (err) {
+      console.error('Google Auth Error:', err);
     }
   }
 
