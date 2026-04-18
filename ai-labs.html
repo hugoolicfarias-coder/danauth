@@ -49,26 +49,53 @@
       </div>
     </section>
 
-    <section class="container" id="explore" style="padding: 6rem 0;">
-      <div class="service-grid">
-        <div id="images" class="service-card glass reveal">
-          <div style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1675271591211-126ad5cc0625?auto=format&fit=crop&q=80&w=800') center/cover; margin-bottom: 2rem; border: 1px solid var(--border-light);"></div>
-          <h3>Síntese de Imagem Estática</h3>
-          <p>Criação de visuais hiper-realistas para branding, publicidade e concept art utilizando Midjourney v6 e Flux.1.</p>
+    <!-- AI Generator Interface -->
+    <section class="container" id="generator-section" style="padding: 4rem 0;">
+      <!-- Login / Profile Bar -->
+      <div id="lab-auth-container" class="glass" style="padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div id="auth-status">
+          <span style="opacity: 0.6; font-size: 0.9rem;">Status do Laboratório:</span>
+          <strong id="user-display" style="color: var(--accent-secondary);">Desconectado</strong>
+        </div>
+        <div id="auth-actions" style="display: flex; align-items: center; gap: 1rem;">
+          <input type="email" id="lab-email" placeholder="Seu e-mail profissional" class="glass-input" style="padding: 0.6rem 1rem; border-radius: 8px; width: 250px;">
+          <button id="btn-lab-login" class="btn btn-primary" style="padding: 0.6rem 1.5rem; background: var(--accent-secondary); color: #000; font-size: 0.85rem;">Acessar Lab</button>
+        </div>
+        <div id="user-dashboard" style="display: none; align-items: center; gap: 2rem;">
+          <div class="credit-badge">
+            <span id="user-credits">0</span> <small>CRÉDITOS</small>
+          </div>
+          <button id="btn-lab-logout" style="background: transparent; border: 1px solid var(--border-light); color: var(--text-secondary); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">Sair</button>
+        </div>
+      </div>
+
+      <!-- Main Generator Panel -->
+      <div class="generator-panel glass reveal" style="padding: 3rem; border-radius: 30px; position: relative; overflow: hidden;">
+        <div style="position: relative; z-index: 2;">
+          <h2 style="text-align: center; margin-bottom: 0.5rem;">Crie sua <span>Obra Prima</span></h2>
+          <p style="text-align: center; opacity: 0.6; margin-bottom: 3rem;">Descreva o que deseja visualizar e deixe o DALL-E 3 cuidar da engenharia visual.</p>
+          
+          <div class="prompt-container">
+            <textarea id="prompt-input" placeholder="Ex: Um astronauta futurista explorando uma selva neon, estilo cyberpunk, ultra detalhado, 8k..." class="glass-textarea"></textarea>
+            <button id="btn-generate" class="btn btn-primary generate-btn">
+              <span class="btn-text">GERAR IMAGEM</span>
+              <div class="loader" style="display: none;"></div>
+            </button>
+          </div>
+          <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; opacity: 0.4;">Custo: 1 crédito por geração de alta definição.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Tabs -->
+      <div class="gallery-tabs" style="margin-top: 6rem;">
+        <div style="display: flex; gap: 2rem; border-bottom: 1px solid var(--border-light); margin-bottom: 3rem;">
+          <button class="tab-btn active" data-tab="community">Exploração Global</button>
+          <button class="tab-btn" data-tab="mine" id="tab-my-creations">Minhas Criações</button>
         </div>
 
-        <div id="videos" class="service-card glass reveal">
-          <div style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-md); background: #000; border: 1px solid var(--border-light); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
-              <source src="https://video.wixstatic.com/video/c837a6_7378fc79e46a48d88e7d7f7c1664d990/1080p/mp4/file.mp4" type="video/mp4">
-            </video>
-            <div style="position: absolute; z-index: 2; text-align: center;">
-               <div style="font-size: 2rem;">🎬</div>
-               <div style="font-size: 0.8rem; margin-top: 0.5rem; color: #fff; font-weight: 700;">AI VIDEO PREVIEW</div>
-            </div>
-          </div>
-          <h3>Cinemática Generativa</h3>
-          <p>Produção de vídeos curtos e loops imersivos com movimento natural, baseados em tecnologias como Sora e Runway Gen-3.</p>
+        <div id="gallery-grid" class="image-gallery-grid">
+          <!-- Images will be injected here -->
+          <div class="gallery-placeholder">Carregando laboratório...</div>
         </div>
       </div>
     </section>

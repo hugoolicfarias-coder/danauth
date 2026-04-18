@@ -164,4 +164,194 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 2000);
   }
+  // --- AI LABS LOGIC ---
+  const LAB_CONFIG = {
+    authWebhook: 'https://n8n.danauth.info/webhook/lab-auth',
+    genWebhook: 'https://n8n.danauth.info/webhook/lab-generate',
+    feedWebhook: 'https://n8n.danauth.info/webhook/lab-feed'
+  };
+
+  const LabState = {
+    user: JSON.parse(localStorage.getItem('lab_user')) || null,
+    currentTab: 'community',
+    isGenerating: false
+  };
+
+  const initLab = () => {
+    const generatorSection = document.getElementById('generator-section');
+    if (!generatorSection) return;
+
+    updateAuthUI();
+    fetchGallery();
+    
+    // Event Listeners
+    document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
+    document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
+    document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
+    
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        LabState.currentTab = e.target.dataset.tab;
+        fetchGallery();
+      });
+    });
+  };
+
+  async function handleLogin() {
+    const email = document.getElementById('lab-email').value.trim();
+    if (!email || !email.includes('@')) {
+      alert('Por favor, insira um e-mail válido.');
+      return;
+    }
+
+    const btn = document.getElementById('btn-lab-login');
+    btn.disabled = true;
+    btn.innerText = 'Verificando...';
+
+    try {
+      const resp = await fetch(LAB_CONFIG.authWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await resp.json();
+      
+      if (data.sessionToken) {
+        LabState.user = {
+          email,
+          token: data.sessionToken,
+          credits: data.credits
+        };
+        localStorage.setItem('lab_user', JSON.stringify(LabState.user));
+        updateAuthUI();
+        alert('Bem-vindo ao Lab! Seus 5 créditos iniciais estão ativos.');
+      }
+    } catch (err) {
+      console.error('Login Error:', err);
+      alert('Erro ao acessar o laboratório. Tente novamente.');
+    } finally {
+      btn.disabled = false;
+      btn.innerText = 'Acessar Lab';
+    }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('lab_user');
+    LabState.user = null;
+    updateAuthUI();
+  }
+
+  function updateAuthUI() {
+    const authActions = document.getElementById('auth-actions');
+    const userDashboard = document.getElementById('user-dashboard');
+    const userDisplay = document.getElementById('user-display');
+    const userCredits = document.getElementById('user-credits');
+    const tabMyCreations = document.getElementById('tab-my-creations');
+
+    if (LabState.user) {
+      authActions.style.display = 'none';
+      userDashboard.style.display = 'flex';
+      userDisplay.innerText = LabState.user.email;
+      userCredits.innerText = LabState.user.credits;
+      tabMyCreations.style.display = 'block';
+    } else {
+      authActions.style.display = 'flex';
+      userDashboard.style.display = 'none';
+      userDisplay.innerText = 'Desconectado';
+      tabMyCreations.style.display = 'none';
+    }
+  }
+
+  async function handleGenerate() {
+    if (!LabState.user) {
+      alert('Você precisa estar logado para gerar imagens.');
+      return;
+    }
+
+    if (LabState.user.credits <= 0) {
+      alert('Seus créditos expiraram. Entre em contato para pacotes premium!');
+      return;
+    }
+
+    const prompt = document.getElementById('prompt-input').value.trim();
+    if (!prompt) {
+      alert('Descreva sua ideia antes de gerar.');
+      return;
+    }
+
+    const btn = document.getElementById('btn-generate');
+    const btnText = btn.querySelector('.btn-text');
+    const loader = btn.querySelector('.loader');
+
+    LabState.isGenerating = true;
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    loader.style.display = 'inline-block';
+
+    try {
+      const resp = await fetch(LAB_CONFIG.genWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          prompt, 
+          token: LabState.user.token 
+        })
+      });
+      
+      const data = await resp.json();
+      
+      // Update local credits
+      LabState.user.credits -= 1;
+      localStorage.setItem('lab_user', JSON.stringify(LabState.user));
+      updateAuthUI();
+
+      // Show success and switch tab
+      alert('Imagem gerada com sucesso! Verifique em "Minhas Criações".');
+      document.getElementById('tab-my-creations').click();
+      
+    } catch (err) {
+      console.error('Gen Error:', err);
+      alert('Ocorreu um erro na geração. Verifique sua conexão.');
+    } finally {
+      LabState.isGenerating = false;
+      btn.disabled = false;
+      btnText.style.display = 'inline-block';
+      loader.style.display = 'none';
+    }
+  }
+
+  async function fetchGallery() {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+
+    grid.innerHTML = '<div class="gallery-placeholder">Sincronizando com o Lab...</div>';
+
+    try {
+      const url = `${LAB_CONFIG.feedWebhook}?type=${LabState.currentTab}&token=${LabState.user?.token || ''}`;
+      const resp = await fetch(url);
+      const data = await resp.json();
+
+      if (!data || data.length === 0) {
+        grid.innerHTML = '<div class="gallery-placeholder">Nenhuma obra encontrada nesta galeria ainda.</div>';
+        return;
+      }
+
+      grid.innerHTML = data.map(item => `
+        <div class="gallery-item glass reveal active">
+          <img src="${item.fields.ImageURL}" alt="AI Generation" loading="lazy">
+          <div class="gallery-overlay">
+            <p>${item.fields.Prompt}</p>
+          </div>
+        </div>
+      `).join('');
+
+    } catch (err) {
+      console.error('Feed Error:', err);
+      grid.innerHTML = '<div class="gallery-placeholder">Falha ao carregar galeria.</div>';
+    }
+  }
+
+  initLab();
 });
