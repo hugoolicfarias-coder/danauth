@@ -14,6 +14,7 @@ export default defineConfig({
         ai_labs: resolve(__dirname, 'ai-labs.html'),
         entertainment: resolve(__dirname, 'entertainment.html'),
         pricing: resolve(__dirname, 'pricing.html'),
+        login: resolve(__dirname, 'login.html'),
       },
     },
   },

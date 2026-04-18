@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const LabState = {
     user: JSON.parse(localStorage.getItem('lab_user')) || null,
-    currentTab: 'community',
+    currentTab: 'mine',
     isGenerating: false
   };
 
@@ -233,10 +233,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await resp.json();
       
       if (data.success) {
-        if (!isResend) {
-          document.getElementById('auth-step-1').style.display = 'none';
-          document.getElementById('auth-step-2').style.display = 'flex';
-          setTimeout(() => document.getElementById('lab-otp').focus(), 100);
+        // Toggle steps (Works for both inline and login.html)
+        const s1 = document.getElementById('step-1') || document.getElementById('auth-step-1');
+        const s2 = document.getElementById('step-2') || document.getElementById('auth-step-2');
+        
+        if (s1 && s2 && !isResend) {
+          s1.style.display = 'none';
+          s2.style.display = 'flex';
+          const otpInput = document.getElementById('lab-otp');
+          if (otpInput) setTimeout(() => otpInput.focus(), 100);
         }
         
         // Cooldown for Resend
@@ -300,12 +305,21 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         localStorage.setItem('lab_user', JSON.stringify(LabState.user));
         
-        // Reset and Update UI
-        document.getElementById('auth-step-2').style.display = 'none';
-        document.getElementById('auth-step-1').style.display = 'flex'; // For next time
         updateAuthUI();
-        alert(`Sucesso! Você tem ${data.credits} créditos disponíveis.`);
-        fetchGallery();
+        
+        if (window.location.pathname.includes('login.html')) {
+          alert('Acesso confirmado! Redirecionando...');
+          window.location.href = '/ai-labs.html';
+        } else {
+          alert(`Sucesso! Você tem ${data.credits} créditos disponíveis.`);
+          const s1 = document.getElementById('step-1') || document.getElementById('auth-step-1');
+          const s2 = document.getElementById('step-2') || document.getElementById('auth-step-2');
+          if (s1 && s2) {
+            s2.style.display = 'none';
+            s1.style.display = 'flex';
+          }
+          fetchGallery();
+        }
       } else {
         alert(data.message || 'Código incorreto. Tente novamente.');
       }
@@ -322,29 +336,51 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('lab_user');
     LabState.user = null;
     updateAuthUI();
-    fetchGallery();
+    if (window.location.pathname.includes('ai-labs.html')) {
+       fetchGallery();
+       window.location.reload(); // Hard refresh to clear restricted UI
+    }
   }
 
   function updateAuthUI() {
-    const authActions = document.getElementById('auth-actions');
-    const userDashboard = document.getElementById('user-dashboard');
+    const headerAuth = document.getElementById('header-auth-buttons');
+    const labStatus = document.getElementById('lab-status-bar');
+    const labCreditsDisplay = document.getElementById('lab-credits-display');
     const userDisplay = document.getElementById('user-display');
     const userCredits = document.getElementById('user-credits');
-    const tabMyCreations = document.getElementById('tab-my-creations');
 
     if (LabState.user) {
-      authActions.style.display = 'none';
-      userDashboard.style.display = 'flex';
-      userDisplay.innerText = LabState.user.email;
-      userCredits.innerText = LabState.user.credits;
-      tabMyCreations.style.display = 'block';
+      // Header Update
+      if (headerAuth) {
+        headerAuth.innerHTML = `
+          <div class="header-user-info">
+            <div class="header-credits">${LabState.user.credits} CRÉDITOS</div>
+            <button class="btn-signout" id="btn-header-logout">Sair</button>
+          </div>
+        `;
+        document.getElementById('btn-header-logout')?.addEventListener('click', handleLogout);
+      }
+
+      // Lab Page Update
+      if (labStatus) {
+        if (userDisplay) userDisplay.innerText = LabState.user.email;
+        if (userCredits) userCredits.innerText = `${LabState.user.credits} CRÉDITOS`;
+        if (labCreditsDisplay) labCreditsDisplay.style.display = 'flex';
+      }
     } else {
-      authActions.style.display = 'flex';
-      userDashboard.style.display = 'none';
-      document.getElementById('auth-step-1').style.display = 'flex';
-      document.getElementById('auth-step-2').style.display = 'none';
-      userDisplay.innerText = 'Desconectado';
-      tabMyCreations.style.display = 'none';
+      // Header Update (Guest)
+      if (headerAuth) {
+        headerAuth.innerHTML = `
+          <a href="/login.html" class="login-link">Log in</a>
+          <a href="/login.html" class="btn-signup">Sign up</a>
+        `;
+      }
+
+      // Lab Page Update (Guest)
+      if (labStatus) {
+        if (userDisplay) userDisplay.innerText = 'Desconectado - Faça login para criar';
+        if (labCreditsDisplay) labCreditsDisplay.style.display = 'none';
+      }
     }
   }
 
@@ -410,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('gallery-grid');
     if (!grid) return;
 
-    grid.innerHTML = '<div class="gallery-placeholder">Sincronizando com o Lab...</div>';
+    grid.innerHTML = '<div class="gallery-empty">Sincronizando com o Lab...</div>';
 
     try {
       const url = `${LAB_CONFIG.feedWebhook}?type=${LabState.currentTab}&token=${LabState.user?.token || ''}`;
@@ -418,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await resp.json();
 
       if (!data || data.length === 0) {
-        grid.innerHTML = '<div class="gallery-placeholder">Nenhuma obra encontrada nesta galeria ainda.</div>';
+        grid.innerHTML = '<div class="gallery-empty">Nenhuma obra encontrada nesta galeria ainda.</div>';
         return;
       }
 
@@ -433,15 +469,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       console.error('Feed Error:', err);
-      grid.innerHTML = '<div class="gallery-placeholder">Falha ao carregar galeria.</div>';
+      grid.innerHTML = '<div class="gallery-empty">Falha ao carregar galeria.</div>';
     }
   }
 
   // --- Dynamic Payment Integration ---
   window.initiatePayment = async function(plan) {
-    if (!LabState.isLoggedIn) {
+    if (!LabState.user) {
       alert('Por favor, faça login para comprar créditos.');
-      window.location.href = '/ai-labs.html';
+      window.location.href = '/login.html';
       return;
     }
 

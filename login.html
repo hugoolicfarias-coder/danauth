@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessar Lab | Danauth Digital Hub</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .login-container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Left Side - Form */
+    .login-form-side {
+      flex: 1;
+      max-width: 500px;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #0a0a0a;
+      z-index: 10;
+    }
+
+    .login-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 3rem;
+    }
+
+    .login-logo span {
+      background: linear-gradient(90deg, #9333ea, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .login-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .login-header p {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Steps */
+    .auth-step {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .glass-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .glass-input:focus {
+      border-color: var(--accent-secondary);
+      outline: none;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      background: var(--accent-secondary);
+      color: #000;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+    }
+
+    .btn-login:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Right Side - Visual */
+    .login-visual-side {
+      flex: 1;
+      position: relative;
+      background-image: url('/login_bg.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 4rem;
+    }
+
+    .login-visual-side::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .visual-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .visual-content h2 {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .visual-content p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+    }
+
+    /* Resend Link */
+    .resend-link {
+       margin-top: 1rem;
+       text-align: center;
+       color: var(--text-secondary);
+       font-size: 0.9rem;
+    }
+
+    .resend-link span {
+       color: var(--accent-secondary);
+       cursor: pointer;
+       text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .login-visual-side {
+        display: none;
+      }
+      .login-form-side {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-form-side">
+      <a href="/" class="login-logo">DAN<span>AUTH</span></a>
+      
+      <div id="auth-flow">
+        <!-- Step 1: Email -->
+        <div id="step-1" class="auth-step">
+          <div class="login-header">
+            <h1>Crie uma conta</h1>
+            <p>Comece a criar imagens e vídeos com IA em segundos.</p>
+          </div>
+          <input type="email" id="lab-email" placeholder="Endereço de e-mail" class="glass-input">
+          <button id="btn-lab-login" class="btn-login">Continuar</button>
+          
+          <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; color: #555; font-size: 0.8rem; text-align: center;">
+            <p>Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.</p>
+          </div>
+        </div>
+
+        <!-- Step 2: OTP -->
+        <div id="step-2" class="auth-step" style="display: none;">
+          <div class="login-header">
+            <h1>Verifique seu e-mail</h1>
+            <p>Enviamos um código de 6 dígitos para o seu e-mail.</p>
+          </div>
+          <input type="text" id="lab-otp" placeholder="Código de 6 dígitos" class="glass-input" maxlength="6" style="text-align: center; letter-spacing: 0.5rem; font-weight: 800;">
+          <button id="btn-lab-verify" class="btn-login">Confirmar Acesso</button>
+          <div class="resend-link">Não recebeu? <span id="btn-lab-resend">Reenviar código</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-visual-side">
+      <div class="visual-content">
+        <h2>Transforme ideias em realidade digital.</h2>
+        <p>Acesse o Danauth AI Lab e descubra o poder da inteligência artificial generativa de última geração.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

@@ -1014,3 +1014,75 @@ section {
   background: var(--accent-secondary);
   color: #000;
 }
+
+/* Header Auth Buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.login-link {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: white;
+}
+
+.btn-signup {
+  padding: 0.6rem 1.4rem;
+  background: var(--accent-secondary);
+  color: #000;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.btn-signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-credits {
+  background: rgba(255,255,255,0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  border: 1px solid rgba(138,43,226,0.2);
+}
+
+.btn-signout {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-signout:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+@media (max-width: 991px) {
+  .auth-buttons {
+    display: none; /* Hide in mobile menu for now, or move inside */
+  }
+}
