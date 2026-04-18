@@ -58,13 +58,23 @@
           <strong id="user-display" style="color: var(--accent-secondary);">Desconectado</strong>
         </div>
         <div id="auth-actions" style="display: flex; align-items: center; gap: 1rem;">
-          <input type="email" id="lab-email" placeholder="Seu e-mail profissional" class="glass-input" style="padding: 0.6rem 1rem; border-radius: 8px; width: 250px;">
-          <button id="btn-lab-login" class="btn btn-primary" style="padding: 0.6rem 1.5rem; background: var(--accent-secondary); color: #000; font-size: 0.85rem;">Acessar Lab</button>
+          <!-- Step 1: Email -->
+          <div id="auth-step-1" style="display: flex; align-items: center; gap: 1rem;">
+            <input type="email" id="lab-email" placeholder="Seu e-mail profissional" class="glass-input" style="padding: 0.6rem 1rem; border-radius: 8px; width: 250px;">
+            <button id="btn-lab-login" class="btn btn-primary" style="padding: 0.6rem 1.5rem; background: var(--accent-secondary); color: #000; font-size: 0.85rem;">Receber Código</button>
+          </div>
+          <!-- Step 2: Verification Code -->
+          <div id="auth-step-2" style="display: none; align-items: center; gap: 1rem;">
+            <input type="text" id="lab-otp" placeholder="Código de 6 dígitos" class="glass-input" style="padding: 0.6rem 1rem; border-radius: 8px; width: 180px; text-align: center; letter-spacing: 4px; font-weight: 700;">
+            <button id="btn-lab-verify" class="btn btn-primary" style="padding: 0.6rem 1.5rem; background: var(--accent); color: #000; font-size: 0.85rem;">Confirmar Acesso</button>
+            <button id="btn-lab-resend" style="background: transparent; border: none; color: var(--accent-secondary); font-size: 0.8rem; cursor: pointer; text-decoration: underline;">Reenviar</button>
+          </div>
         </div>
-        <div id="user-dashboard" style="display: none; align-items: center; gap: 2rem;">
+        <div id="user-dashboard" style="display: none; align-items: center; gap: 1.5rem;">
           <div class="credit-badge">
             <span id="user-credits">0</span> <small>CRÉDITOS</small>
           </div>
+          <a href="https://wa.me/5581971217036?text=Olá!%20Gostaria%20de%20comprar%20créditos%20para%20o%20Danauth%20AI%20Lab." target="_blank" class="btn" style="background: var(--accent-secondary); color: #000; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700;">COMPRAR CRÉDITOS</a>
           <button id="btn-lab-logout" style="background: transparent; border: 1px solid var(--border-light); color: var(--text-secondary); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">Sair</button>
         </div>
       </div>

@@ -186,6 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Event Listeners
     document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
+    document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
+    document.getElementById('btn-lab-resend')?.addEventListener('click', handleLogin);
     document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
     document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
     
@@ -208,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btn = document.getElementById('btn-lab-login');
     btn.disabled = true;
-    btn.innerText = 'Verificando...';
+    btn.innerText = 'Enviando...';
 
     try {
       const resp = await fetch(LAB_CONFIG.authWebhook, {
@@ -218,22 +220,64 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const data = await resp.json();
       
-      if (data.sessionToken) {
+      if (data.success) {
+        document.getElementById('auth-step-1').style.display = 'none';
+        document.getElementById('auth-step-2').style.display = 'flex';
+        alert('Código de verificação enviado! Verifique sua caixa de entrada (e o spam).');
+      }
+    } catch (err) {
+      console.error('Login Error:', err);
+      alert('Erro ao enviar código. Tente novamente.');
+    } finally {
+      btn.disabled = false;
+      btn.innerText = 'Receber Código';
+    }
+  }
+
+  async function handleVerify() {
+    const email = document.getElementById('lab-email').value.trim();
+    const code = document.getElementById('lab-otp').value.trim();
+
+    if (!code || code.length < 4) {
+      alert('Digite o código de verificação recebido.');
+      return;
+    }
+
+    const btn = document.getElementById('btn-lab-verify');
+    btn.disabled = true;
+    btn.innerText = 'Verificando...';
+
+    try {
+      const resp = await fetch('https://n8n.danauth.info/webhook/lab-verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, code })
+      });
+      const data = await resp.json();
+      
+      if (data.success) {
         LabState.user = {
           email,
           token: data.sessionToken,
           credits: data.credits
         };
         localStorage.setItem('lab_user', JSON.stringify(LabState.user));
+        
+        // Reset and Update UI
+        document.getElementById('auth-step-2').style.display = 'none';
+        document.getElementById('auth-step-1').style.display = 'flex'; // For next time
         updateAuthUI();
-        alert('Bem-vindo ao Lab! Seus 5 créditos iniciais estão ativos.');
+        alert(`Sucesso! Você tem ${data.credits} créditos disponíveis.`);
+        fetchGallery();
+      } else {
+        alert(data.message || 'Código incorreto. Tente novamente.');
       }
     } catch (err) {
-      console.error('Login Error:', err);
-      alert('Erro ao acessar o laboratório. Tente novamente.');
+      console.error('Verify Error:', err);
+      alert('Erro na verificação. Tente novamente.');
     } finally {
       btn.disabled = false;
-      btn.innerText = 'Acessar Lab';
+      btn.innerText = 'Confirmar Acesso';
     }
   }
 
@@ -241,6 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('lab_user');
     LabState.user = null;
     updateAuthUI();
+    fetchGallery();
   }
 
   function updateAuthUI() {
@@ -259,6 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       authActions.style.display = 'flex';
       userDashboard.style.display = 'none';
+      document.getElementById('auth-step-1').style.display = 'flex';
+      document.getElementById('auth-step-2').style.display = 'none';
       userDisplay.innerText = 'Desconectado';
       tabMyCreations.style.display = 'none';
     }
