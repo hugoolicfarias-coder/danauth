@@ -904,3 +904,113 @@ section {
   color: var(--text-secondary);
   font-style: italic;
 }
+
+/* Pricing Page Styles */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.pricing-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.pricing-card.popular {
+  border-color: var(--accent-secondary);
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--accent-secondary);
+  color: #000;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.price span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.credits-count {
+  background: rgba(255,255,255,0.05);
+  padding: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.features-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 3rem;
+  flex-grow: 1;
+}
+
+.features-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.features-list li svg {
+  color: var(--accent-secondary);
+  flex-shrink: 0;
+}
+
+.btn-buy {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.pricing-card.popular .btn-buy {
+  background: var(--accent-secondary);
+  color: #000;
+}

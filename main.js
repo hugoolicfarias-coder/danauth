@@ -167,8 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- AI LABS LOGIC ---
   const LAB_CONFIG = {
     authWebhook: 'https://n8n.danauth.info/webhook/lab-auth',
+    verifyWebhook: 'https://n8n.danauth.info/webhook/lab-verify',
     genWebhook: 'https://n8n.danauth.info/webhook/lab-generate',
-    feedWebhook: 'https://n8n.danauth.info/webhook/lab-feed'
+    feedWebhook: 'https://n8n.danauth.info/webhook/lab-feed',
+    paymentWebhook: 'https://n8n.danauth.info/webhook/lab-create-payment'
   };
 
   const LabState = {
@@ -187,9 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
     document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
-    document.getElementById('btn-lab-resend')?.addEventListener('click', handleLogin);
+    document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
     document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
     document.getElementById('btn-generate')?.addEventListener('click', handleGenerate);
+    
+    // Enter key support for OTP
+    document.getElementById('lab-otp')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleVerify();
+    });
     
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -201,14 +208,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  async function handleLogin() {
+  async function handleLogin(isResend = false) {
     const email = document.getElementById('lab-email').value.trim();
     if (!email || !email.includes('@')) {
       alert('Por favor, insira um e-mail válido.');
       return;
     }
 
-    const btn = document.getElementById('btn-lab-login');
+    const btn = isResend ? document.getElementById('btn-lab-resend') : document.getElementById('btn-lab-login');
+    const originalText = btn.innerText;
+    
     btn.disabled = true;
     btn.innerText = 'Enviando...';
 
@@ -221,17 +230,42 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await resp.json();
       
       if (data.success) {
-        document.getElementById('auth-step-1').style.display = 'none';
-        document.getElementById('auth-step-2').style.display = 'flex';
+        if (!isResend) {
+          document.getElementById('auth-step-1').style.display = 'none';
+          document.getElementById('auth-step-2').style.display = 'flex';
+          setTimeout(() => document.getElementById('lab-otp').focus(), 100);
+        }
+        
+        // Cooldown for Resend
+        if (isResend) {
+          startResendCooldown(btn);
+        }
+        
         alert('Código de verificação enviado! Verifique sua caixa de entrada (e o spam).');
       }
     } catch (err) {
       console.error('Login Error:', err);
       alert('Erro ao enviar código. Tente novamente.');
     } finally {
-      btn.disabled = false;
-      btn.innerText = 'Receber Código';
+      if (!isResend) {
+        btn.disabled = false;
+        btn.innerText = originalText;
+      }
     }
+  }
+
+  function startResendCooldown(btn) {
+    let timeLeft = 60;
+    btn.disabled = true;
+    const timer = setInterval(() => {
+      timeLeft--;
+      btn.innerText = `Reenviar (${timeLeft}s)`;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        btn.disabled = false;
+        btn.innerText = 'Reenviar';
+      }
+    }, 1000);
   }
 
   async function handleVerify() {
@@ -248,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.innerText = 'Verificando...';
 
     try {
-      const resp = await fetch('https://n8n.danauth.info/webhook/lab-verify', {
+      const resp = await fetch(LAB_CONFIG.verifyWebhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code })
@@ -399,6 +433,47 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.innerHTML = '<div class="gallery-placeholder">Falha ao carregar galeria.</div>';
     }
   }
+
+  // --- Dynamic Payment Integration ---
+  window.initiatePayment = async function(plan) {
+    if (!LabState.isLoggedIn) {
+      alert('Por favor, faça login para comprar créditos.');
+      window.location.href = '/ai-labs.html';
+      return;
+    }
+
+    const email = LabState.user.email;
+    const btn = event?.target || document.querySelector(`.btn-buy[onclick*="${plan}"]`);
+    const originalText = btn ? btn.innerText : 'Comprar';
+    
+    if (btn) {
+      btn.disabled = true;
+      btn.innerText = 'Processando...';
+    }
+
+    try {
+      const resp = await fetch(LAB_CONFIG.paymentWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, email })
+      });
+      const data = await resp.json();
+      
+      if (data.init_point) {
+        window.location.href = data.init_point;
+      } else {
+        throw new Error('Fallback to manual payment');
+      }
+    } catch (err) {
+      console.error('Payment Error:', err);
+      const contactUrl = `https://wa.me/5581971217036?text=Olá! Gostaria de comprar o plano ${plan.toUpperCase()} no Danauth AI Lab.`;
+      window.open(contactUrl, '_blank');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerText = originalText;
+      }
+    }
+  };
 
   initLab();
 });

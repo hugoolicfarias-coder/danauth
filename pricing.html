@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preços | Danauth AI Lab</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header id="header">
+    <div class="container nav-container">
+      <a href="/" class="logo">DAN<span>AUTH</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
+        <li><a href="/pricing.html" class="active">Preços</a></li>
+        <li><a href="/entertainment.html">Cinema</a></li>
+        <li><a href="/contact.html">Contato</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="pricing-hero" style="padding: 120px 0 60px; text-align: center;">
+      <div class="container">
+        <span class="section-label" style="border-color: var(--accent-secondary); color: var(--accent-secondary);">Planos e Créditos</span>
+        <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1.5rem;">Criações incríveis <span>começam com um plano</span></h1>
+        <p style="max-width: 700px; margin: 0 auto; color: var(--text-secondary);">Escolha o pacote de créditos que melhor se adapta à sua necessidade. Créditos caem na conta instantaneamente após o pagamento.</p>
+
+        <div class="pricing-grid">
+          <!-- Iniciante -->
+          <div class="pricing-card">
+            <h3>Iniciante</h3>
+            <div class="price">R$ 19,90<span>/único</span></div>
+            <div class="credits-count">50 Créditos</div>
+            <ul class="features-list">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 50 gerações de imagem HD</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Acesso ao DALL-E 3</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Sem marca d'água</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Entrega Instantânea</li>
+            </ul>
+            <button class="btn btn-buy" onclick="handleBuy('iniciante')">Comprar Agora</button>
+          </div>
+
+          <!-- Pro -->
+          <div class="pricing-card popular">
+            <div class="popular-badge">MAIS POPULAR</div>
+            <h3>Pro</h3>
+            <div class="price">R$ 49,90<span>/único</span></div>
+            <div class="credits-count">200 Créditos</div>
+            <ul class="features-list">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 200 gerações de imagem HD</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Acesso prioritário aos modelos</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Galeria privada ativada</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Suporte via WhatsApp</li>
+            </ul>
+            <button class="btn btn-buy btn-primary" onclick="handleBuy('pro')">Comprar Agora</button>
+          </div>
+
+          <!-- Elite -->
+          <div class="pricing-card">
+            <h3>Elite</h3>
+            <div class="price">R$ 99,90<span>/único</span></div>
+            <div class="credits-count">500 Créditos</div>
+            <ul class="features-list">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 500 gerações de imagem HD</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Menor custo por crédito</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Acesso antecipado a vídeos IA</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Consultoria de Prompts</li>
+            </ul>
+            <button class="btn btn-buy" onclick="handleBuy('elite')">Comprar Agora</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding: 4rem 0; border-top: 1px solid var(--border-light); text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <p style="color: var(--text-secondary);">&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/main.js"></script>
+  <script>
+    function handleBuy(plan) {
+      // Logic will be handled in main.js
+      if (typeof window.initiatePayment === 'function') {
+        window.initiatePayment(plan);
+      } else {
+        alert('Sistema de pagamento carregando... Tente novamente em 2 segundos.');
+      }
+    }
+  </script>
+</body>
+</html>
