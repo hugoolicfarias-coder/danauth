@@ -68,40 +68,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Authie Chat Logic
   if (chatBubble && chatWindow) {
-    chatBubble.addEventListener('click', () => {
-      chatWindow.classList.toggle('active');
-    });
-
+    const chatInput = chatWindow.querySelector('input');
     const messagesContainer = chatWindow.querySelector('.chat-messages');
+    let isWaiting = false;
+
+    const toggleChat = () => {
+      chatWindow.classList.toggle('active');
+      if (chatWindow.classList.contains('active')) {
+        chatInput.focus();
+      }
+    };
+
+    chatBubble.addEventListener('click', toggleChat);
 
     const addMessage = (text, type) => {
       const msg = document.createElement('div');
       msg.className = `message ${type}`;
-      msg.textContent = text;
-      msg.style.margin = '5px 0';
-      msg.style.padding = '8px 12px';
-      msg.style.borderRadius = '10px';
-      msg.style.fontSize = '0.85rem';
-      msg.style.maxWidth = '80%';
+      msg.innerHTML = text.replace(/\n/g, '<br>'); // Support newlines
       
+      // Premium Styling for Messages
+      Object.assign(msg.style, {
+        margin: '8px 0',
+        padding: '10px 14px',
+        borderRadius: '12px',
+        fontSize: '0.9rem',
+        maxWidth: '85%',
+        lineHeight: '1.4',
+        position: 'relative'
+      });
+
       if (type === 'bot') {
-        msg.style.background = 'rgba(255,255,255,0.05)';
+        msg.style.background = 'rgba(255,255,255,0.07)';
+        msg.style.border = '1px solid rgba(255,255,255,0.1)';
         msg.style.alignSelf = 'flex-start';
+        msg.style.borderBottomLeftRadius = '2px';
       } else {
         msg.style.background = 'var(--accent)';
         msg.style.color = '#000';
+        msg.style.fontWeight = '500';
         msg.style.alignSelf = 'flex-end';
+        msg.style.borderBottomRightRadius = '2px';
       }
       
       messagesContainer.appendChild(msg);
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return msg;
     };
+
+    const sendMessage = async () => {
+      const text = chatInput.value.trim();
+      if (!text || isWaiting) return;
+
+      chatInput.value = '';
+      addMessage(text, 'user');
+      
+      // Typing Indicator
+      isWaiting = true;
+      const loader = addMessage('<span class="typing-dots">Authie está pensando...</span>', 'bot');
+      
+      try {
+        const response = await fetch('https://n8n.danauth.info/webhook/authie-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            message: text,
+            sessionId: 'site-user-' + Date.now() 
+          })
+        });
+
+        const data = await response.json();
+        loader.remove();
+        
+        if (data.response) {
+          addMessage(data.response, 'bot');
+        } else {
+          addMessage("Desculpe, tive um breve curto-circuito. Pode repetir?", "bot");
+        }
+      } catch (err) {
+        loader.remove();
+        addMessage("Estou com dificuldade de conexão no momento. Tente novamente em instantes!", "bot");
+        console.error('Authie Error:', err);
+      } finally {
+        isWaiting = false;
+      }
+    };
+
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
 
     // Auto Greeting
     setTimeout(() => {
-      if (!chatWindow.classList.contains('active')) {
-        addMessage("Olá! Sou a Authie. Como posso ajudar com o seu projeto digital hoje?", "bot");
+      if (!messagesContainer.hasChildNodes()) {
+        addMessage("Olá! Sou a Authie, sua guia no Danauth Digital Hub. ✨ Como posso transformar seu negócio hoje?", "bot");
       }
-    }, 3000);
+    }, 2000);
   }
 });
