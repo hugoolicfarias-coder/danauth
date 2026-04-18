@@ -13,6 +13,7 @@ export default defineConfig({
         shopping: resolve(__dirname, 'shopping.html'),
         ai_labs: resolve(__dirname, 'ai-labs.html'),
         entertainment: resolve(__dirname, 'entertainment.html'),
+        pricing: resolve(__dirname, 'pricing.html'),
       },
     },
   },
