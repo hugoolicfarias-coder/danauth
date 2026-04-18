@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
-<body style="background-color: #000;">
+<body class="cinema-theme">
   <header id="header">
     <div class="container nav-container">
       <a href="/" class="logo">DAN<span>AUTH</span></a>
@@ -39,102 +39,123 @@
   </header>
 
   <main>
-    <!-- Cinematic Hero - NEW STABLE BACKGROUND -->
+    <!-- Cinematic Hero -->
     <section class="cinema-hero">
       <video class="video-bg" autoplay muted loop playsinline poster="/assets/cinema-hero.png">
         <source src="https://pub-487fa31b0e264aa197b422affc45109e.r2.dev/videos/Cinematic%20Background%20Music%20For%20Movie%20Trailers%20and%20Videos_1080p.mp4" type="video/mp4">
       </video>
       <div class="cinema-overlay"></div>
       <div class="cinema-content container">
-        <span class="section-label" style="border-color: var(--accent-cinema); color: var(--accent-cinema); background: rgba(255,77,77,0.1);">Em Cartaz</span>
-        <h1 style="font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 2rem;">DUN<span>E</span>: PART TWO</h1>
-        <p style="color: var(--text-secondary); max-width: 600px; margin-bottom: 3rem; font-size: 1.2rem;">O destino de um império depende de um homem. A jornada épica de Paul Atreides continua em uma escala sem precedentes.</p>
-        <div class="hero-btns reveal">
-          <a href="#" class="btn btn-primary" style="background: var(--accent-cinema); color: white;">Assistir Agora</a>
-          <a href="#" class="btn btn-outline" style="margin-left: 1rem;">Mais Informações</a>
+        <span class="cinema-label">Estreia Exclusiva</span>
+        <h1>O Futuro do <span>Entretenimento</span></h1>
+        <p>Acesse nosso catálogo curado de produções originais e clássicos que moldaram a cultura pop.</p>
+        <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+          <a href="#catalog" class="btn btn-primary" style="background: var(--accent-cinema); border-color: var(--accent-cinema); color: #000;">Assistir Agora</a>
+          <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3);">Meu Catálogo</a>
         </div>
       </div>
     </section>
 
-    <!-- Movies Grid -->
-    <section class="container" style="padding: 6rem 0;">
-      <div class="section-title reveal" style="text-align: left; margin-bottom: 4rem;">
-        <span class="section-label" style="border-color: var(--accent-cinema); color: var(--accent-cinema);">Catálogo 2026</span>
-        <h2>Lançamentos <span>do Ano</span></h2>
+    <!-- Movie Carousel Section -->
+    <section class="container" id="catalog" style="padding: 6rem 0;">
+      <div class="section-title reveal">
+        <span class="section-label" style="border-color: var(--accent-cinema); color: var(--accent-cinema);">Lançamentos</span>
+        <h2 style="font-size: 2.5rem;">Cinema <span>Danauth</span></h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary);">Os títulos mais aguardados do ano em um só lugar.</p>
       </div>
-      
-      <div class="poster-grid">
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/8Gxv0mYmUpepXUssvSbuozp9Cfs.jpg" alt="Dune">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Dune: Part Two</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Sci-Fi</p>
-          </div>
-        </div>
-        
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/sh7E6Zv096pl9vB7aZdyqasqHT0.jpg" alt="Opp">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Oppenheimer</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Drama • História</p>
-          </div>
-        </div>
 
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/b0EjjbsSfs9bbqzvcAeoYvyz9pB.jpg" alt="Batman">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">The Batman II</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Crime • Ação</p>
+      <div class="carousel-wrapper reveal">
+        <div class="carousel-container">
+          <!-- Movie 1: Dune Part Two -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/8uO0gUMYvMmRUmvS7Z00o3pQ799.jpg" alt="Dune: Part Two">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Dune: Part Two</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Ficção Científica</div>
+            </div>
+          </div>
+
+          <!-- Movie 2: The Batman -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25ccuL.jpg" alt="The Batman">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">The Batman</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Ação / Drama</div>
+            </div>
+          </div>
+
+          <!-- Movie 3: Joker -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/udDclpUhpQUZqZqZp0QN0DnCiyI.jpg" alt="Joker">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Joker: Folie à Deux</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Musical / Thriller</div>
+            </div>
+          </div>
+
+          <!-- Movie 4: Oppenheimer -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/8Gxv0mYmUpeqXORSokJWsuPTGb6.jpg" alt="Oppenheimer">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Oppenheimer</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Biografia / História</div>
+            </div>
+          </div>
+
+          <!-- Movie 5: Mad Max Furiosa -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/iwn7r9T8V4nS7o7666vWv8266vI.jpg" alt="Furiosa">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Furiosa: Mad Max Saga</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Aventura / Sci-Fi</div>
+            </div>
+          </div>
+
+          <!-- Movie 6: Avatar -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmY1.jpg" alt="Avatar">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Avatar: Way of Water</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Sci-Fi / Ação</div>
+            </div>
+          </div>
+
+          <!-- Movie 7: Interstellar -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/gEU2QniE6EJBQw6Hbc2qCOpobm7.jpg" alt="Interstellar">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Interstellar</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Sci-Fi / Drama</div>
+            </div>
+          </div>
+
+          <!-- Movie 8: Gladiator II -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/vN7998uS5p97H9VvS7N8Ld9OayN.jpg" alt="Gladiator II">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Gladiator II</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Épico / Ação</div>
+            </div>
+          </div>
+
+          <!-- Movie 9: Matrix -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/86YpobFp1d3ZUpYJt76b2Xj693H.jpg" alt="The Matrix">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Matrix Resurrections</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Sci-Fi / Ação</div>
+            </div>
+          </div>
+
+          <!-- Movie 10: Spider-Verse -->
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/8VtW9vTUX9p6mH9p6f6H7H6H7H6.jpg" alt="Spider-Verse">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+              <div style="font-weight: 700; font-size: 1.1rem;">Across the Spider-Verse</div>
+              <div style="font-size: 0.8rem; color: var(--accent-cinema);">Animação / Herói</div>
+            </div>
           </div>
         </div>
-
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/udDclSRHqzR9EbCDzgMs9t9pIFM.jpg" alt="Joker">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Joker: Folie à Deux</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Drama • Musical</p>
-          </div>
-        </div>
-
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/z66tXGof1m98fD8mH7x8WzL4zRk.jpg" alt="Furiosa">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Furiosa: Mad Max</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Sci-Fi</p>
-          </div>
-        </div>
-
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/dB6S7VTp46p62fkp7S9vP8pS9vG.jpg" alt="Gladiator">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Gladiator II</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Épico • Ação</p>
-          </div>
-        </div>
-
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/1D4T5T9K6Yj4Gv8W6j556p9y6Y.jpg" alt="Sonic">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Sonic the Hedgehog 3</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Animação • Família</p>
-          </div>
-        </div>
-
-        <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/kY9vP8pS9vGv9v9v9v9v9v9v9v9.jpg" alt="Avengers">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
-            <h3 style="font-size: 1.2rem;">Avengers: Secret Wars</h3>
-            <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Heróis</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter CTA -->
-    <section style="background: var(--bg-surface); padding: 4rem 0; border-top: 1px solid var(--border-light);">
-      <div class="container" style="text-align: center;">
-        <h3 style="font-size: 2rem; margin-bottom: 2rem;">Não perca nenhum <span>lançamento.</span></h3>
-        <a href="#" class="btn btn-primary" style="background: var(--accent-cinema); color: white;">Assinar Alerta de Filmes</a>
       </div>
     </section>
   </main>
@@ -143,41 +164,27 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col reveal">
-          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">DAN<span>AUTH</span></a>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
-          <div class="social-links">
-            <a href="#" class="social-icon">𝕏</a>
-            <a href="#" class="social-icon">In</a>
-            <a href="#" class="social-icon">Ig</a>
-          </div>
+          <a href="/" class="logo">DAN<span>AUTH</span></a>
+          <p style="color: var(--text-secondary); margin-top: 1rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
         </div>
         <div class="footer-col reveal">
           <h4>Plataforma</h4>
           <ul>
-            <li><a href="/services.html">Nossas Soluções</a></li>
-            <li><a href="/shopping.html">Danauth Shopping</a></li>
-            <li><a href="/ai-labs.html">AI Labs Gallery</a></li>
-            <li><a href="/entertainment.html">Cine Hub</a></li>
+            <li><a href="/shopping.html">Shopping</a></li>
+            <li><a href="/ai-labs.html">AI Labs</a></li>
+            <li><a href="/entertainment.html">Cinema Hub</a></li>
           </ul>
         </div>
         <div class="footer-col reveal">
-          <h4>Empresa</h4>
+          <h4>Suporte</h4>
           <ul>
-            <li><a href="/contact.html">Falar com Consultor</a></li>
-            <li><a href="/terms.html">Termos de Uso</a></li>
+            <li><a href="/contact.html">Contato</a></li>
+            <li><a href="/terms.html">Termos</a></li>
             <li><a href="/privacy.html">Privacidade</a></li>
           </ul>
         </div>
-        <div class="footer-col reveal">
-          <h4>Newsletter</h4>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Receba novidades semanais sobre IA e Tech.</p>
-          <div class="newsletter-box">
-            <input type="email" placeholder="Seu e-mail">
-            <button class="btn btn-primary" style="padding: 0 1.5rem; border-radius: 10px; font-size: 0.8rem; background: var(--accent-cinema); color: white;">Assinar</button>
-          </div>
-        </div>
       </div>
-      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
+      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; color: var(--text-secondary); font-size: 0.8rem;">
         <p>&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
       </div>
     </div>
