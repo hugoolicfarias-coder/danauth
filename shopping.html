@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping | Danauth Tech</title>
+  <title>Shopping | Danauth Digital Hub</title>
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
@@ -13,9 +13,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services.html">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html" class="active">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
@@ -25,53 +38,27 @@
     </div>
   </header>
 
-  <main style="padding-top: var(--header-height);">
-    <!-- Shopping Hero -->
-    <section class="container" style="padding: 6rem 0;">
-      <div class="section-title reveal">
-        <span class="section-label" style="border-color: var(--accent-shopping); color: var(--accent-shopping);">Curadoria Premium</span>
-        <h1 style="font-size: 3.5rem;">Shopping <span>Tecnológico</span></h1>
-        <p>Os melhores gadgets e acessórios da Shopee e AliExpress, selecionados com o critério Danauth.</p>
+  <main style="padding-top: 100px;">
+    <section class="container">
+      <div class="section-title reveal" style="text-align: center;">
+        <span class="section-label">Loja Curada</span>
+        <h2>Danauth <span>Shopping</span></h2>
+        <p style="margin-top: 1.5rem; color: var(--text-secondary);">Produtos de alta tecnologia cuidadosamente selecionados da Shopee e Aliexpress para o seu setup.</p>
       </div>
 
-      <!-- Categories -->
-      <div style="display: flex; gap: 1rem; margin-bottom: 4rem; overflow-x: auto; padding-bottom: 1rem;" class="reveal">
-        <span class="btn glass" style="border-radius: 100px; border-color: var(--accent-shopping); color: var(--accent-shopping);">Todos</span>
-        <span class="btn glass" style="border-radius: 100px;">Setup Gamer</span>
-        <span class="btn glass" style="border-radius: 100px;">Gadgets IA</span>
-        <span class="btn glass" style="border-radius: 100px;">Escritório</span>
-      </div>
-
-      <div class="poster-grid">
-        <!-- Product Card 1 -->
-        <div class="service-card glass reveal" style="padding: 1.5rem;">
-          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=400') center/cover; margin-bottom: 1.5rem;"></div>
-          <span style="font-size: 0.7rem; background: var(--accent-shopping); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; color: #000;">SHOPEE</span>
-          <h3 style="margin: 1rem 0 0.5rem; font-size: 1.1rem;">Monitor Ultrawide 34"</h3>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Otimize seu workflow com imersão total.</p>
-          <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;">R$ 1.890,00</div>
-          <a href="#" class="btn btn-primary" style="width: 100%; background: var(--accent-shopping);">Comprar Agora</a>
-        </div>
-
-        <!-- Product Card 2 -->
-        <div class="service-card glass reveal" style="padding: 1.5rem;">
-          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1587829741301-dc798b83dadc?auto=format&fit=crop&q=80&w=400') center/cover; margin-bottom: 1.5rem;"></div>
-          <span style="font-size: 0.7rem; background: #ff4747; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; color: #fff;">ALIEXPRESS</span>
-          <h3 style="margin: 1rem 0 0.5rem; font-size: 1.1rem;">Teclado Mecânico Pro</h3>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Switches lineares e RGB customizado.</p>
-          <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;">R$ 450,00</div>
-          <a href="#" class="btn btn-primary" style="width: 100%; background: #ff4747; color: white;">Ver na Loja</a>
-        </div>
-        
-        <!-- Product Card 3 -->
-        <div class="service-card glass reveal" style="padding: 1.5rem;">
-          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400') center/cover; margin-bottom: 1.5rem;"></div>
-          <span style="font-size: 0.7rem; background: var(--accent-shopping); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; color: #000;">SHOPEE</span>
-          <h3 style="margin: 1rem 0 0.5rem; font-size: 1.1rem;">Headset ANC Elite</h3>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Foco máximo com cancelamento ativo.</p>
-          <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1rem;">R$ 320,00</div>
-          <a href="#" class="btn btn-primary" style="width: 100%; background: var(--accent-shopping);">Garantir o Meu</a>
-        </div>
+      <div class="service-grid">
+         <div class="service-card glass reveal">
+           <div style="width: 100%; aspect-ratio: 1/1; background: #111; border-radius: 15px; margin-bottom: 2rem;"></div>
+           <h3>Setup Essentials</h3>
+           <p>Teclados mecânicos, mouses ergonômicos e acessórios para produtividade.</p>
+           <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 2rem;">Ver na Shopee</a>
+         </div>
+         <div class="service-card glass reveal">
+           <div style="width: 100%; aspect-ratio: 1/1; background: #111; border-radius: 15px; margin-bottom: 2rem;"></div>
+           <h3>AI Hardware</h3>
+           <p>Componentes e gadgets otimizados para entusiastas de tecnologia e IA.</p>
+           <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 2rem;">Ver no Aliexpress</a>
+         </div>
       </div>
     </section>
   </main>
@@ -124,7 +111,7 @@
   <div class="chat-bubble" id="chat-bubble">
     <img src="/assets/authie.png" alt="Authie IA">
   </div>
-  <div class="chat-window glass" id="chat-window">
+  <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
         <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato | Danauth Digital</title>
+  <title>Contato | Danauth Digital Hub</title>
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
@@ -13,9 +13,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services.html">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html" class="active">Contato</a></li>
       </ul>
@@ -25,42 +38,40 @@
     </div>
   </header>
 
-  <main style="padding-top: var(--header-height);">
-    <section class="container" style="padding: 6rem 0;">
-      <div class="section-title reveal">
-        <span class="section-label">Contato</span>
-        <h1 style="font-size: 3.5rem;">Fale com um <span>Especialista</span></h1>
-        <p>Pronto para iniciar sua transformação digital? Envie uma mensagem e nossa equipe entrará em contato em breve.</p>
+  <main style="padding-top: 100px;">
+    <section class="container">
+      <div class="section-title reveal" style="text-align: center;">
+        <span class="section-label">Fale Conosco</span>
+        <h2>Iniciar um <span>Projeto</span></h2>
+        <p style="margin-top: 1.5rem; color: var(--text-secondary);">Está pronto para elevar seu negócio? Preencha o formulário abaixo ou nos chame no chat.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-top: 4rem;" class="reveal">
-        <form class="glass" style="padding: 3rem; border-radius: var(--radius-xl);">
-          <div style="margin-bottom: 1.5rem;">
-            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Nome Completo</label>
-            <input type="text" placeholder="Seu nome..." style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none;">
+      <div style="max-width: 800px; margin: 4rem auto;" class="glass reveal">
+        <form style="padding: 3rem; display: grid; gap: 2rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <label style="font-size: 0.85rem; opacity: 0.7;">Nome Completo</label>
+              <input type="text" placeholder="Ex: João Silva" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <label style="font-size: 0.85rem; opacity: 0.7;">E-mail Corporativo</label>
+              <input type="email" placeholder="email@empresa.com" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+            </div>
           </div>
-          <div style="margin-bottom: 1.5rem;">
-            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">E-mail Corporativo</label>
-            <input type="email" placeholder="seu@email.com" style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none;">
+          <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+            <label style="font-size: 0.85rem; opacity: 0.7;">Assunto</label>
+            <select style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+              <option>Desenvolvimento Web</option>
+              <option>Automação com IA</option>
+              <option>Consultoria Estratégica</option>
+            </select>
           </div>
-          <div style="margin-bottom: 2rem;">
-            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Como podemos ajudar?</label>
-            <textarea rows="5" placeholder="Conte-nos sobre seu projeto..." style="width: 100%; padding: 0.8rem 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
+          <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+            <label style="font-size: 0.85rem; opacity: 0.7;">Mensagem</label>
+            <textarea rows="5" placeholder="Conte-nos sobre seu projeto" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+          <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 1.2rem;">Enviar Mensagem</button>
         </form>
-
-        <div>
-          <div class="glass" style="padding: 2.5rem; border-radius: var(--radius-xl); margin-bottom: 2rem;">
-            <h3>Canais Diretos</h3>
-            <p style="color: var(--text-secondary); margin: 1rem 0;">Se prefere uma conversa imediata, utilize nossos canais diretos:</p>
-            <div style="font-weight: 700; color: var(--accent-secondary);">suporte@danauth.info</div>
-          </div>
-          <div class="glass" style="padding: 2.5rem; border-radius: var(--radius-xl);">
-            <h3>Horário de Atendimento</h3>
-            <p style="color: var(--text-secondary); margin-top: 1rem;">Segunda a Sexta<br>09h às 18h (BRT)</p>
-          </div>
-        </div>
       </div>
     </section>
   </main>
@@ -113,7 +124,7 @@
   <div class="chat-bubble" id="chat-bubble">
     <img src="/assets/authie.png" alt="Authie IA">
   </div>
-  <div class="chat-window glass" id="chat-window">
+  <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
         <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">

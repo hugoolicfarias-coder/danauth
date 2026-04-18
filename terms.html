@@ -13,9 +13,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services.html">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
@@ -91,6 +104,28 @@
       </div>
     </div>
   </footer>
+
+  <!-- Authie Chat Agent (Floating Bubble) -->
+  <div class="chat-bubble" id="chat-bubble">
+    <img src="/assets/authie.png" alt="Authie IA">
+  </div>
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
+        <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div>
+        <div style="font-weight: 700; font-size: 0.95rem;">Authie AI</div>
+        <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
+          <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
+        </div>
+      </div>
+    </div>
+    <div class="chat-messages"></div>
+    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
+      <input type="text" placeholder="Como posso te ajudar?" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: 12px; color: white; outline: none; font-size: 0.9rem;">
+    </div>
+  </div>
 
   <script type="module" src="/main.js"></script>
 </body>

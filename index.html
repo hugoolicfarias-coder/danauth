@@ -14,9 +14,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/" class="active">Home</a></li>
-        <li><a href="/services.html">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
@@ -27,7 +40,7 @@
   </header>
 
   <main>
-    <!-- New Impact Hero -->
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-content">
         <span class="section-label reveal">Líder em Inovação Digital</span>
@@ -40,7 +53,7 @@
       </div>
     </section>
 
-    <!-- Core Pillars / Specialties -->
+    <!-- Core Pillars -->
     <section class="container">
       <div class="section-title reveal" style="text-align: center;">
         <span class="section-label">Especialidades</span>
@@ -48,19 +61,16 @@
       </div>
 
       <div class="service-grid">
-        <!-- AI & Automation -->
         <div class="service-card glass reveal">
           <div class="icon-box">🤖</div>
           <h3>Agentes de IA & Automação</h3>
           <p>Desenvolvemos colaboradores digitais autônomos que gerenciam atendimento, vendas e processos 24/7 sem intervenção humana.</p>
         </div>
-        <!-- Web Systems -->
         <div class="service-card glass reveal">
           <div class="icon-box">💻</div>
           <h3>Sistemas Web de Alta Escala</h3>
           <p>Arquiteturas robustas para SaaS e plataformas corporativas, focadas em velocidade, segurança e experiência do usuário (UX).</p>
         </div>
-        <!-- Performance -->
         <div class="service-card glass reveal">
           <div class="icon-box">⚡</div>
           <h3>Otimização & Performance</h3>
@@ -69,7 +79,7 @@
       </div>
     </section>
 
-    <!-- Vision / Branding Section -->
+    <!-- Vision -->
     <section style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
       <div class="container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;" class="reveal">
@@ -143,7 +153,7 @@
   <div class="chat-bubble" id="chat-bubble">
     <img src="/assets/authie.png" alt="Authie IA">
   </div>
-  <div class="chat-window glass" id="chat-window">
+  <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
         <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">

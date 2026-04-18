@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatWindow = document.getElementById('chat-window');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-item');
 
   // Header Scroll Effect
   window.addEventListener('scroll', () => {
@@ -30,15 +31,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile Menu Toggle
   if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('mobile-active');
-      if (navLinks.classList.contains('mobile-active')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
+      document.body.style.overflow = navLinks.classList.contains('mobile-active') ? 'hidden' : '';
     });
   }
+
+  // Mobile Submenu Logic (Accordion)
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    const dropdown = item.querySelector('.dropdown');
+    
+    if (dropdown && window.innerWidth <= 991) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          item.classList.toggle('active');
+          
+          // Close other submenus
+          navItems.forEach(other => {
+            if (other !== item) other.classList.remove('active');
+          });
+        }
+      });
+    }
+  });
+
+  // Close menu when clicking outside or on a final link
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('mobile-active') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+      navLinks.classList.remove('mobile-active');
+      document.body.style.overflow = '';
+    }
+  });
 
   // Authie Chat Logic
   if (chatBubble && chatWindow) {
@@ -71,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
     };
 
-    // Auto Greeting after 3 seconds
+    // Auto Greeting
     setTimeout(() => {
       if (!chatWindow.classList.contains('active')) {
         addMessage("Olá! Sou a Authie. Como posso ajudar com o seu projeto digital hoje?", "bot");

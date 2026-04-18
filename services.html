@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços | Danauth Digital</title>
+  <title>Serviços | Danauth Solutions</title>
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
@@ -13,9 +13,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services.html" class="active">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html" class="active">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
@@ -25,46 +38,44 @@
     </div>
   </header>
 
-  <main style="padding-top: var(--header-height);">
-    <section class="container" style="padding: 6rem 0;">
-      <div class="section-title reveal">
-        <span class="section-label">Solutions</span>
-        <h1 style="font-size: 3.5rem;">Arquitetura de <span>Resultados</span></h1>
-        <p>Desenvolvemos ecossistemas digitais que integram o melhor da tecnologia moderna com estratégias de alta conversão.</p>
+  <main style="padding-top: 100px;">
+    <section class="container">
+      <div class="section-title reveal" style="text-align: center;">
+        <span class="section-label">Soluções Customizadas</span>
+        <h2>Nossos <span>Serviços</span></h2>
+        <p style="max-width: 600px; margin: 1.5rem auto 0; color: var(--text-secondary);">Oferecemos engenharia de software de ponta e consultoria em IA para empresas que buscam liderança no mercado digital.</p>
       </div>
 
       <div class="service-grid">
-        <!-- Service 1 -->
+        <div id="web" class="service-card glass reveal">
+          <div class="icon-box">🌐</div>
+          <h3>Landings Pages de Alta Conversão</h3>
+          <p>Design persuasivo focado em resultados imediatos para suas campanhas de marketing.</p>
+        </div>
+        <div id="software" class="service-card glass reveal">
+          <div class="icon-box">🏢</div>
+          <h3>Sites Institucionais</h3>
+          <p>Presença digital sólida e elegante que transmite confiança e autoridade para sua marca.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon-box">📰</div>
+          <h3>Blogs e Portais de Conteúdo</h3>
+          <p>Arquitetura otimizada para SEO e leitura, perfeita para estratégias de conteúdo denso.</p>
+        </div>
+        <div id="automation" class="service-card glass reveal">
+          <div class="icon-box">🤖</div>
+          <h3>Agentes Automatizados</h3>
+          <p>Desenvolvimento de fluxos inteligentes para WhatsApp e Redes Sociais com IA.</p>
+        </div>
+        <div class="service-card glass reveal">
+          <div class="icon-box">📱</div>
+          <h3>Fluxos de Postagens Automáticos</h3>
+          <p>Automação completa de conteúdo para Instagram e TikTok, mantendo sua rede ativa 24/7.</p>
+        </div>
         <div class="service-card glass reveal">
           <div class="icon-box">🚀</div>
-          <h3>Landings & Sites Institucionais</h3>
-          <p>Criação de presenças digitais focadas em SEO, velocidade de carregamento e UX intuitivo para converter visitantes em clientes.</p>
-          <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
-            <li>✓ Mobile-First Responsivo</li>
-            <li>✓ Google Core Web Vitals (Grade A)</li>
-          </ul>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="service-card glass reveal">
-          <div class="icon-box">🤖</div>
-          <h3>Agentes Inteligentes IA</h3>
-          <p>Automação de atendimento via WhatsApp, Instagram e Desktop utilizando os modelos LLM mais avançados do mercado.</p>
-          <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
-            <li>✓ Integração com n8n e Zapier</li>
-            <li>✓ Treinamento com base de dados própria</li>
-          </ul>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card glass reveal">
-          <div class="icon-box">🛠️</div>
-          <h3>Dashboards & SaaS</h3>
-          <p>Desenvolvimento de plataformas completas para gestão de dados, painéis administrativos e sistemas de assinatura (SaaS).</p>
-          <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">
-            <li>✓ Arquitetura Clean Code</li>
-            <li>✓ Escalabilidade em Cloud</li>
-          </ul>
+          <h3>Otimização de Performance</h3>
+          <p>Diagnóstico e correção de gargalos, levando seu site ao melhor score possível.</p>
         </div>
       </div>
     </section>
@@ -118,7 +129,7 @@
   <div class="chat-bubble" id="chat-bubble">
     <img src="/assets/authie.png" alt="Authie IA">
   </div>
-  <div class="chat-window glass" id="chat-window">
+  <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
         <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">

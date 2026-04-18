@@ -13,9 +13,22 @@
       <a href="/" class="logo">DAN<span>AUTH</span></a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/services.html">Serviços</a></li>
+        <li class="nav-item">
+          <a href="/services.html">Serviços</a>
+          <ul class="dropdown">
+            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
+            <li><a href="/services.html#software">Engenharia de Software</a></li>
+            <li><a href="/services.html#automation">Automações de IA</a></li>
+          </ul>
+        </li>
         <li><a href="/shopping.html">Shopping</a></li>
-        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li class="nav-item">
+          <a href="/ai-labs.html">AI Labs</a>
+          <ul class="dropdown">
+            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
+            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
+          </ul>
+        </li>
         <li><a href="/entertainment.html" class="active">Cinema</a></li>
         <li><a href="/contact.html">Contato</a></li>
       </ul>
@@ -26,10 +39,10 @@
   </header>
 
   <main>
-    <!-- Immersive Cinematic Hero -->
+    <!-- Cinematic Hero - NEW STABLE BACKGROUND -->
     <section class="cinema-hero">
       <video class="video-bg" autoplay muted loop playsinline poster="/assets/cinema-hero.png">
-        <source src="https://video.wixstatic.com/video/c837a6_7378fc79e46a48d88e7d7f7c1664d990/1080p/mp4/file.mp4" type="video/mp4">
+        <source src="https://v3.fastcdn.co/u/49257630/62821217-0-Background-Video.mp4" type="video/mp4">
       </video>
       <div class="cinema-overlay"></div>
       <div class="cinema-content container">
@@ -51,7 +64,6 @@
       </div>
       
       <div class="poster-grid">
-        <!-- Movies -->
         <div class="poster-card reveal glass">
           <img src="https://image.tmdb.org/t/p/w500/8Gxv0mYmUpepXUssvSbuozp9Cfs.jpg" alt="Dune">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
@@ -101,7 +113,7 @@
         </div>
 
         <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/r59vP8pS9vGv9v9v9v9v9v9v9v9.jpg" alt="Sonic" onerror="this.src='https://image.tmdb.org/t/p/w500/1D4T5T9K6Yj4Gv8W6j556p9y6Y.jpg'">
+          <img src="https://image.tmdb.org/t/p/w500/1D4T5T9K6Yj4Gv8W6j556p9y6Y.jpg" alt="Sonic">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
             <h3 style="font-size: 1.2rem;">Sonic the Hedgehog 3</h3>
             <p style="font-size: 0.8rem; color: var(--accent-cinema);">Animação • Família</p>
@@ -109,7 +121,7 @@
         </div>
 
         <div class="poster-card reveal glass">
-          <img src="https://image.tmdb.org/t/p/w500/v9v9v9v9v9v9v9v9v9v9v9v9v9v.jpg" alt="Avengers" onerror="this.src='https://image.tmdb.org/t/p/w500/kY9vP8pS9vGv9v9v9v9v9v9v9v9.jpg'">
+          <img src="https://image.tmdb.org/t/p/w500/kY9vP8pS9vGv9v9v9v9v9v9v9v9.jpg" alt="Avengers">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(0deg, #000 0%, transparent 100%);">
             <h3 style="font-size: 1.2rem;">Avengers: Secret Wars</h3>
             <p style="font-size: 0.8rem; color: var(--accent-cinema);">Ação • Heróis</p>
@@ -175,7 +187,7 @@
   <div class="chat-bubble" id="chat-bubble">
     <img src="/assets/authie.png" alt="Authie IA">
   </div>
-  <div class="chat-window glass" id="chat-window">
+  <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
         <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">
