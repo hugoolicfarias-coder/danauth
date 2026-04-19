@@ -194,6 +194,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Lab IDs found:', { btnLogin: !!btnLogin, btnVerify: !!btnVerify });
 
+    // Google Auth Programmatic Initialization
+    if (window.google && document.getElementById('google-login-btn')) {
+      console.log('Finalizing Google Auth UI Rendering...');
+      google.accounts.id.initialize({
+        client_id: "1016363962096-v6l5d5ctmqvvps0o6nf9e968rb59gu7j.apps.googleusercontent.com",
+        callback: window.handleGoogleResponse,
+        context: "signin",
+        ux_mode: "popup"
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("google-login-btn"),
+        { 
+          theme: "outline", 
+          size: "large", 
+          shape: "rectangular", 
+          text: "signin_with", 
+          logo_alignment: "left",
+          width: "100%" 
+        }
+      );
+    }
+
     if (btnLogin) btnLogin.addEventListener('click', handleLogin);
     if (btnVerify) btnVerify.addEventListener('click', handleVerify);
     if (btnResend) btnResend.addEventListener('click', () => handleLogin(true));

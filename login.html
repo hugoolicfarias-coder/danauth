@@ -37,9 +37,14 @@
 
     .login-logo {
       display: block;
-      height: 60px;
-      margin-bottom: 2.5rem;
+      height: 100px; /* Highly impactful size */
+      margin-bottom: 3.5rem;
       text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .login-logo:hover {
+      transform: scale(1.05);
     }
 
     .login-logo img {

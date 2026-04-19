@@ -112,14 +112,20 @@ header.scrolled {
 .logo {
   display: flex;
   align-items: center;
-  height: 48px; /* Standard professional height */
+  height: 65px; /* Increased from 48px for premium impact */
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
 }
 
 .logo-img {
   height: 100%;
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); /* Premium depth */
 }
 
 .logo span {
@@ -989,21 +995,12 @@ section {
   list-style: none;
   text-align: left;
   margin-bottom: 3rem;
-  flex-grow: 1;
-}
-
-.features-list li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-.features-list li svg {
-  color: var(--accent-secondary);
-  flex-shrink: 0;
+        <div class="footer-col reveal">
+          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem; height: 85px;">
+            <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
+          </a>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
+        </div>nk: 0;
 }
 
 .btn-buy {
