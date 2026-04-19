@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acessar Lab | Danauth Digital Hub</title>
   <link rel="stylesheet" href="/index.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     body, html {
@@ -36,17 +36,16 @@
     }
 
     .login-logo {
-      font-size: 2rem;
-      font-weight: 800;
-      color: white;
-      text-decoration: none;
+      display: block;
+      height: 60px;
       margin-bottom: 2.5rem;
+      text-decoration: none;
     }
 
-    .login-logo span {
-      background: linear-gradient(90deg, #9333ea, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .login-logo img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
     }
 
     .login-header h1 {
@@ -171,6 +170,7 @@
     #google-login-btn {
       display: flex;
       justify-content: center;
+      min-height: 40px;
     }
 
     /* Right Side - Visual */
@@ -224,7 +224,9 @@
 <body>
   <div class="login-container">
     <div class="login-form-side">
-      <a href="/" class="login-logo">DAN<span>AUTH</span></a>
+      <a href="/" class="login-logo">
+        <img src="/assets/brand/logo.png" alt="Danauth Logo">
+      </a>
       
       <div class="auth-toggle">
         <button class="toggle-btn active" id="toggle-signup" onclick="setAuthMode('signup')">Criar conta</button>
@@ -266,23 +268,8 @@
 
           <div class="google-divider">ou acesse com</div>
           
-          <div id="google-login-btn">
-             <div id="g_id_onload"
-                  data-client_id="1016363962096-v6l5d5ctmqvvps0o6nf9e968rb59gu7j.apps.googleusercontent.com"
-                  data-context="signin"
-                  data-ux_mode="popup"
-                  data-callback="handleGoogleResponse"
-                  data-auto_prompt="false">
-             </div>
-             <div class="g_id_signin"
-                  data-type="standard"
-                  data-shape="rectangular"
-                  data-theme="outline"
-                  data-text="signin_with"
-                  data-size="large"
-                  data-logo_alignment="left">
-             </div>
-          </div>
+          <!-- Container for programmatic Google button -->
+          <div id="google-login-btn"></div>
         </div>
 
         <!-- Step 2: OTP (Only for Registration) -->
@@ -312,6 +299,9 @@
     let authMode = 'signup';
     
     function setAuthMode(mode) {
+      if (window.AuthSystem) {
+         window.AuthSystem.setMode(mode);
+      }
       authMode = mode;
       const signupToggle = document.getElementById('toggle-signup');
       const loginToggle = document.getElementById('toggle-login');
@@ -329,10 +319,9 @@
       const signupFields = document.getElementById('signup-fields');
       if (signupFields) signupFields.style.display = mode === 'signup' ? 'block' : 'none';
       
-      window.currentAuthMode = mode; // Make it accessible to main.js
+      window.currentAuthMode = mode;
     }
     
-    // Set default mode
     setAuthMode('signup');
   </script>
   <script src="/main.js"></script>

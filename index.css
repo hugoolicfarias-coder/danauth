@@ -110,15 +110,20 @@ header.scrolled {
 }
 
 .logo {
-  font-weight: 800;
-  font-size: 1.6rem;
-  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  height: 48px; /* Standard professional height */
   text-decoration: none;
-  color: white;
+}
+
+.logo-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo span {
-  color: var(--accent);
+  display: none; /* Hide legacy text components if any remain */
 }
 
 .nav-links {
