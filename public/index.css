@@ -60,22 +60,18 @@ header.scrolled {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  height: 65px; /* Premium Scale */
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  color: white;
 }
 
-.logo:hover {
-  transform: scale(1.02);
-}
-
-.logo-img {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.4));
+.logo span {
+  display: inline;
+  background: linear-gradient(90deg, #9333ea, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -172,13 +168,16 @@ h1 span {
 }
 
 .footer-logo {
-  height: 100px; /* Strong footer branding */
+  font-weight: 800;
+  font-size: 2rem;
   margin-bottom: 2rem;
+  display: block;
 }
 
-.footer-logo img {
-  height: 100%;
-  width: auto;
+.footer-logo span {
+  background: linear-gradient(90deg, #9333ea, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Reveal Animation */
