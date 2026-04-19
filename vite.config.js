@@ -15,6 +15,7 @@ export default defineConfig({
         entertainment: resolve(__dirname, 'entertainment.html'),
         pricing: resolve(__dirname, 'pricing.html'),
         login: resolve(__dirname, 'login.html'),
+        account: resolve(__dirname, 'account.html'),
       },
     },
   },
