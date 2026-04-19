@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Conta | Danauth Digital</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
+  <style>
+    .account-hero {
+      padding: 180px 0 80px;
+      background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,1)), url('/assets/home-hero-v2.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .account-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      margin-top: -60px;
+      padding-bottom: 100px;
+    }
+    .profile-sidebar {
+      background: rgba(15,15,15,0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      height: fit-content;
+      text-align: center;
+    }
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+    }
+    .credit-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(0,255,136,0.1);
+      color: #00ff88;
+      border: 1px solid #00ff88;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+    .dashboard-content {
+      background: rgba(15,15,15,0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+    }
+    .account-form-group {
+      margin-bottom: 1.5rem;
+    }
+    .account-form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .account-form-group input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-light);
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      color: white;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .account-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/ai-labs.html">AI Labs</a></li>
+        <li><a href="/shopping.html">Shopping</a></li>
+        <li><a href="/entertainment.html">Cinema</a></li>
+      </ul>
+      <div class="auth-buttons" id="header-auth-buttons">
+        <!-- Managed by main.js -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="account-hero">
+      <div class="container">
+        <h1 style="font-size: 3.5rem;">Painel do <span>Cliente</span></h1>
+        <p style="color: var(--text-secondary);">Gerencie suas informações e créditos do laboratório de IA.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="account-grid">
+        <!-- Sidebar Profile -->
+        <aside class="profile-sidebar reveal">
+          <div class="profile-avatar" id="acc-avatar">👤</div>
+          <h3 id="acc-name">Carregando...</h3>
+          <p id="acc-email" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+          <div class="credit-badge">
+            <span id="acc-credits">0</span> CRÉDITOS
+          </div>
+          <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-light);">
+          <div style="text-align: left;">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem;">STATUS DA CONTA</p>
+            <p style="font-weight: 700; color: #00ff88;">✓ Ativa</p>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard-content reveal">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem;">
+            <div>
+              <h2 style="margin-bottom: 0.5rem;">Dados <span>Pessoais</span></h2>
+              <p style="color: var(--text-secondary);">Atualize como você aparece em nossa plataforma.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-save-profile">Salvar Alterações</button>
+          </div>
+
+          <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div class="account-form-group">
+              <label>Nome</label>
+              <input type="text" id="acc-first-name" placeholder="Seu nome">
+            </div>
+            <div class="account-form-group">
+              <label>Sobrenome</label>
+              <input type="text" id="acc-last-name" placeholder="Seu sobrenome">
+            </div>
+          </div>
+
+          <div class="account-form-group" style="margin-top: 1rem;">
+            <label>E-mail (Não editável)</label>
+            <input type="email" id="acc-email-field" disabled style="opacity: 0.5;">
+          </div>
+
+          <div style="margin-top: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Atalhos <span>Rápidos</span></h2>
+            <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              <a href="/ai-labs.html" class="service-card glass" style="text-decoration: none; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🖼️</div>
+                <h4 style="margin-bottom: 0;">AI Labs</h4>
+              </a>
+              <a href="/pricing.html" class="service-card glass" style="text-decoration: none; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">💎</div>
+                <h4 style="margin-bottom: 0;">Planos</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container" style="text-align: center; color: var(--text-secondary);">
+      <p>&copy; 2026 Danauth Digital Hub. Gerenciamento seguro de conta.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('lab_user'));
+      if (!user) {
+        window.location.href = '/login.html';
+        return;
+      }
+
+      // Fill user data
+      document.getElementById('acc-name').innerText = user.email.split('@')[0];
+      document.getElementById('acc-email').innerText = user.email;
+      document.getElementById('acc-email-field').value = user.email;
+      document.getElementById('acc-credits').innerText = user.credits || 0;
+    });
+  </script>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

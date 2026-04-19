@@ -78,13 +78,8 @@ window.handleGoogleResponse = async function(response) {
 
 // --- APP INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM Ready. Synchronizing state...');
-  
-  // UI Effects
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if (header) header.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  // Initialize Auth UI State
+  updateAuthUI();
 
   // Reveal Animations
   const observer = new IntersectionObserver((entries) => {
@@ -98,15 +93,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnLogin = document.getElementById('btn-lab-login');
   if (btnLogin) btnLogin.addEventListener('click', handleLocalAuth);
   
-  const btnLogout = document.getElementById('btn-lab-logout') || document.getElementById('btn-header-logout');
-  if (btnLogout) btnLogout.addEventListener('click', () => {
+  const btnLogout = document.querySelectorAll('.btn-lab-logout, .btn-header-logout');
+  btnLogout.forEach(btn => btn.addEventListener('click', () => {
     localStorage.removeItem('lab_user');
-    window.location.reload();
-  });
+    window.location.href = '/login.html';
+  }));
 
   // Start Google UI
   window.AuthSystem.initGoogleAuth();
 });
+
+function updateAuthUI() {
+  const authContainer = document.getElementById('header-auth-buttons');
+  if (!authContainer) return;
+
+  if (LabState.user) {
+    authContainer.innerHTML = `
+      <div class="user-profile-nav">
+        <a href="/account.html" class="nav-account-btn">
+          <span class="user-icon">👤</span>
+          <span class="user-email">${LabState.user.email.split('@')[0]}</span>
+        </a>
+        <button class="btn-header-logout" onclick="localStorage.removeItem('lab_user'); window.location.reload();">Sair</button>
+      </div>
+    `;
+  }
+}
 
 async function handleLocalAuth() {
   const email = document.getElementById('lab-email')?.value.trim();
@@ -139,10 +151,11 @@ async function handleLocalAuth() {
         document.getElementById('step-2').style.display = 'flex';
       }
     } else {
-      alert(data.message);
+      alert('Ops! ' + (data.message || 'Erro ao processar solicitação.'));
     }
   } catch (err) {
-    alert('Erro de conexão.');
+    console.error('Fetch Error Detail:', err);
+    alert('Erro de conexão: Não foi possível alcançar o servidor. Verifique sua rede ou tente novamente em instantes.');
   } finally {
     btn.disabled = false;
     btn.innerText = mode === 'signup' ? 'Criar conta' : 'Entrar';

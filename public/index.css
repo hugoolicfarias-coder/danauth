@@ -1033,6 +1033,7 @@ url('/assets/home-hero-v2.png');
 }
 
 /* Header Auth Buttons */
+/* Header Auth & Profile Navigation */
 .auth-buttons {
   display: flex;
   align-items: center;
@@ -1061,45 +1062,73 @@ url('/assets/home-hero-v2.png');
   transition: all 0.3s;
 }
 
-.btn-signup:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
-}
-
-.header-user-info {
+.user-profile-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-light);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
 }
 
-.header-credits {
-  background: rgba(255,255,255,0.05);
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
+.nav-account-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.user-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.user-email {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-header-logout {
+  background: none;
+  border: none;
+  color: #ff4d4d;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--accent-secondary);
-  border: 1px solid rgba(138,43,226,0.2);
-}
-
-.btn-signout {
-  background: transparent;
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
   cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
   transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.btn-signout:hover {
-  border-color: #ef4444;
-  color: #ef4444;
+.btn-header-logout:hover {
+  background: rgba(255, 77, 77, 0.15);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 991px) {
   .auth-buttons {
-    display: none; /* Hide in mobile menu for now, or move inside */
+    display: none;
   }
+  .user-profile-nav { 
+    margin: 1.5rem 0; 
+    width: 100%; 
+    justify-content: space-between;
+    padding: 0.8rem 1.2rem;
+  }
+  .user-email { max-width: none; }
 }
