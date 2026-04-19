@@ -1,4 +1,7 @@
+console.log('🚀 Danauth Hub: Script main.js carrgado e inciando no escopo global...');
+
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM carrgado. Iniciando listeners e UI...');
   const header = document.querySelector('header');
   const chatBubble = document.getElementById('chat-bubble');
   const chatWindow = document.getElementById('chat-window');
@@ -184,10 +187,17 @@ document.addEventListener('DOMContentLoaded', () => {
     updateAuthUI();
 
     // Authentication Listeners (Global - works on Lab page and Login page)
-    document.getElementById('btn-lab-login')?.addEventListener('click', handleLogin);
-    document.getElementById('btn-lab-verify')?.addEventListener('click', handleVerify);
-    document.getElementById('btn-lab-resend')?.addEventListener('click', () => handleLogin(true));
-    document.getElementById('btn-lab-logout')?.addEventListener('click', handleLogout);
+    const btnLogin = document.getElementById('btn-lab-login');
+    const btnVerify = document.getElementById('btn-lab-verify');
+    const btnResend = document.getElementById('btn-lab-resend');
+    const btnLogout = document.getElementById('btn-lab-logout');
+
+    console.log('Lab IDs found:', { btnLogin: !!btnLogin, btnVerify: !!btnVerify });
+
+    if (btnLogin) btnLogin.addEventListener('click', handleLogin);
+    if (btnVerify) btnVerify.addEventListener('click', handleVerify);
+    if (btnResend) btnResend.addEventListener('click', () => handleLogin(true));
+    if (btnLogout) btnLogout.addEventListener('click', handleLogout);
 
     // AI Lab specific logic (only if on Lab page)
     const labContent = document.querySelector('.generator-panel');
@@ -234,10 +244,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const btn = isResend ? document.getElementById('btn-lab-resend') : document.getElementById('btn-lab-login');
+    if (!btn) {
+      console.error('Botão de login não encontrado no DOM!');
+      return;
+    }
+
     const originalText = btn.innerText;
-    
     btn.disabled = true;
     btn.innerText = 'Processando...';
+
+    console.log('Iniciando login/cadastro:', { email, mode, isResend });
 
     try {
       const resp = await fetch(LAB_CONFIG.authWebhook, {
@@ -252,7 +268,11 @@ document.addEventListener('DOMContentLoaded', () => {
           isResend 
         })
       });
+      
+      if (!resp.ok) throw new Error(`HTTP Error: ${resp.status}`);
+      
       const data = await resp.json();
+      console.log('Resposta do servidor:', data);
       
       if (data.success) {
         if (data.directLogin) {
@@ -298,6 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Google Login Callback
   window.handleGoogleResponse = async function(response) {
+    console.log('Google Auth Global Handler Triggered');
+    console.log('Google Response received, sending to backend...');
     try {
       const resp = await fetch(LAB_CONFIG.authWebhook, {
         method: 'POST',
@@ -307,19 +329,28 @@ document.addEventListener('DOMContentLoaded', () => {
           mode: 'google'
         })
       });
+
+      if (!resp.ok) throw new Error(`HTTP Error: ${resp.status}`);
+
       const data = await resp.json();
+      console.log('Google Auth Data:', data);
+
       if (data.success) {
         LabState.user = {
           email: data.email,
           token: data.sessionToken,
-          credits: data.credits
+          credits: data.credits || 0
         };
         localStorage.setItem('lab_user', JSON.stringify(LabState.user));
         updateAuthUI();
+        console.log('Redirecting to AI Labs...');
         window.location.href = '/ai-labs.html';
+      } else {
+        alert('Erro no Login Google: ' + (data.message || 'Falha na autenticação'));
       }
     } catch (err) {
       console.error('Google Auth Error:', err);
+      alert('Erro ao processar login com Google. Verifique o console.');
     }
   }
 
@@ -338,17 +369,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function handleVerify() {
-    const email = document.getElementById('lab-email').value.trim();
-    const code = document.getElementById('lab-otp').value.trim();
+    const email = document.getElementById('lab-email')?.value.trim();
+    const code = document.getElementById('lab-otp')?.value.trim();
 
-    if (!code || code.length < 4) {
-      alert('Digite o código de verificação recebido.');
+    if (!code || code.length < 6) {
+      alert('Por favor, insira o código de 6 dígitos enviado ao seu e-mail.');
       return;
     }
 
     const btn = document.getElementById('btn-lab-verify');
+    if (!btn) {
+      console.error('Botão de verificação não encontrado!');
+      return;
+    }
+    
+    const originalText = btn.innerText;
     btn.disabled = true;
     btn.innerText = 'Verificando...';
+
+    console.log('Iniciando verificação de código:', { email, code });
 
     try {
       const resp = await fetch(LAB_CONFIG.verifyWebhook, {
@@ -356,18 +395,22 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code })
       });
+
+      if (!resp.ok) throw new Error(`HTTP Error: ${resp.status}`);
+
       const data = await resp.json();
-      
+      console.log('Resposta de verificação:', data);
+
       if (data.success) {
         LabState.user = {
           email,
           token: data.sessionToken,
-          credits: data.credits
+          credits: data.credits || 0
         };
         localStorage.setItem('lab_user', JSON.stringify(LabState.user));
-        
         updateAuthUI();
         
+        console.log('Verificação bem-sucedida, redirecionando...');
         if (window.location.pathname.includes('login.html')) {
           alert('Acesso confirmado! Redirecionando...');
           window.location.href = '/ai-labs.html';
@@ -382,11 +425,11 @@ document.addEventListener('DOMContentLoaded', () => {
           fetchGallery();
         }
       } else {
-        alert(data.message || 'Código incorreto. Tente novamente.');
+        alert(data.message || 'Código incorreto ou expirado. Tente novamente.');
       }
     } catch (err) {
       console.error('Verify Error:', err);
-      alert('Erro na verificação. Tente novamente.');
+      alert('Erro ao processar verificação. Verifique sua conexão e tente novamente.');
     } finally {
       btn.disabled = false;
       btn.innerText = 'Confirmar Acesso';

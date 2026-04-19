@@ -308,25 +308,33 @@
     </div>
   </div>
 
-  <script src="/main.js" type="module"></script>
   <script>
     let authMode = 'signup';
     
     function setAuthMode(mode) {
       authMode = mode;
-      document.getElementById('toggle-signup').classList.toggle('active', mode === 'signup');
-      document.getElementById('toggle-login').classList.toggle('active', mode === 'login');
+      const signupToggle = document.getElementById('toggle-signup');
+      const loginToggle = document.getElementById('toggle-login');
+      if (signupToggle) signupToggle.classList.toggle('active', mode === 'signup');
+      if (loginToggle) loginToggle.classList.toggle('active', mode === 'login');
       
-      document.getElementById('auth-title').innerText = mode === 'signup' ? 'Crie sua conta' : 'Bem-vindo de volta';
-      document.getElementById('auth-subtitle').innerText = mode === 'signup' ? 'Comece a criar imagens e vídeos com IA em segundos.' : 'Insira seus dados para acessar o laboratório.';
-      document.getElementById('btn-lab-login').innerText = mode === 'signup' ? 'Criar conta' : 'Entrar';
+      const title = document.getElementById('auth-title');
+      const subtitle = document.getElementById('auth-subtitle');
+      const loginBtn = document.getElementById('btn-lab-login');
       
-      document.getElementById('signup-fields').style.display = mode === 'signup' ? 'block' : 'none';
+      if (title) title.innerText = mode === 'signup' ? 'Crie sua conta' : 'Bem-vindo de volta';
+      if (subtitle) subtitle.innerText = mode === 'signup' ? 'Comece a criar imagens e vídeos com IA em segundos.' : 'Insira seus dados para acessar o laboratório.';
+      if (loginBtn) loginBtn.innerText = mode === 'signup' ? 'Criar conta' : 'Entrar';
+      
+      const signupFields = document.getElementById('signup-fields');
+      if (signupFields) signupFields.style.display = mode === 'signup' ? 'block' : 'none';
+      
       window.currentAuthMode = mode; // Make it accessible to main.js
     }
     
     // Set default mode
     setAuthMode('signup');
   </script>
+  <script src="/main.js"></script>
 </body>
 </html>
