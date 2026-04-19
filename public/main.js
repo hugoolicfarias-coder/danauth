@@ -54,9 +54,13 @@ window.AuthSystem = {
 // Global Google Response Handler
 window.handleGoogleResponse = async function(response) {
   console.log('Processing Google Payload...');
+  const btn = document.getElementById('google-login-btn');
+  if (btn) btn.style.opacity = '0.5';
+
   try {
     const resp = await fetch(LAB_CONFIG.authWebhook, {
       method: 'POST',
+      mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         googleToken: response.credential,
@@ -72,7 +76,10 @@ window.handleGoogleResponse = async function(response) {
       alert('Acesso negado: ' + data.message);
     }
   } catch (err) {
-    console.error('Auth Error:', err);
+    console.error('Google Auth Error Detail:', err);
+    alert('Erro de conexão com o servidor de autenticação (Google). Verifique sua rede.');
+  } finally {
+    if (btn) btn.style.opacity = '1';
   }
 };
 
@@ -136,6 +143,7 @@ async function handleLocalAuth() {
   try {
     const resp = await fetch(LAB_CONFIG.authWebhook, {
       method: 'POST',
+      mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, firstName, lastName, mode })
     });
