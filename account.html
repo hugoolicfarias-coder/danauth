@@ -179,20 +179,67 @@
   </footer>
 
   <script type="module">
-    document.addEventListener('DOMContentLoaded', () => {
-      const user = JSON.parse(localStorage.getItem('lab_user'));
-      if (!user) {
+    import { supabase } from '/src/supabase.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
         window.location.href = '/login.html';
         return;
       }
 
+      const user = session.user;
+      
+      // Fetch profile
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single();
+
+      if (error && error.code !== 'PGRST116') {
+        console.error('Error fetching profile:', error);
+      }
+
       // Fill user data
-      document.getElementById('acc-name').innerText = user.email.split('@')[0];
+      document.getElementById('acc-name').innerText = profile?.first_name || user.email.split('@')[0];
       document.getElementById('acc-email').innerText = user.email;
       document.getElementById('acc-email-field').value = user.email;
-      document.getElementById('acc-credits').innerText = user.credits || 0;
+      document.getElementById('acc-credits').innerText = profile?.credits || 0;
+      
+      document.getElementById('acc-first-name').value = profile?.first_name || '';
+      document.getElementById('acc-last-name').value = profile?.last_name || '';
+
+      // Save Profile
+      document.getElementById('btn-save-profile').addEventListener('click', async () => {
+        const firstName = document.getElementById('acc-first-name').value;
+        const lastName = document.getElementById('acc-last-name').value;
+        const btn = document.getElementById('btn-save-profile');
+        
+        btn.disabled = true;
+        btn.innerText = 'Salvando...';
+
+        const { error: updateError } = await supabase
+          .from('profiles')
+          .upsert({
+            id: user.id,
+            first_name: firstName,
+            last_name: lastName,
+            updated_at: new Date()
+          });
+
+        if (updateError) {
+          alert('Erro ao salvar: ' + updateError.message);
+        } else {
+          alert('Perfil atualizado com sucesso!');
+          window.location.reload();
+        }
+        btn.disabled = false;
+        btn.innerText = 'Salvar Alterações';
+      });
     });
   </script>
-  <script type="module" src="/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
