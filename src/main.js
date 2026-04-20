@@ -294,8 +294,10 @@ function initAuthieChat() {
         body: JSON.stringify({ message: text, email: LabState.user?.email || 'guest' })
       });
       const data = await response.json();
+      console.log('Authie Response:', data);
+      const authieMsg = data.message || data.response || data.text || "Desculpe, tive um problema técnico ao processar sua resposta.";
       typingMsg.remove();
-      addMessage(data.response || 'Desculpe, tive um problema técnico.', 'bot');
+      addMessage(authieMsg, 'bot');
     } catch (err) {
       typingMsg.remove();
       addMessage('Sistema offline temporariamente.', 'bot');
