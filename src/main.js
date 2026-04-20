@@ -309,7 +309,6 @@ function initAuthieChat() {
 
 async function handleLocalAuth() {
   const email = document.getElementById('lab-email')?.value.trim();
-...
   const password = document.getElementById('lab-password')?.value.trim();
   const firstName = document.getElementById('lab-first-name')?.value.trim();
   const lastName = document.getElementById('lab-last-name')?.value.trim();
