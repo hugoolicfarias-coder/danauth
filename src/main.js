@@ -172,16 +172,6 @@ function initLab() {
     };
   }
 
-  // Gallery Tabs
-  document.querySelectorAll('.tab-btn').forEach(tab => {
-    tab.onclick = () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      LabState.currentTab = tab.dataset.tab;
-      loadGallery();
-    };
-  });
-
   // Initial load
   loadGallery();
 }
@@ -261,8 +251,7 @@ function initAuthieChat() {
   const bubble = document.getElementById('chat-bubble');
   const chatWin = document.getElementById('chat-window');
   const closeBtn = document.getElementById('close-chat');
-  const sendBtn = document.getElementById('send-message');
-  const chatInput = document.querySelector('.chat-window input');
+  const chatInput = document.getElementById('chat-input');
   const messagesContainer = document.querySelector('.chat-messages');
 
   if (!bubble || !chatWin) return;
@@ -313,7 +302,6 @@ function initAuthieChat() {
     }
   };
 
-  if (sendBtn) sendBtn.onclick = handleSend;
   if (chatInput) chatInput.onkeypress = (e) => (e.key === 'Enter' ? handleSend() : null);
 }
 
