@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   window.AuthSystem.initGoogleAuth();
 
   // Initialize IA Lab Features (if on page)
-  if (window.location.pathname.includes('ai-labs.html')) {
+  if (document.getElementById('btn-generate')) {
     initLab();
   }
 
@@ -159,7 +159,7 @@ function initLab() {
   console.log('🤖 IA Lab: Module Initialized');
   
   const btnGenerate = document.getElementById('btn-generate');
-  const promptInput = document.getElementById('image-prompt');
+  const promptInput = document.getElementById('prompt-input');
   
   if (btnGenerate) {
     btnGenerate.onclick = async () => {
@@ -173,7 +173,7 @@ function initLab() {
   }
 
   // Gallery Tabs
-  document.querySelectorAll('.tab').forEach(tab => {
+  document.querySelectorAll('.tab-btn').forEach(tab => {
     tab.onclick = () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
@@ -262,7 +262,7 @@ function initAuthieChat() {
   const chatWin = document.getElementById('chat-window');
   const closeBtn = document.getElementById('close-chat');
   const sendBtn = document.getElementById('send-message');
-  const chatInput = document.getElementById('chat-input');
+  const chatInput = document.querySelector('.chat-window input');
   const messagesContainer = document.querySelector('.chat-messages');
 
   if (!bubble || !chatWin) return;
