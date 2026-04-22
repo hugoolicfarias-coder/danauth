@@ -1,6 +1,6 @@
 # 📁 Snapshot Atual: Danauth Digital Hub
 
-Este documento serve como um registro permanente de tudo o que foi implementado e do estado atual do projeto (Varredura realizada em 19/04/2026).
+Este documento serve como um registro permanente de tudo o que foi implementado e do estado atual do projeto (Varredura realizada em 20/04/2026 - Pós-migração Supabase).
 
 ---
 
@@ -35,7 +35,7 @@ Este documento serve como um registro permanente de tudo o que foi implementado 
   - **Correção de Conexão:** Webhooks configurados para aceitar o método `OPTIONS` (CORS preflight).
 - **Gestão de Sessão:** `localStorage` sincronizado entre páginas para manter o usuário logado e mostrar créditos no header.
 - **Infraestrutura:** Projeto estruturado com **Vite** para desenvolvimento rápido e bundling eficiente.
-- **Base de Dados:** Airtable integrado via n8n para gestão de usuários, tokens e créditos.
+- **Base de Dados:** Supabase (PostgreSQL) integrado via n8n para gestão de usuários, tokens, gerações e créditos. (Airtable mantido como backup legado).
 
 ---
 
@@ -45,4 +45,4 @@ Este documento serve como um registro permanente de tudo o que foi implementado 
 - **Navegação:** Dinâmica (esconde/mostra botões de conta conforme o login).
 
 > [!NOTE]
-> Este arquivo é um espelho do estado ideal do site até o momento. Nenhuma alteração foi realizada durante esta varredura.
+> Este arquivo é um espelho do estado ideal do site após a transição bem-sucedida para o ecossistema Supabase.
