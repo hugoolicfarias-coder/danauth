@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato | Danauth Digital Hub</title>
+  <title>Contato | Danauth</title>
   <link rel="stylesheet" href="/index.css">
   <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
 </head>
@@ -13,33 +13,20 @@
       <a href="/" class="logo">
         <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="/">Home</a></li>
-        <li class="nav-item">
-          <a href="/services.html">Serviços</a>
-          <ul class="dropdown">
-            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
-            <li><a href="/services.html#software">Engenharia de Software</a></li>
-            <li><a href="/services.html#automation">Automações de IA</a></li>
-          </ul>
-        </li>
-        <li><a href="/shopping.html">Shopping</a></li>
-        <li class="nav-item">
-          <a href="/ai-labs.html">AI Labs</a>
-          <ul class="dropdown">
-            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
-            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
-          </ul>
-        </li>
-        <li><a href="/pricing.html">Preços</a></li>
-        <li><a href="/entertainment.html">Cinema</a></li>
+        <li><a href="/#impressao-3d">Impressão 3D</a></li>
+        <li><a href="/#webdesign">Web Design & Artes</a></li>
+        <li><a href="/#chatbots">Chatbots</a></li>
+        <li><a href="/#como-funciona">Como Funciona</a></li>
         <li><a href="/contact.html" class="active">Contato</a></li>
       </ul>
       <div class="auth-buttons" id="header-auth-buttons">
-        <a href="/login.html" class="login-link">Log in</a>
-        <a href="/login.html" class="btn-signup">Sign up</a>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Danauth." target="_blank" class="btn btn-primary btn-glow" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">
+          Solicitar Orçamento
+        </a>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
@@ -50,7 +37,7 @@
       <div class="section-title reveal" style="text-align: center;">
         <span class="section-label">Fale Conosco</span>
         <h2>Iniciar um <span>Projeto</span></h2>
-        <p style="margin-top: 1.5rem; color: var(--text-secondary);">Está pronto para elevar seu negócio? Preencha o formulário abaixo ou nos chame no chat.</p>
+        <p style="margin-top: 1.5rem; color: var(--text-secondary);">Está pronto para tirar sua ideia do papel? Preencha o formulário abaixo ou fale diretamente conosco pelo WhatsApp.</p>
       </div>
 
       <div style="max-width: 800px; margin: 4rem auto;" class="glass reveal">
@@ -61,21 +48,24 @@
               <input type="text" placeholder="Ex: João Silva" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
             </div>
             <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-              <label style="font-size: 0.85rem; opacity: 0.7;">E-mail Corporativo</label>
-              <input type="email" placeholder="email@empresa.com" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+              <label style="font-size: 0.85rem; opacity: 0.7;">WhatsApp / Telefone ou E-mail</label>
+              <input type="text" placeholder="(11) 99999-9999 ou email@exemplo.com" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-            <label style="font-size: 0.85rem; opacity: 0.7;">Assunto</label>
-            <select style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
-              <option>Desenvolvimento Web</option>
-              <option>Automação com IA</option>
-              <option>Consultoria Estratégica</option>
+            <label style="font-size: 0.85rem; opacity: 0.7;">Serviço de Interesse</label>
+            <select style="background: #111; border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+              <option>Vendas em Impressão 3D</option>
+              <option>Elaboração e Criação de Projeto 3D (CAD)</option>
+              <option>Criação de Sites (Landing Pages / Institucionais)</option>
+              <option>Artes para Empresas (Instagram / Facebook)</option>
+              <option>Chatbot para WhatsApp e Instagram</option>
+              <option>Outro / Projeto Combinado</option>
             </select>
           </div>
           <div style="display: flex; flex-direction: column; gap: 0.8rem;">
             <label style="font-size: 0.85rem; opacity: 0.7;">Mensagem</label>
-            <textarea rows="5" placeholder="Conte-nos sobre seu projeto" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
+            <textarea rows="5" placeholder="Conte-nos sobre sua ideia ou as especificações do que você precisa..." style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 1.2rem;">Enviar Mensagem</button>
         </form>
@@ -85,61 +75,58 @@
 
   <footer class="main-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
         <div class="footer-col reveal">
           <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">
             <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
           </a>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
-          <div class="social-links">
-            <a href="#" class="social-icon">𝕏</a>
-            <a href="#" class="social-icon">In</a>
-            <a href="#" class="social-icon">Ig</a>
-          </div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 320px;">
+            Soluções completas em Impressão 3D, Projetos CAD, Criação de Sites Profissionais, Artes para Empresas e Chatbots Inteligentes.
+          </p>
         </div>
         <div class="footer-col reveal">
-          <h4>Plataforma</h4>
+          <h4>Soluções 3D</h4>
           <ul>
-            <li><a href="/services.html">Nossas Soluções</a></li>
-            <li><a href="/shopping.html">Danauth Shopping</a></li>
-            <li><a href="/ai-labs.html">AI Labs Gallery</a></li>
-            <li><a href="/entertainment.html">Cine Hub</a></li>
+            <li><a href="/#impressao-3d">Vendas em Impressão 3D</a></li>
+            <li><a href="/#impressao-3d">Criação de Projetos 3D</a></li>
+            <li><a href="/#impressao-3d">Prototipagem Rápida</a></li>
           </ul>
         </div>
         <div class="footer-col reveal">
-          <h4>Empresa</h4>
+          <h4>Web & Digital</h4>
           <ul>
-            <li><a href="/contact.html">Falar com Consultor</a></li>
+            <li><a href="/#webdesign">Criação de Sites</a></li>
+            <li><a href="/#webdesign">Artes para Redes Sociais</a></li>
+            <li><a href="/#chatbots">Chatbots WhatsApp & Insta</a></li>
+          </ul>
+        </div>
+        <div class="footer-col reveal">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="https://wa.me/5511999999999" target="_blank">Falar no WhatsApp</a></li>
+            <li><a href="/contact.html">Página de Contato</a></li>
             <li><a href="/terms.html">Termos de Uso</a></li>
             <li><a href="/privacy.html">Privacidade</a></li>
           </ul>
         </div>
-        <div class="footer-col reveal">
-          <h4>Newsletter</h4>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Receba novidades semanais sobre IA e Tech.</p>
-          <div class="newsletter-box">
-            <input type="email" placeholder="Seu e-mail">
-            <button class="btn btn-primary" style="padding: 0 1.5rem; border-radius: 10px; font-size: 0.8rem;">Assinar</button>
-          </div>
-        </div>
       </div>
       <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
-        <p>&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Danauth. Todos os direitos reservados. Impressão 3D & Soluções Digitais.</p>
       </div>
     </div>
   </footer>
 
   <!-- Authie Chat Agent (Floating Bubble) -->
   <div class="chat-bubble" id="chat-bubble">
-    <img src="/assets/authie.png" alt="Authie IA">
+    <img src="/assets/authie.png" alt="Danauth Chat">
   </div>
   <div class="chat-window" id="chat-window">
     <div class="chat-header">
       <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
-        <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="/assets/authie.png" alt="Danauth Suporte" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div>
-        <div style="font-weight: 700; font-size: 0.95rem;">Authie AI</div>
+        <div style="font-weight: 700; font-size: 0.95rem;">Danauth Suporte</div>
         <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
           <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
         </div>

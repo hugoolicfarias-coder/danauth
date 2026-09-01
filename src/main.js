@@ -86,6 +86,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Initialize Authie Chat (all pages)
   initAuthieChat();
+
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-active');
+    });
+    // Close menu when clicking nav links on mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-active');
+      });
+    });
+  }
+
+  // Header Scrolled State
+  const header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
 });
 
 async function handleAuthStateChange(user) {

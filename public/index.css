@@ -1127,8 +1127,325 @@ url('/assets/home-hero-v2.png');
   .user-profile-nav { 
     margin: 1.5rem 0; 
     width: 100%; 
-    justify-content: space-between;
+    justify-content: space-between; 
     padding: 0.8rem 1.2rem;
   }
   .user-email { max-width: none; }
+}
+
+/* ====================================================
+   NOVA HOME PAGE (DANAUTH 3D & DIGITAL) ESTILOS MODERNOS
+   ==================================================== */
+
+/* Quick Highlights Bar */
+.highlights-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+}
+
+.highlight-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.highlight-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-secondary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.highlight-chip svg {
+  color: var(--accent-secondary);
+  flex-shrink: 0;
+}
+
+/* Pillar Headings */
+.pillar-section {
+  margin-bottom: 5rem;
+}
+
+.pillar-badge-3d {
+  background: rgba(187, 134, 252, 0.12);
+  border: 1px solid rgba(187, 134, 252, 0.4);
+  color: var(--accent);
+}
+
+.pillar-badge-digital {
+  background: rgba(3, 218, 198, 0.12);
+  border: 1px solid rgba(3, 218, 198, 0.4);
+  color: var(--accent-secondary);
+}
+
+/* Service Card Modern */
+.service-card-modern {
+  background: rgba(15, 15, 18, 0.7);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+}
+
+.service-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card-modern.digital-card::before {
+  background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
+}
+
+.service-card-modern:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(187, 134, 252, 0.08);
+}
+
+.service-card-modern.digital-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(3, 218, 198, 0.08);
+}
+
+.service-card-modern:hover::before {
+  opacity: 1;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.icon-box-modern {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.service-card-modern.digital-card .icon-box-modern {
+  color: var(--accent-secondary);
+}
+
+.service-card-modern:hover .icon-box-modern {
+  background: rgba(187, 134, 252, 0.15);
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+
+.service-card-modern.digital-card:hover .icon-box-modern {
+  background: rgba(3, 218, 198, 0.15);
+  border-color: var(--accent-secondary);
+}
+
+.service-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.service-card-modern h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.service-card-modern p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Service Tags List */
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tag-pill {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Steps / Workflow */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--accent-secondary);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.step-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Big CTA Banner */
+.cta-banner {
+  background: radial-gradient(circle at 50% 0%, rgba(187, 134, 252, 0.15) 0%, rgba(3, 218, 198, 0.08) 50%, rgba(10, 10, 10, 0.9) 100%), #0d0d11;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 4.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.cta-banner h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.cta-banner p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: #fff;
+}
+
+.btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Glow button */
+.btn-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 3rem 1.5rem;
+  }
+  .service-card-modern {
+    padding: 1.8rem;
+  }
+  .highlights-bar {
+    gap: 0.8rem;
+  }
+  .highlight-chip {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.9rem;
+  }
 }

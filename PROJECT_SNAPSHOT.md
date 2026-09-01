@@ -46,3 +46,27 @@ Este documento serve como um registro permanente de tudo o que foi implementado 
 
 > [!NOTE]
 > Este arquivo é um espelho do estado ideal do site após a transição bem-sucedida para o ecossistema Supabase.
+
+---
+
+## 📱 Automação TikTok (Top 10 Curioso) - Workflow Snapshot
+*Data de Atualização: 24/04/2026*
+
+A arquitetura do workflow do TikTok foi radicalmente transformada para um formato focado em alta retenção sem legendas, seguido da resolução de bloqueios estritos da API Sandbox do TikTok.
+
+### 🎬 Nova Estrutura do Vídeo (Shotstack & OpenAI)
+1. **Curiosidade Única Aprofundada:** O prompt do `Generate_Script` (OpenAI) foi ajustado para abandonar o formato "Top 10" e focar em uma única história contínua (início, meio e fim) gerando +1 minuto de narração fluida na voz *Nova* (TTS).
+2. **Design Visual Minimalista (Zero Legendas):** Todo o texto em HTML que aparecia na tela foi removido do payload de renderização.
+3. **Dinamismo Matemático (Retenção):** Para compensar a falta de legenda em um vídeo de 1 minuto, o nó `Aggregate_Scenes` (JavaScript) agora "fatia" o vídeo de fundo do Pexels em blocos de 5 segundos, aplicando efeitos alternados de movimento (`zoomIn`, `slideLeft`, `zoomOut`, `slideRight`).
+4. **Marca D'água Elegante:** A logo oficial (hospedada no Cloudinary) foi injetada no código como um `image asset`, com escala ajustada (`scale: 0.15`) e ancorada rigidamente no canto superior direito (`position: topRight`, `offset: -0.05`).
+
+### 🛠️ Resolução de Erros Críticos
+- **Quedas de Credenciais (Exclamações no n8n):** Detectado que atualizações estruturais nos nós HTTP Request apagaram o vínculo com as credenciais da OpenAI e Shotstack. **Solução:** Re-vinculação explícita do objeto `credentials` em todos os nós HTTP para restabelecer a conexão.
+- **Bloqueio da API do TikTok (403 Unaudited Client):**
+  - **O Problema:** O TikTok bloqueia envios públicos ou formatações ambíguas de privacidade para aplicativos não auditados (Sandbox). Enviar `MUTUAL_FOLLOW_FRIENDS` ou omitir o campo causava rejeição imediata da API.
+  - **Solução Técnica (Para Testes):** A imposição de `"privacy_level": "SELF_ONLY"` no JSON do `TikTok_Init_Upload` garante que a API receba a requisição de forma limpa, seguindo a regra estrita de "apps em Sandbox só postam no modo Privado".
+  - **Limpeza de Headers:** Um cabeçalho inválido (`video-url`) no nó do TikTok foi removido, pois violava as regras da REST API.
+  
+### 🚀 Status para Produção
+O aplicativo foi formalmente **enviado para Revisão (Audit) no TikTok Developer Portal**. 
+Assim que aprovado, a restrição de `unaudited_client` desaparecerá, permitindo postagens 100% públicas e automáticas direto do n8n para a conta do usuário. O workflow de testes end-to-end está validado e aguardando a bandeira verde do TikTok.
