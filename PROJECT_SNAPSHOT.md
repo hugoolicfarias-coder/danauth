@@ -1,72 +1,66 @@
-# 📁 Snapshot Atual: Danauth Digital Hub
+﻿# 📁 Base de Conhecimento & Snapshot: Danauth (danauth.info)
 
-Este documento serve como um registro permanente de tudo o que foi implementado e do estado atual do projeto (Varredura realizada em 20/04/2026 - Pós-migração Supabase).
-
----
-
-## 🎨 Identidade Visual & Branding (Super Branding)
-- **Logotipo:** Substituído de texto para imagem oficial em todas as páginas.
-- **Escalabilidade:** 
-  - Header: Altura ampliada para 130px (Logo a 100px) para máxima visibilidade.
-  - Rodapé: Logo com 110px de altura.
-  - Página de Login: Logo ampliado para 220px para impacto imediato.
-- **Favicon:** Atualizado para o ícone oficial da marca.
-- **Fundo Hero (Home):** Imagem tecnológica P&B personalizada com efeito matte (fosco), transparência controlada e fundo fixo (parallax).
+Este documento registra permanentemente todas as decisões de arquitetura, identidade visual, marcas do grupo, nichos de atuação, dados de contato e processos de deploy do projeto.
 
 ---
 
-## 🏗️ Estrutura de Páginas
-1.  **Home (`index.html`):** Portal principal com Hero futurista e pilares de serviços.
-2.  **Serviços (`services.html`):** Detalhamento de IA, Engenharia de Software e Automação.
-3.  **Danauth Shopping (`shopping.html`):** Vitrine de produtos digitais com grid moderno.
-4.  **AI Labs (`ai-labs.html`):** Laboratório de geração de imagens e vídeos via IA.
-5.  **Cinema Hub (`entertainment.html`):** Seção de entretenimento com fundo de vídeo (He-Man) e carrossel infinito.
-6.  **Preços (`pricing.html`):** Planos de assinatura e pacotes de créditos.
-7.  **Área do Cliente (`account.html`):** Painel logado para gestão de perfil e saldos.
-8.  **Login/Cadastro (`login.html`):** Fluxo de autenticação dual (Email/Google).
-9.  **Institucional:** Contato, Termos de Uso e Privacidade.
+## 🏢 1. Estrutura das Marcas & Empresas
+- **Danauth (`danauth.info`):** Marca e portal principal voltado para soluções de alta precisão em **Impressão 3D** e **Serviços Digitais**.
+- **Empresas por trás de Danauth (Grupo):**
+  1. **Tecsperts (`public/assets/brand/tecsperts.png`):** Empresa geral / agência de tecnologia, gestão e infraestrutura.
+  2. **Tecsform (`public/assets/brand/tecsform.png`):** Marca especializada na elaboração e criação de projetos 3D (CAD) e manufatura.
+- **Loja Online Oficial na Shopee (Tecsform 3D):**
+  - **URL:** `https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1`
+  - Apresentada no card de *Vendas em Impressão 3D* e no rodapé.
 
 ---
 
-## ⚙️ Arquitetura Técnica & Funcionalidades
-- **Sistema de Autenticação 2.0:**
-  - Integração com **n8n** como backend inteligente.
-  - Suporte a login por email (OTP no cadastro) e Google Sign-In.
-  - **Correção de Conexão:** Webhooks configurados para aceitar o método `OPTIONS` (CORS preflight).
-- **Gestão de Sessão:** `localStorage` sincronizado entre páginas para manter o usuário logado e mostrar créditos no header.
-- **Infraestrutura:** Projeto estruturado com **Vite** para desenvolvimento rápido e bundling eficiente.
-- **Base de Dados:** Supabase (PostgreSQL) integrado via n8n para gestão de usuários, tokens, gerações e créditos. (Airtable mantido como backup legado).
+## 🎯 2. Pilares de Atuação & Serviços Oferecidos
+
+### **Pilar 01: Universo 3D (`#impressao-3d`)**
+1. **Vendas em Impressão 3D:**
+   - Produção sob demanda de peças personalizadas, protótipos funcionais, maquetes arquitetônicas, peças técnicas de reposição, itens de decoração e colecionáveis.
+   - Botão direto para compra na **Shopee** e orçamento via WhatsApp.
+2. **Elaboração e Criação de Projetos em 3D:**
+   - Modelagem tridimensional em CAD a partir de ideias, medidas ou esboços.
+   - Exportação de arquivos industriais prontos para fabricação (STL, OBJ, STEP).
+
+### **Pilar 02: Web Design & Estratégia Digital (`#webdesign`)**
+3. **Criação de Sites:**
+   - Landing Pages de alta conversão e sites institucionais modernos, 100% responsivos para mobile e otimizados para SEO.
+4. **Artes para Empresas:**
+   - Design para redes sociais (Instagram, Facebook, carrosséis, stories, criativos de anúncios e banners promocionais).
+5. **Chatbots Inteligentes para WhatsApp e Instagram:**
+   - Automação de atendimento e vendas 24/7 com fluxos automáticos de orçamento e captação de leads.
 
 ---
 
-## ✅ Status de Estabilidade
-- **CORS:** Resolvido (Backend preparado para chamadas de navegador).
-- **Branding:** Aplicado e padronizado em 100% das páginas.
-- **Navegação:** Dinâmica (esconde/mostra botões de conta conforme o login).
+## 🎨 3. Design System & Identidade Visual (Tema Claro Tecnológico)
 
-> [!NOTE]
-> Este arquivo é um espelho do estado ideal do site após a transição bem-sucedida para o ecossistema Supabase.
+- **Fundo Principal (Amostra Mineral Solicitada):** `#E1E2DB` (Warm Mineral Light Gray).
+- **Cards & Superfícies:** `#FFFFFF` (Branco Puro com bordas sutis `rgba(10, 15, 29, 0.10)` e sombras elegantes).
+- **Tipografia & Contraste:** `#0A0F1D` (Ardósia Profunda) para títulos e `#2D3748` para corpo de texto.
+- **Gradientes de Alto Destaque nos Títulos:**
+  - `linear-gradient(135deg, #7c3aed 0%, #2563eb 45%, #0284c7 100%)`
+- **Cores de Destaque (Accents):**
+  - Roxo Elétrico: `#7C3AED`
+  - Azul Real: `#2563EB`
+  - Ciano Cyber: `#0284C7`
+  - Verde WhatsApp: `#25D366` / `#128C7E`
+  - Laranja Shopee: `#EE4D2D` / `#FF5722`
+- **Banner CTA:** Gradiente escuro de alto contraste (`linear-gradient(135deg, #0f172a, #1e1b4b)`) posicionado antes do rodapé.
+- **Rodapé:** Fundo mineral suave (`#d8d9d2`), título em negrito `Empresas por trás de Danauth` com as logos da **Tecsperts** e **Tecsform** em badges de alta visibilidade (`.partner-logo-pill`).
 
 ---
 
-## 📱 Automação TikTok (Top 10 Curioso) - Workflow Snapshot
-*Data de Atualização: 24/04/2026*
+## 📞 4. Contato Oficial
+- **WhatsApp:** `(82) 98758-4824`
+- **Link Direto:** `https://wa.me/5582987584824?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Danauth.`
 
-A arquitetura do workflow do TikTok foi radicalmente transformada para um formato focado em alta retenção sem legendas, seguido da resolução de bloqueios estritos da API Sandbox do TikTok.
+---
 
-### 🎬 Nova Estrutura do Vídeo (Shotstack & OpenAI)
-1. **Curiosidade Única Aprofundada:** O prompt do `Generate_Script` (OpenAI) foi ajustado para abandonar o formato "Top 10" e focar em uma única história contínua (início, meio e fim) gerando +1 minuto de narração fluida na voz *Nova* (TTS).
-2. **Design Visual Minimalista (Zero Legendas):** Todo o texto em HTML que aparecia na tela foi removido do payload de renderização.
-3. **Dinamismo Matemático (Retenção):** Para compensar a falta de legenda em um vídeo de 1 minuto, o nó `Aggregate_Scenes` (JavaScript) agora "fatia" o vídeo de fundo do Pexels em blocos de 5 segundos, aplicando efeitos alternados de movimento (`zoomIn`, `slideLeft`, `zoomOut`, `slideRight`).
-4. **Marca D'água Elegante:** A logo oficial (hospedada no Cloudinary) foi injetada no código como um `image asset`, com escala ajustada (`scale: 0.15`) e ancorada rigidamente no canto superior direito (`position: topRight`, `offset: -0.05`).
-
-### 🛠️ Resolução de Erros Críticos
-- **Quedas de Credenciais (Exclamações no n8n):** Detectado que atualizações estruturais nos nós HTTP Request apagaram o vínculo com as credenciais da OpenAI e Shotstack. **Solução:** Re-vinculação explícita do objeto `credentials` em todos os nós HTTP para restabelecer a conexão.
-- **Bloqueio da API do TikTok (403 Unaudited Client):**
-  - **O Problema:** O TikTok bloqueia envios públicos ou formatações ambíguas de privacidade para aplicativos não auditados (Sandbox). Enviar `MUTUAL_FOLLOW_FRIENDS` ou omitir o campo causava rejeição imediata da API.
-  - **Solução Técnica (Para Testes):** A imposição de `"privacy_level": "SELF_ONLY"` no JSON do `TikTok_Init_Upload` garante que a API receba a requisição de forma limpa, seguindo a regra estrita de "apps em Sandbox só postam no modo Privado".
-  - **Limpeza de Headers:** Um cabeçalho inválido (`video-url`) no nó do TikTok foi removido, pois violava as regras da REST API.
-  
-### 🚀 Status para Produção
-O aplicativo foi formalmente **enviado para Revisão (Audit) no TikTok Developer Portal**. 
-Assim que aprovado, a restrição de `unaudited_client` desaparecerá, permitindo postagens 100% públicas e automáticas direto do n8n para a conta do usuário. O workflow de testes end-to-end está validado e aguardando a bandeira verde do TikTok.
+## 🚀 5. Fluxo de Publicação & CI/CD
+- **Repositório GitHub:** `https://github.com/hugoolicfarias-coder/danauth.git`
+- **Branch de Produção:** `main`
+- **Hospedagem / Deploy:** **Vercel** (Deploy contínuo e automático a cada `git push origin main`).
+- **Domínio de Produção:** [https://www.danauth.info](https://www.danauth.info)
