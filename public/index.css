@@ -1,16 +1,16 @@
 :root {
-  /* Nuanced Dark Palette */
-  --bg-dark: #050505;
-  --bg-surface: #0a0a0a;
-  --bg-surface-light: rgba(255, 255, 255, 0.05);
+  /* Nuanced Modern Dark/Slate Palette (Clareado conforme solicitado) */
+  --bg-dark: #0e111a;
+  --bg-surface: #151824;
+  --bg-surface-light: rgba(255, 255, 255, 0.08);
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-secondary: rgba(255, 255, 255, 0.82);
   --accent: #bb86fc;
   --accent-secondary: #03dac6;
   --accent-shopping: #ff9900;
   --accent-cinema: #ff4d4d;
-  --border-light: rgba(255, 255, 255, 0.1);
-  --border-bright: rgba(255, 255, 255, 0.2);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-bright: rgba(255, 255, 255, 0.25);
   
   --radius-xl: 32px;
   --radius-lg: 20px;
@@ -37,8 +37,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   /* Subtle Radial Gradient for depth */
-  background-image: radial-gradient(circle at 50% 0%, rgba(187, 134, 252, 0.05) 0%, transparent 50%),
-                    radial-gradient(circle at 0% 100%, rgba(3, 218, 198, 0.03) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 50% 0%, rgba(187, 134, 252, 0.08) 0%, transparent 60%),
+                    radial-gradient(circle at 0% 100%, rgba(3, 218, 198, 0.05) 0%, transparent 60%),
+                    radial-gradient(circle at 100% 50%, rgba(238, 77, 45, 0.03) 0%, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -1428,6 +1429,201 @@ url('/assets/home-hero-v2.png');
   position: relative;
   z-index: 1;
 }
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.icon-box-modern {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.service-card-modern.digital-card .icon-box-modern {
+  color: var(--accent-secondary);
+}
+
+.service-card-modern:hover .icon-box-modern {
+  background: rgba(187, 134, 252, 0.15);
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+
+.service-card-modern.digital-card:hover .icon-box-modern {
+  background: rgba(3, 218, 198, 0.15);
+  border-color: var(--accent-secondary);
+}
+
+.service-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.service-card-modern h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.service-card-modern p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Service Tags List */
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tag-pill {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Steps / Workflow */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--accent-secondary);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.step-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Big CTA Banner */
+.cta-banner {
+  background: radial-gradient(circle at 50% 0%, rgba(187, 134, 252, 0.15) 0%, rgba(3, 218, 198, 0.08) 50%, rgba(10, 10, 10, 0.9) 100%), #0d0d11;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 4.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.cta-banner h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.cta-banner p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: #fff;
+}
+
+.btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Glow button */
+.btn-glow {
+  position: relative;
+  z-index: 1;
+}
 
 .btn-glow:hover {
   box-shadow: 0 0 25px rgba(187, 134, 252, 0.5);
@@ -1448,4 +1644,82 @@ url('/assets/home-hero-v2.png');
     font-size: 0.78rem;
     padding: 0.5rem 0.9rem;
   }
+}
+
+/* Shopee Button */
+.btn-shopee {
+  background: linear-gradient(135deg, #EE4D2D, #FF5722);
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(238, 77, 45, 0.35);
+  margin-top: 1rem;
+}
+
+.btn-shopee:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(238, 77, 45, 0.55);
+  color: #ffffff !important;
+}
+
+.btn-shopee svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Partner Brands in Footer */
+.partner-brands-container {
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.partner-brands-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.partner-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  height: 40px;
+}
+
+.partner-logo-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.partner-logo-pill img {
+  height: 26px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
 }
