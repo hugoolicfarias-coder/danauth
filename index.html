@@ -1,391 +1,297 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Danauth - Especialistas em Impressão 3D, Criação de Projetos 3D, Criação de Sites, Artes para Redes Sociais e Chatbots para WhatsApp e Instagram.">
-  <title>Danauth | Impressão 3D, Web Design & Automação</title>
+  <title>Danauth - Impressão 3D & Soluções Digitais</title>
+  <meta name="description" content="Modelagem e impressão 3D de alta precisão, criação de sites profissionais, artes corporativas e chatbots para o seu negócio.">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/index.css">
-  <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
-  <!-- Header / Navigation -->
-  <header id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo">
-        <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
       </a>
-      
-      <ul class="nav-links" id="nav-links">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="#impressao-3d">Impressão 3D</a></li>
-        <li><a href="#webdesign">Web Design & Artes</a></li>
-        <li><a href="#chatbots">Chatbots</a></li>
-        <li><a href="#como-funciona">Como Funciona</a></li>
-        <li><a href="/contact.html">Contato</a></li>
-      </ul>
 
-      <div class="auth-buttons" id="header-auth-buttons">
-        <a href="https://wa.me/5582987584824?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Danauth." target="_blank" class="btn btn-primary btn-glow" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">
-          Solicitar Orçamento
-        </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link">Contato</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/contact.html" class="btn btn-primary header-btn-desktop">Solicitar Orçamento</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
-
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="container hero-content">
-        <span class="section-label reveal">✨ Impressão 3D & Soluções Digitais</span>
-        <h1 class="reveal">Transforme Ideias em Realidade com <span>Impressão 3D</span> & <span>Web Design</span></h1>
-        <p class="reveal" style="margin: 0 auto 2.5rem; max-width: 780px;">
-          Modelagem e impressão 3D de alta precisão, criação de sites profissionais, artes exclusivas para redes sociais e chatbots automatizados para o seu negócio.
-        </p>
-        
-        <div class="hero-btns reveal" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="https://wa.me/5582987584824?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Danauth." target="_blank" class="btn-whatsapp">
-            <svg viewBox="0 0 24 24">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.54 1.861.823 2.796.824h.005c3.179 0 5.766-2.587 5.767-5.768.001-1.54-.598-2.986-1.687-4.077-1.091-1.092-2.536-1.692-4.085-1.692zm9.969 5.768c0 5.519-4.481 10-10 10-1.745 0-3.385-.45-4.821-1.241l-5.179 1.357 1.382-5.051c-.886-1.492-1.382-3.232-1.382-5.065 0-5.519 4.481-10 10-10s10 4.481 10 10z"/>
-            </svg>
-            Falar no WhatsApp
-          </a>
-          <a href="#impressao-3d" class="btn btn-outline">Conhecer Serviços</a>
-        </div>
-
-        <!-- Quick Highlights Chips -->
-        <div class="highlights-bar reveal">
-          <div class="highlight-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
-            Vendas em Impressão 3D
-          </div>
-          <div class="highlight-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            Criação de Projetos 3D
-          </div>
-          <div class="highlight-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-            Criação de Sites
-          </div>
-          <div class="highlight-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>
-            Artes para Redes Sociais
-          </div>
-          <div class="highlight-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            Chatbots Inteligentes
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PILAR 01: IMPRESSÃO & PROJETOS 3D -->
-    <section id="impressao-3d" style="border-top: 1px solid var(--border-light);">
-      <div class="container">
-        <div class="section-title reveal">
-          <span class="section-label pillar-badge-3d">Pilar 01 • Universo 3D</span>
-          <h2>Impressão 3D & <span>Projetos Sob Medida</span></h2>
-          <p>Da concepção virtual ao produto físico acabado com máxima precisão, resistência e fidelidade aos detalhes.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem;">
+    <section class="section-padding" style="border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 24px; max-width: 680px;">
+          <span class="chip" style="width: fit-content;">Impressão 3D & Soluções Digitais</span>
+          <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; color: var(--text-primary);">
+            Transforme suas ideias em realidade
+          </h1>
+          <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.6;">
+            Modelagem e impressão 3D de alta precisão, criação de sites profissionais, artes para redes sociais e chatbots automatizados para o seu negócio.
+          </p>
           
-          <!-- Card 1: Vendas em Impressão 3D -->
-          <div class="service-card-modern reveal">
-            <div>
-              <div class="card-top">
-                <div class="icon-box-modern">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 9V2h12v7"></path>
-                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                    <path d="M6 14h12v8H6z"></path>
-                  </svg>
-                </div>
-                <span class="service-badge">Manufatura & Peças</span>
-              </div>
-              <h3>Vendas em Impressão 3D</h3>
-              <p>Produção de peças personalizadas sob demanda com acabamento premium e materiais resistentes. Ideal para prototipagem rápida, peças técnicas para reposição, maquetes, itens decorativos e action figures colecionáveis.</p>
-              
-              <div style="margin: 1.2rem 0;">
-                <a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" target="_blank" class="btn-shopee">
-                  <svg viewBox="0 0 24 24"><path d="M19.5 7h-2.1a5.4 5.4 0 0 0-10.8 0H4.5a1.5 1.5 0 0 0-1.5 1.5l1.2 11.2A3 3 0 0 0 7.2 22h9.6a3 3 0 0 0 3-2.3l1.2-11.2A1.5 1.5 0 0 0 19.5 7zm-7.5-3.6a3.6 3.6 0 0 1 3.6 3.6h-7.2a3.6 3.6 0 0 1 3.6-3.6zm5.7 15.3a1.2 1.2 0 0 1-1.2 1.1H7.2a1.2 1.2 0 0 1-1.2-1.1L4.85 8.8h14.3z"/></svg>
-                  Visite Nossa Loja na Shopee
-                </a>
-              </div>
-            </div>
-            <div class="service-tags">
-              <span class="tag-pill">Prototipagem Rápida</span>
-              <span class="tag-pill">Peças Técnicas</span>
-              <span class="tag-pill">Colecionáveis & Decoração</span>
-              <span class="tag-pill">Loja Shopee Online</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Criação e Elaboração de Projetos 3D -->
-          <div class="service-card-modern reveal">
-            <div>
-              <div class="card-top">
-                <div class="icon-box-modern">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                  </svg>
-                </div>
-                <span class="service-badge">Modelagem & CAD</span>
-              </div>
-              <h3>Elaboro e Crio o Projeto em 3D</h3>
-              <p>Transformamos sua ideia, esboço ou necessidade técnica em um modelo digital tridimensional perfeito. Desenvolvemos arquivos otimizados prontos para impressão 3D (STL, OBJ, STEP) ou renderização visual.</p>
-            </div>
-            <div class="service-tags">
-              <span class="tag-pill">Modelagem CAD</span>
-              <span class="tag-pill">Do Esboço ao Arquivo</span>
-              <span class="tag-pill">Otimização Estrutural</span>
-              <span class="tag-pill">Exportação STL / STEP</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PILAR 02: WEB DESIGN, ARTES & CHATBOTS -->
-    <section id="webdesign" style="border-top: 1px solid var(--border-light);">
-      <div class="container">
-        <div class="section-title reveal">
-          <span class="section-label pillar-badge-digital">Pilar 02 • Presença & Estratégia Digital</span>
-          <h2>Serviços de <span>Web Designer & Automação</span></h2>
-          <p>Tudo o que sua marca precisa para se posicionar com autoridade, atrair clientes e automatizar o atendimento.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2rem;">
-          
-          <!-- Card 1: Criação de Sites -->
-          <div class="service-card-modern digital-card reveal">
-            <div>
-              <div class="card-top">
-                <div class="icon-box-modern">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                  </svg>
-                </div>
-                <span class="service-badge">Web Development</span>
-              </div>
-              <h3>Criação de Sites</h3>
-              <p>Desenvolvimento de Landing Pages de alta conversão, sites institucionais modernos e páginas comerciais elegantes. Carregamento ultra rápido, design responsivo para celular e otimização para o Google (SEO).</p>
-            </div>
-            <div class="service-tags">
-              <span class="tag-pill">Landing Pages</span>
-              <span class="tag-pill">Sites Institucionais</span>
-              <span class="tag-pill">100% Responsivo</span>
-              <span class="tag-pill">Otimizado para SEO</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Artes para Empresas -->
-          <div class="service-card-modern digital-card reveal">
-            <div>
-              <div class="card-top">
-                <div class="icon-box-modern">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <circle cx="12" cy="12" r="4"></circle>
-                    <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
-                    <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
-                    <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
-                    <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
-                  </svg>
-                </div>
-                <span class="service-badge">Social Media & Design</span>
-              </div>
-              <h3>Artes para Empresas</h3>
-              <p>Criação de peças gráficas de alto impacto para postagens no Instagram, Facebook, banners promocionais e criativos para anúncios. Fortaleça sua identidade visual e aumente o engajamento do seu público.</p>
-            </div>
-            <div class="service-tags">
-              <span class="tag-pill">Posts para Instagram & Facebook</span>
-              <span class="tag-pill">Carrosséis & Stories</span>
-              <span class="tag-pill">Banners Promocionais</span>
-              <span class="tag-pill">Identidade Visual</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Chatbot para WhatsApp & Instagram -->
-          <div class="service-card-modern digital-card reveal" id="chatbots">
-            <div>
-              <div class="card-top">
-                <div class="icon-box-modern">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                </div>
-                <span class="service-badge">Automação 24/7</span>
-              </div>
-              <h3>Chatbot para WhatsApp & Instagram</h3>
-              <p>Atendimento automático e inteligente 24 horas por dia. Responda clientes de forma instantânea, envie cardápios/orçamentos, tire dúvidas frequentes e capte contatos qualificados sem perder nenhuma venda.</p>
-            </div>
-            <div class="service-tags">
-              <span class="tag-pill">WhatsApp Business</span>
-              <span class="tag-pill">Direct do Instagram</span>
-              <span class="tag-pill">Atendimento 24/7</span>
-              <span class="tag-pill">Captação Automática de Leads</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- COMO FUNCIONA O PROCESSO -->
-    <section id="como-funciona" style="border-top: 1px solid var(--border-light);">
-      <div class="container">
-        <div class="section-title reveal">
-          <span class="section-label">Passo a Passo</span>
-          <h2>Como Funciona o <span>Nosso Processo</span></h2>
-          <p>Um fluxo simples, rápido e transparente para você acompanhar cada etapa do seu projeto.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card reveal">
-            <div class="step-number">01</div>
-            <h4>Briefing & Ideação</h4>
-            <p>Você nos conta sua necessidade: uma peça 3D para imprimir, um projeto para modelar, um site ou artes para sua empresa.</p>
-          </div>
-
-          <div class="step-card reveal">
-            <div class="step-number">02</div>
-            <h4>Planejamento & Design</h4>
-            <p>Elaboramos a modelagem 3D técnica ou a estrutura visual do site/artes, alinhando todos os detalhes com você.</p>
-          </div>
-
-          <div class="step-card reveal">
-            <div class="step-number">03</div>
-            <h4>Produção & Testes</h4>
-            <p>Imprimimos a peça em alta resolução ou programamos e configuramos o site e os fluxos de chatbot com total rigor.</p>
-          </div>
-
-          <div class="step-card reveal">
-            <div class="step-number">04</div>
-            <h4>Entrega & Sucesso</h4>
-            <p>Peça física pronta e enviada com acabamento impecável, ou suas soluções digitais ativas gerando clientes e vendas.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BANNER CTA DE CONVERSÃO -->
-    <section id="contato" style="padding-top: 4rem; padding-bottom: 8rem;">
-      <div class="container">
-        <div class="cta-banner reveal">
-          <h2>Pronto para Tirar sua Ideia do Papel?</h2>
-          <p>Seja para criar e imprimir uma peça em 3D ou para transformar a presença digital da sua empresa com sites, artes e chatbots, estamos prontos para te ajudar.</p>
-          
-          <div class="cta-actions">
-            <a href="https://wa.me/5582987584824?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20projeto." target="_blank" class="btn-whatsapp">
-              <svg viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.54 1.861.823 2.796.824h.005c3.179 0 5.766-2.587 5.767-5.768.001-1.54-.598-2.986-1.687-4.077-1.091-1.092-2.536-1.692-4.085-1.692zm9.969 5.768c0 5.519-4.481 10-10 10-1.745 0-3.385-.45-4.821-1.241l-5.179 1.357 1.382-5.051c-.886-1.492-1.382-3.232-1.382-5.065 0-5.519 4.481-10 10-10s10 4.481 10 10z"/>
-              </svg>
-              Solicitar Orçamento no WhatsApp
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px;">
+            <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+              <span class="material-symbols-outlined fill-1">forum</span>
+              Fale no WhatsApp
             </a>
-            <a href="/contact.html" class="btn btn-outline">Falar via Formulário</a>
+            <a href="/services.html" class="btn btn-secondary btn-lg">
+              Conhecer Serviços
+            </a>
+          </div>
+
+          <div class="chip-group" style="margin-top: 16px;">
+            <span class="chip">Impressão 3D</span>
+            <span style="color: #ccc;">·</span>
+            <span class="chip">Projetos CAD</span>
+            <span style="color: #ccc;">·</span>
+            <span class="chip">Sites</span>
+            <span style="color: #ccc;">·</span>
+            <span class="chip">Artes</span>
+            <span style="color: #ccc;">·</span>
+            <span class="chip">Chatbots</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 3D Printing Section -->
+    <section class="section-padding" style="background-color: var(--bg-surface-1); border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: flex; flex-direction: column; gap: 40px;">
+        <div>
+          <h2 style="font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 8px;">
+            Do digital ao físico com máxima precisão
+          </h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px;">
+            Soluções completas em manufatura aditiva para prototipagem rápida e produção de peças finais.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-2">
+          <!-- Card 1: 3D Sales -->
+          <div class="card card-hover">
+            <div class="card-icon-wrapper">
+              <span class="material-symbols-outlined">print</span>
+            </div>
+            <h3 class="card-title">Vendas em Impressão 3D</h3>
+            <p class="card-description">
+              Produção de peças personalizadas sob demanda com materiais de alta qualidade e excelente resistência mecânica.
+            </p>
+            <a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" 
+               target="_blank" rel="noopener" 
+               style="color: var(--shopee-orange); font-weight: 600; font-size: 0.9375rem; display: inline-flex; align-items: center; gap: 6px; margin-top: 24px;">
+              Visitar Loja na Shopee <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Card 2: 3D CAD Projects -->
+          <div class="card card-hover">
+            <div class="card-icon-wrapper">
+              <span class="material-symbols-outlined">view_in_ar</span>
+            </div>
+            <h3 class="card-title">Elaboração de Projetos 3D</h3>
+            <p class="card-description">
+              Transformamos sua ideia em projetos prontos para fabricação. Entrega de arquivos otimizados (STL, OBJ, STEP).
+            </p>
+            <a href="/contact.html" style="color: var(--accent-blue); font-weight: 600; font-size: 0.9375rem; display: inline-flex; align-items: center; gap: 6px; margin-top: 24px;">
+              Solicitar Orçamento 3D <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web & Digital Section -->
+    <section class="section-padding" style="border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="text-align: center; max-width: 650px; margin-left: auto; margin-right: auto;">
+          <h2 style="font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 8px;">
+            Presença digital que gera resultados
+          </h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary);">
+            Ecossistema completo para fortalecer a imagem da sua empresa no ambiente online.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-3">
+          <div class="card card-hover" style="text-align: center; align-items: center;">
+            <div class="card-icon-wrapper">
+              <span class="material-symbols-outlined">web</span>
+            </div>
+            <h3 class="card-title">Criação de Sites</h3>
+            <p class="card-description">
+              Landing pages e sites institucionais modernos, rápidos e otimizados para conversão e SEO.
+            </p>
+          </div>
+
+          <div class="card card-hover" style="text-align: center; align-items: center;">
+            <div class="card-icon-wrapper">
+              <span class="material-symbols-outlined">palette</span>
+            </div>
+            <h3 class="card-title">Artes para Empresas</h3>
+            <p class="card-description">
+              Identidade visual corporativa e criativos gráficos de alto impacto para redes sociais.
+            </p>
+          </div>
+
+          <div class="card card-hover" style="text-align: center; align-items: center;">
+            <div class="card-icon-wrapper">
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
+            <h3 class="card-title">Chatbots Automatizados</h3>
+            <p class="card-description">
+              Atendimento 24/7 inteligente e automatizado integrado ao WhatsApp e Instagram.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section-padding" id="como-funciona" style="background-color: var(--bg-surface-1); border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: flex; flex-direction: column; gap: 48px;">
+        <div style="text-align: center;">
+          <h2 style="font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary);">
+            Como funciona
+          </h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary); margin-top: 8px;">
+            Processo transparente e estruturado do briefing à entrega final.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-4">
+          <div class="card" style="position: relative; border-color: var(--border-subtle);">
+            <div class="step-number">01</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; z-index: 1;">Briefing</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); z-index: 1;">
+              Entendemos detalhadamente suas necessidades e objetivos.
+            </p>
+          </div>
+
+          <div class="card" style="position: relative; border-color: var(--border-subtle);">
+            <div class="step-number">02</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; z-index: 1;">Planejamento</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); z-index: 1;">
+              Definição técnica do escopo, materiais, protótipos e prazos.
+            </p>
+          </div>
+
+          <div class="card" style="position: relative; border-color: var(--border-subtle);">
+            <div class="step-number">03</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; z-index: 1;">Produção</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); z-index: 1;">
+              Execução com rigor de qualidade e validações contínuas.
+            </p>
+          </div>
+
+          <div class="card" style="position: relative; border-color: var(--border-subtle);">
+            <div class="step-number">04</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; z-index: 1;">Entrega</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); z-index: 1;">
+              Entrega do produto final polido, testado e pronto para uso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="section-padding" style="background-color: var(--text-primary); color: #ffffff;">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+        <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em;">
+          Pronto para tirar sua ideia do papel?
+        </h2>
+        <p style="font-size: 1.125rem; color: #a1a1aa; max-width: 600px;">
+          Fale com nossa equipe técnica hoje mesmo e descubra como podemos acelerar seus resultados.
+        </p>
+        <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg" style="margin-top: 12px;">
+          <span class="material-symbols-outlined fill-1">forum</span>
+          Iniciar Projeto no WhatsApp
+        </a>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
-        <div class="footer-col reveal">
-          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">
-            <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
-          </a>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 320px;">
-            Soluções completas em Impressão 3D, Projetos CAD, Criação de Sites Profissionais, Artes para Empresas e Chatbots Inteligentes.
-          </p>
-
-          <!-- Logos das Empresas do Grupo -->
-          <div class="partner-brands-container">
-            <div class="partner-brands-title">Empresas por trás de Danauth</div>
-            <div class="partner-logos">
-              <div class="partner-logo-pill" title="Tecsperts - Soluções em Tecnologia & Gestão Geral">
-                <img src="/assets/brand/tecsperts.png" alt="Tecsperts Logo">
-              </div>
-              <div class="partner-logo-pill" title="Tecsform - Criação de Projetos 3D & Manufatura">
-                <img src="/assets/brand/tecsform.png" alt="Tecsform Logo">
-              </div>
-            </div>
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      
+      <!-- Brand & Partner Companies -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
+        
+        <div style="margin-top: 12px;">
+          <p class="partner-section-title">Empresas por trás de Danauth</p>
+          <div class="partner-logo-container">
+            <img src="/assets/brand/tecsform.png" alt="Tecsform 3D" class="partner-logo-img" title="Tecsform 3D">
+            <img src="/assets/brand/tecsperts.png" alt="Tecsperts" class="partner-logo-img" title="Tecsperts">
           </div>
         </div>
-
-        <div class="footer-col reveal">
-          <h4>Soluções 3D</h4>
-          <ul>
-            <li><a href="#impressao-3d">Vendas em Impressão 3D</a></li>
-            <li><a href="#impressao-3d">Criação de Projetos 3D</a></li>
-            <li><a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" target="_blank" style="color: #FF5722; font-weight: 600;">🛍️ Loja na Shopee (Tecsform 3D)</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal">
-          <h4>Web & Digital</h4>
-          <ul>
-            <li><a href="#webdesign">Criação de Sites</a></li>
-            <li><a href="#webdesign">Artes para Redes Sociais</a></li>
-            <li><a href="#chatbots">Chatbots WhatsApp & Insta</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal">
-          <h4>Atendimento</h4>
-          <ul>
-            <li><a href="https://wa.me/5582987584824" target="_blank">WhatsApp: (82) 98758-4824</a></li>
-            <li><a href="/contact.html">Página de Contato</a></li>
-            <li><a href="/terms.html">Termos de Uso</a></li>
-            <li><a href="/privacy.html">Privacidade</a></li>
-          </ul>
-        </div>
       </div>
 
-      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
-        <p>&copy; 2026 Danauth. Todos os direitos reservados. Impressão 3D & Soluções Digitais.</p>
+      <!-- Quick Links: Soluções 3D -->
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Soluções 3D</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Modelagem CAD</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Prototipagem Rápida</a>
+        <a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" target="_blank" rel="noopener" style="font-size: 0.9rem; color: var(--shopee-orange); font-weight: 600;">Loja na Shopee</a>
       </div>
+
+      <!-- Quick Links: Web & Digital -->
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Web & Digital</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Desenvolvimento Web</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Design Gráfico</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Chatbots e Automação</a>
+      </div>
+
+      <!-- Legal & Contact -->
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--text-secondary);">Política de Privacidade</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
+      <p>Desenvolvido com excelência técnica.</p>
     </div>
   </footer>
 
-  <!-- Authie Chat Agent (Floating Bubble) -->
-  <div class="chat-bubble" id="chat-bubble">
-    <img src="/assets/authie.png" alt="Danauth Chat">
-  </div>
-  <div class="chat-window" id="chat-window">
-    <div class="chat-header">
-      <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
-        <img src="/assets/authie.png" alt="Danauth Suporte" style="width: 100%; height: 100%; object-fit: cover;">
-      </div>
-      <div>
-        <div style="font-weight: 700; font-size: 0.95rem;">Danauth Suporte</div>
-        <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
-          <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
-        </div>
-      </div>
-    </div>
-    <div class="chat-messages"></div>
-    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
-      <input type="text" placeholder="Como posso te ajudar?" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: 12px; color: white; outline: none; font-size: 0.9rem;">
-    </div>
-  </div>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
 
-  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

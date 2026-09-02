@@ -1,166 +1,145 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacidade | Danauth Digital</title>
+  <title>Política de Privacidade - Danauth</title>
+  <meta name="description" content="Política de privacidade e proteção de dados pessoais da Danauth.">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/index.css">
-  <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
-  <header id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo">
-        <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li class="nav-item">
-          <a href="/services.html">Serviços</a>
-          <ul class="dropdown">
-            <li><a href="/services.html#web">Desenvolvimento Web</a></li>
-            <li><a href="/services.html#software">Engenharia de Software</a></li>
-            <li><a href="/services.html#automation">Automações de IA</a></li>
-          </ul>
-        </li>
-        <li><a href="/shopping.html">Shopping</a></li>
-        <li class="nav-item">
-          <a href="/ai-labs.html">AI Labs</a>
-          <ul class="dropdown">
-            <li><a href="/ai-labs.html#images">Geração de Imagens</a></li>
-            <li><a href="/ai-labs.html#videos">Produção de Vídeo IA</a></li>
-          </ul>
-        </li>
-        <li><a href="/entertainment.html">Cinema</a></li>
-        <li><a href="/contact.html">Contato</a></li>
-      </ul>
-      <div class="auth-buttons" id="header-auth-buttons">
-        <a href="/login.html" class="login-link">Log in</a>
-        <a href="/login.html" class="btn-signup">Sign up</a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="/index.html#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link">Contato</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/contact.html" class="btn btn-primary header-btn-desktop">Solicitar Orçamento</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
     </div>
   </header>
 
-  <main style="padding-top: var(--header-height);">
-    <section class="container" style="padding: 6rem 0;">
-      <div class="glass" style="padding: 4rem; border-radius: var(--radius-xl);">
-        <h1 style="margin-bottom: 2rem;">Política de <span>Privacidade</span></h1>
+  <main class="section-padding" style="background-color: var(--bg-surface-1);">
+    <div class="container" style="max-width: 840px;">
+      <div class="card" style="padding: 40px; background-color: var(--bg-main);">
         
-        <div class="legal-content" style="color: var(--text-secondary); line-height: 1.8;">
-          <p>Última atualização: 30 de Abril de 2026</p>
-          <br>
-          <p>A Danauth Digital Hub ("nós", "nosso") leva a sua privacidade a sério. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você utiliza nosso site e nossos aplicativos ("Serviços"), incluindo nossa integração com a API do TikTok e outras plataformas de terceiros.</p>
-          
-          <br>
-          <h3 style="color: #fff;">1. Informações que Coletamos</h3>
-          <p><strong>1.1. Dados Fornecidos por Você:</strong> Coletamos informações de contato (como nome e e-mail) quando você preenche formulários em nosso site.</p>
-          <p><strong>1.2. Dados de Integração com o TikTok:</strong> Quando você utiliza nossas automações que se conectam ao TikTok, podemos coletar e processar dados por meio da API do TikTok. Isso inclui, com a sua autorização expressa, seu nome de usuário, tokens de acesso (OAuth) para publicação, ID do usuário, informações de perfil público e dados analíticos básicos. Não coletamos senhas do TikTok.</p>
-          <p><strong>1.3. Dados de Uso:</strong> Coletamos informações automáticas sobre como você interage com nossos Serviços, incluindo endereço IP, tipo de navegador, páginas visitadas e tempo de permanência.</p>
+        <header style="border-bottom: 1px solid var(--border-light); padding-bottom: 24px; margin-bottom: 32px;">
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 8px;">
+            Política de Privacidade
+          </h1>
+          <p style="font-size: 0.95rem; color: var(--text-secondary);">Última atualização: 2026</p>
+        </header>
 
-          <br>
-          <h3 style="color: #fff;">2. Como Usamos Suas Informações</h3>
-          <p>Utilizamos suas informações para:</p>
-          <ul style="margin-left: 20px; list-style-type: disc;">
-            <li>Fornecer, operar e manter nossos Serviços;</li>
-            <li>Autenticar seu acesso e publicar conteúdos autorizados nas plataformas vinculadas (ex.: postar vídeos no TikTok em seu nome por meio de automações aprovadas);</li>
-            <li>Melhorar, personalizar e expandir nossos Serviços;</li>
-            <li>Compreender e analisar como você usa nossos Serviços;</li>
-            <li>Comunicar-nos com você para suporte ao cliente e atualizações importantes.</li>
-          </ul>
+        <article class="prose">
+          <p>
+            Na Danauth, tratamos suas informações pessoais com o mais alto nível de sigilo e segurança. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos seus dados ao contratar nossos serviços de impressão 3D e desenvolvimento digital.
+          </p>
 
-          <br>
-          <h3 style="color: #fff;">3. Retenção e Exclusão de Dados</h3>
-          <p><strong>3.1. Retenção:</strong> Reteremos suas informações pessoais, incluindo dados obtidos via APIs de terceiros (como TikTok), apenas pelo tempo necessário para cumprir os propósitos descritos nesta Política de Privacidade ou conforme exigido por lei. Os tokens de acesso são armazenados com segurança e utilizados estritamente para manter a conexão autorizada.</p>
-          <p><strong>3.2. Solicitação de Exclusão (Direito ao Esquecimento):</strong> Você tem o direito de solicitar a exclusão imediata de todos os seus dados pessoais, incluindo tokens de acesso e informações vinculadas a contas de terceiros (como o TikTok). Para solicitar a exclusão completa dos seus dados, entre em contato conosco através do e-mail <strong>suporte@danauth.com</strong> (ou pelo formulário de contato). Responderemos à sua solicitação em até 72 horas, removendo permanentemente suas informações de nossos servidores e bancos de dados.</p>
-          <p><strong>3.3. Revogação de Acesso:</strong> Você também pode revogar o acesso da Danauth à sua conta do TikTok diretamente nas configurações de segurança e aplicativos da sua conta do TikTok a qualquer momento.</p>
+          <section>
+            <h2>1. Coleta de Dados</h2>
+            <p>Coletamos dados fornecidos diretamente por você ao solicitar um orçamento ou atendimento:</p>
+            <ul>
+              <li>Informações de contato (Nome, WhatsApp, E-mail).</li>
+              <li>Arquivos digitais (projetos CAD, modelos 3D em STL/STEP) enviados para prototipagem ou produção.</li>
+              <li>Dados para emissão de faturamento e entrega logística.</li>
+            </ul>
+          </section>
 
-          <br>
-          <h3 style="color: #fff;">4. Compartilhamento de Informações</h3>
-          <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando necessário para fornecer nossos Serviços (como provedores de hospedagem em nuvem que seguem rígidos padrões de segurança) ou quando exigido por lei.</p>
+          <section>
+            <h2>2. Uso das Informações</h2>
+            <p>Seus dados são utilizados exclusivamente para:</p>
+            <ul>
+              <li>Processar pedidos, orçamentos e fabricação de peças 3D.</li>
+              <li>Comunicação direta sobre o status do serviço contratado.</li>
+              <li>Aprimoramento contínuo da qualidade dos nossos serviços.</li>
+            </ul>
+          </section>
 
-          <br>
-          <h3 style="color: #fff;">5. Segurança</h3>
-          <p>Implementamos rigorosas medidas de segurança técnicas e organizacionais (incluindo criptografia) para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição. No entanto, nenhum método de transmissão pela Internet é 100% seguro.</p>
+          <section>
+            <h2>3. Compartilhamento e Sigilo</h2>
+            <p>
+              Seus dados e arquivos de projetos 3D são mantidos em estrito sigilo. O compartilhamento ocorre apenas com nossas empresas parceiras integradas, <strong>Tecsform 3D</strong> e <strong>Tecsperts</strong>, quando necessário para a execução conjunta do projeto sob rígido acordo de confidencialidade (NDA).
+            </p>
+          </section>
 
-          <br>
-          <h3 style="color: #fff;">6. Conformidade (LGPD e APIs de Terceiros)</h3>
-          <p>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil e com os rigorosos requisitos de privacidade e segurança estipulados pelas plataformas parceiras, incluindo os Termos de Desenvolvedor e a Política de Privacidade da API do TikTok. Reiteramos que a Danauth é uma aplicação independente e não é endossada, certificada ou afiliada ao TikTok Inc.</p>
+          <section>
+            <h2>4. Segurança da Informação</h2>
+            <p>Utilizamos padrões de segurança corporativa para armazenar seus arquivos técnicos e dados em ambiente seguro, protegendo contra acessos não autorizados.</p>
+          </section>
+
+          <section>
+            <h2>5. Direitos do Usuário (LGPD)</h2>
+            <p>Você tem o direito de solicitar a confirmação, acesso, correção ou exclusão dos seus dados pessoais armazenados em nosso banco de dados a qualquer momento entrando em contato pelo nosso atendimento.</p>
+          </section>
+        </article>
+
+        <div style="margin-top: 48px; pt-24; border-top: 1px solid var(--border-light); text-align: center;">
+          <p class="partner-section-title">Empresas por trás de Danauth</p>
+          <div class="partner-logo-container" style="justify-content: center; gap: 32px;">
+            <img src="/assets/brand/tecsform.png" alt="Tecsform 3D" class="partner-logo-img" style="height: 38px;">
+            <img src="/assets/brand/tecsperts.png" alt="Tecsperts" class="partner-logo-img" style="height: 38px;">
+          </div>
         </div>
+
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col reveal">
-          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">
-            <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
-          </a>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevando negócios ao próximo nível através de inteligência artificial aplicada e engenharia de software premium.</p>
-          <div class="social-links">
-            <a href="#" class="social-icon">𝕏</a>
-            <a href="#" class="social-icon">In</a>
-            <a href="#" class="social-icon">Ig</a>
-          </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
         </div>
-        <div class="footer-col reveal">
-          <h4>Plataforma</h4>
-          <ul>
-            <li><a href="/services.html">Nossas Soluções</a></li>
-            <li><a href="/shopping.html">Danauth Shopping</a></li>
-            <li><a href="/ai-labs.html">AI Labs Gallery</a></li>
-            <li><a href="/entertainment.html">Cine Hub</a></li>
-          </ul>
-        </div>
-        <div class="footer-col reveal">
-          <h4>Empresa</h4>
-          <ul>
-            <li><a href="/contact.html">Falar com Consultor</a></li>
-            <li><a href="/terms.html">Termos de Uso</a></li>
-            <li><a href="/privacy.html">Privacidade</a></li>
-          </ul>
-        </div>
-        <div class="footer-col reveal">
-          <h4>Newsletter</h4>
-          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Receba novidades semanais sobre IA e Tech.</p>
-          <div class="newsletter-box">
-            <input type="email" placeholder="Seu e-mail">
-            <button class="btn btn-primary" style="padding: 0 1.5rem; border-radius: 10px; font-size: 0.8rem;">Assinar</button>
-          </div>
-        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
       </div>
-      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
-        <p>&copy; 2026 Danauth Digital Hub. Todos os direitos reservados.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Soluções 3D</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Modelagem CAD</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Prototipagem Rápida</a>
       </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--accent-blue); font-weight: 600;">Política de Privacidade</a>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Authie Chat Agent (Floating Bubble) -->
-  <div class="chat-bubble" id="chat-bubble">
-    <img src="/assets/authie.png" alt="Authie IA">
-  </div>
-  <div class="chat-window" id="chat-window">
-    <div class="chat-header">
-      <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
-        <img src="/assets/authie.png" alt="Authie" style="width: 100%; height: 100%; object-fit: cover;">
-      </div>
-      <div>
-        <div style="font-weight: 700; font-size: 0.95rem;">Authie AI</div>
-        <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
-          <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
-        </div>
-      </div>
-    </div>
-    <div class="chat-messages"></div>
-    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
-      <input type="text" placeholder="Como posso te ajudar?" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: 12px; color: white; outline: none; font-size: 0.9rem;">
-    </div>
-  </div>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
 
-  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

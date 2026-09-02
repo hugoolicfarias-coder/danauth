@@ -1,159 +1,196 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato | Danauth</title>
+  <title>Contato - Iniciar um Projeto | Danauth</title>
+  <meta name="description" content="Entre em contato com a equipe Danauth para orçamentos de impressão 3D, projetos CAD, sites e automações.">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/index.css">
-  <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
-  <header id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo">
-        <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
       </a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#impressao-3d">Impressão 3D</a></li>
-        <li><a href="/#webdesign">Web Design & Artes</a></li>
-        <li><a href="/#chatbots">Chatbots</a></li>
-        <li><a href="/#como-funciona">Como Funciona</a></li>
-        <li><a href="/contact.html" class="active">Contato</a></li>
-      </ul>
-      <div class="auth-buttons" id="header-auth-buttons">
-        <a href="https://wa.me/5582987584824?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20com%20a%20Danauth." target="_blank" class="btn btn-primary btn-glow" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">
-          Solicitar Orçamento
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="/index.html#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link active">Contato</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="btn btn-whatsapp header-btn-desktop">
+          <span class="material-symbols-outlined fill-1" style="font-size: 18px;">forum</span> Fale no WhatsApp
         </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
     </div>
   </header>
 
-  <main style="padding-top: 100px;">
-    <section class="container">
-      <div class="section-title reveal" style="text-align: center;">
-        <span class="section-label">Fale Conosco</span>
-        <h2>Iniciar um <span>Projeto</span></h2>
-        <p style="margin-top: 1.5rem; color: var(--text-secondary);">Está pronto para tirar sua ideia do papel? Preencha o formulário abaixo ou fale diretamente conosco pelo WhatsApp.</p>
+  <main>
+    <!-- Compact Hero -->
+    <section class="section-padding" style="border-bottom: 1px solid var(--border-light); text-align: center;">
+      <div class="container" style="max-width: 720px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <span class="chip">Fale Conosco</span>
+        <h1 style="font-size: clamp(2.25rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; color: var(--text-primary);">
+          Iniciar um Projeto
+        </h1>
+        <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.6;">
+          Está pronto para tirar sua ideia do papel? Preencha o formulário abaixo ou nos chame diretamente no WhatsApp.
+        </p>
       </div>
+    </section>
 
-      <div style="max-width: 800px; margin: 4rem auto;" class="glass reveal">
-        <form style="padding: 3rem; display: grid; gap: 2rem;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-              <label style="font-size: 0.85rem; opacity: 0.7;">Nome Completo</label>
-              <input type="text" placeholder="Ex: João Silva" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+    <!-- Contact Form & Details Grid -->
+    <section class="section-padding" style="background-color: var(--bg-surface-1); border-bottom: 1px solid var(--border-light);">
+      <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; align-items: start;">
+          
+          <!-- Form Area -->
+          <div class="card" style="padding: 40px; box-shadow: var(--shadow-subtle);">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; color: var(--text-primary);">
+              Enviar Mensagem
+            </h2>
+
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label for="contact-name" style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Nome Completo</label>
+                <input type="text" id="contact-name" required placeholder="Seu nome completo" 
+                       style="padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: inherit; font-size: 0.95rem; outline: none;">
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label for="contact-info" style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">WhatsApp ou E-mail</label>
+                <input type="text" id="contact-info" required placeholder="(82) 98758-4824 ou seu e-mail" 
+                       style="padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: inherit; font-size: 0.95rem; outline: none;">
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label for="contact-service" style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Serviço de Interesse</label>
+                <select id="contact-service" required 
+                        style="padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: inherit; font-size: 0.95rem; outline: none; background-color: #fff;">
+                  <option value="" disabled selected>Selecione um serviço...</option>
+                  <option value="Impressão 3D">Impressão 3D</option>
+                  <option value="Projeto 3D CAD">Projeto 3D CAD</option>
+                  <option value="Criação de Sites">Criação de Sites</option>
+                  <option value="Artes para Empresas">Artes para Empresas</option>
+                  <option value="Chatbot Automatizado">Chatbot Automatizado</option>
+                  <option value="Outro Serviço">Outro</option>
+                </select>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label for="contact-message" style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Mensagem</label>
+                <textarea id="contact-message" rows="4" required placeholder="Conte-nos um pouco sobre a sua ideia ou projeto..." 
+                          style="padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: inherit; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 8px; width: 100%;">
+                Enviar no WhatsApp
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Details & Partners Sidebar -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="card" style="padding: 32px; background-color: var(--bg-main);">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">
+                Informações de Atendimento
+              </h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 16px; font-size: 0.95rem; color: var(--text-secondary);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="material-symbols-outlined" style="color: var(--accent-blue);">location_on</span>
+                  <span>Maceió, AL - Brasil (Atendimento Nacional)</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="material-symbols-outlined" style="color: var(--whatsapp-green);">phone</span>
+                  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" style="font-weight: 600; color: var(--text-primary);">(82) 98758-4824</a>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <span class="material-symbols-outlined" style="color: var(--accent-blue);">mail</span>
+                  <span>contato@danauth.info</span>
+                </div>
+              </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-              <label style="font-size: 0.85rem; opacity: 0.7;">WhatsApp / Telefone ou E-mail</label>
-              <input type="text" placeholder="(82) 98758-4824 ou email@exemplo.com" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
+
+            <!-- Partner Section Box -->
+            <div class="card" style="padding: 32px; background-color: var(--bg-main); text-align: center;">
+              <p class="partner-section-title">Empresas por trás de Danauth</p>
+              <div class="partner-logo-container" style="justify-content: center; gap: 24px;">
+                <img src="/assets/brand/tecsform.png" alt="Tecsform 3D" class="partner-logo-img" style="height: 40px;">
+                <img src="/assets/brand/tecsperts.png" alt="Tecsperts" class="partner-logo-img" style="height: 40px;">
+              </div>
             </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-            <label style="font-size: 0.85rem; opacity: 0.7;">Serviço de Interesse</label>
-            <select style="background: #111; border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none;">
-              <option>Vendas em Impressão 3D</option>
-              <option>Elaboração e Criação de Projeto 3D (CAD)</option>
-              <option>Criação de Sites (Landing Pages / Institucionais)</option>
-              <option>Artes para Empresas (Instagram / Facebook)</option>
-              <option>Chatbot para WhatsApp e Instagram</option>
-              <option>Outro / Projeto Combinado</option>
-            </select>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-            <label style="font-size: 0.85rem; opacity: 0.7;">Mensagem</label>
-            <textarea rows="5" placeholder="Conte-nos sobre sua ideia ou as especificações do que você precisa..." style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); padding: 1rem; border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 1.2rem;">Enviar Mensagem</button>
-        </form>
+
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
-        <div class="footer-col reveal">
-          <a href="/" class="logo" style="display: block; margin-bottom: 1.5rem;">
-            <img src="/assets/brand/logo.png" alt="Danauth Logo" class="logo-img">
-          </a>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 320px;">
-            Soluções completas em Impressão 3D, Projetos CAD, Criação de Sites Profissionais, Artes para Empresas e Chatbots Inteligentes.
-          </p>
-
-          <!-- Logos das Empresas do Grupo -->
-          <div class="partner-brands-container">
-            <div class="partner-brands-title">Empresas por trás de Danauth</div>
-            <div class="partner-logos">
-              <div class="partner-logo-pill" title="Tecsperts - Soluções em Tecnologia & Gestão Geral">
-                <img src="/assets/brand/tecsperts.png" alt="Tecsperts Logo">
-              </div>
-              <div class="partner-logo-pill" title="Tecsform - Criação de Projetos 3D & Manufatura">
-                <img src="/assets/brand/tecsform.png" alt="Tecsform Logo">
-              </div>
-            </div>
-          </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
         </div>
-
-        <div class="footer-col reveal">
-          <h4>Soluções 3D</h4>
-          <ul>
-            <li><a href="/#impressao-3d">Vendas em Impressão 3D</a></li>
-            <li><a href="/#impressao-3d">Criação de Projetos 3D</a></li>
-            <li><a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" target="_blank" style="color: #FF5722; font-weight: 600;">🛍️ Loja na Shopee (Tecsform 3D)</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal">
-          <h4>Web & Digital</h4>
-          <ul>
-            <li><a href="/#webdesign">Criação de Sites</a></li>
-            <li><a href="/#webdesign">Artes para Redes Sociais</a></li>
-            <li><a href="/#chatbots">Chatbots WhatsApp & Insta</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal">
-          <h4>Atendimento</h4>
-          <ul>
-            <li><a href="https://wa.me/5582987584824" target="_blank">WhatsApp: (82) 98758-4824</a></li>
-            <li><a href="/contact.html">Página de Contato</a></li>
-            <li><a href="/terms.html">Termos de Uso</a></li>
-            <li><a href="/privacy.html">Privacidade</a></li>
-          </ul>
-        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
       </div>
-      <div style="padding-top: 2rem; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
-        <p>&copy; 2026 Danauth. Todos os direitos reservados. Impressão 3D & Soluções Digitais.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Soluções 3D</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Modelagem CAD</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Prototipagem Rápida</a>
+        <a href="https://shopee.com.br/tecsform3d?mmp_pid=an_18324000217&share_channel_code=1&uls_trackid=56hfeiom023h&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_18324000217&utm_term=fgnom57dkvs1" target="_blank" rel="noopener" style="font-size: 0.9rem; color: var(--shopee-orange); font-weight: 600;">Loja na Shopee</a>
       </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Web & Digital</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Desenvolvimento Web</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Design Gráfico</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Chatbots e Automação</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--text-secondary);">Política de Privacidade</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
+      <p>Desenvolvido com excelência técnica.</p>
     </div>
   </footer>
 
-  <!-- Authie Chat Agent (Floating Bubble) -->
-  <div class="chat-bubble" id="chat-bubble">
-    <img src="/assets/authie.png" alt="Danauth Chat">
-  </div>
-  <div class="chat-window" id="chat-window">
-    <div class="chat-header">
-      <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--accent);">
-        <img src="/assets/authie.png" alt="Danauth Suporte" style="width: 100%; height: 100%; object-fit: cover;">
-      </div>
-      <div>
-        <div style="font-weight: 700; font-size: 0.95rem;">Danauth Suporte</div>
-        <div style="font-size: 0.7rem; opacity: 0.6; display: flex; align-items: center; gap: 4px;">
-          <span style="width: 8px; height: 8px; background: #00ff00; border-radius: 50%;"></span> Online Agora
-        </div>
-      </div>
-    </div>
-    <div class="chat-messages"></div>
-    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
-      <input type="text" placeholder="Como posso te ajudar?" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: 12px; color: white; outline: none; font-size: 0.9rem;">
-    </div>
-  </div>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
 
-  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
