@@ -1,26 +1,26 @@
 ﻿/* ==========================================================================
-   DANAUTH DESIGN SYSTEM — Minimalist Corporate Modern (Premium Light Tech)
+   DANAUTH DESIGN SYSTEM — Modern Technological Dark Theme
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 :root {
-  /* Color Tokens */
-  --bg-main: #ffffff;
-  --bg-surface-1: #fafafa;
-  --bg-surface-2: #f5f5f5;
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --text-muted: #888888;
-  --accent-blue: #1d4ed8;
-  --accent-blue-hover: #1e40af;
-  --accent-blue-light: #eff6ff;
+  /* Color Tokens — Technological Dark Palette */
+  --bg-main: #0c0d10;
+  --bg-surface-1: #121318;
+  --bg-surface-2: #181920;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-blue: #3b82f6;
+  --accent-blue-hover: #2563eb;
+  --accent-blue-light: rgba(59, 130, 246, 0.15);
   --whatsapp-green: #22c55e;
   --whatsapp-green-hover: #16a34a;
-  --shopee-orange: #ea580c;
-  --border-light: #e5e5e5;
-  --border-subtle: #f0f0f0;
+  --shopee-orange: #f97316;
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
   
   /* Layout & Spacing */
   --max-width: 1120px;
@@ -31,11 +31,11 @@
   --radius-xl: 16px;
   --radius-full: 9999px;
   
-  /* Transitions */
+  /* Transitions & Shadows */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
-  --shadow-subtle: 0px 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0px 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-subtle: 0px 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0px 12px 36px rgba(59, 130, 246, 0.18);
 }
 
 /* Reset & Base Styles */
@@ -60,6 +60,12 @@ body {
   flex-direction: column;
   line-height: 1.5;
   background-color: var(--bg-main);
+  /* Tech Dot Grid Pattern */
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(29, 78, 216, 0.14), transparent 60%);
+  background-size: 28px 28px, 100% 100%;
+  background-attachment: fixed;
   color: var(--text-primary);
   overflow-x: hidden;
 }
@@ -108,6 +114,7 @@ img, svg {
 .section-padding {
   padding-top: 80px;
   padding-bottom: 80px;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -117,6 +124,25 @@ img, svg {
   }
 }
 
+/* Tech Section Background Glow Overlay */
+.tech-glow-bg {
+  position: relative;
+}
+
+.tech-glow-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Header & Navigation */
 .header-nav {
   position: sticky;
@@ -124,9 +150,9 @@ img, svg {
   z-index: 100;
   width: 100%;
   height: var(--header-height);
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(12, 13, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -180,6 +206,7 @@ img, svg {
   right: 0;
   height: 2px;
   background-color: var(--accent-blue);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
 }
 
 .mobile-toggle {
@@ -210,24 +237,24 @@ img, svg {
 }
 
 .btn-primary {
-  background-color: var(--text-primary);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0c0d10;
 }
 
 .btn-primary:hover {
-  background-color: #2b2b2b;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  background-color: #e4e4e7;
+  box-shadow: 0px 4px 16px rgba(255,255,255,0.2);
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
   border-color: var(--border-light);
   color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-surface-1);
-  border-color: #d1d5db;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .btn-whatsapp {
@@ -237,7 +264,7 @@ img, svg {
 
 .btn-whatsapp:hover {
   background-color: var(--whatsapp-green-hover);
-  box-shadow: 0px 6px 16px rgba(34, 197, 94, 0.35);
+  box-shadow: 0px 6px 20px rgba(34, 197, 94, 0.4);
   transform: translateY(-1px);
 }
 
@@ -251,11 +278,13 @@ img, svg {
   font-size: 1.0625rem;
 }
 
-/* Cards */
+/* Cards & Surfaces */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -265,19 +294,32 @@ img, svg {
 }
 
 .card {
-  background-color: var(--bg-main);
+  background-color: var(--bg-surface-1);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 32px;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
 }
 
 .card-hover:hover {
-  border-color: var(--accent-blue);
+  border-color: rgba(59, 130, 246, 0.5);
   box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
+  background-color: var(--bg-surface-2);
 }
 
 .card-icon-wrapper {
@@ -285,6 +327,7 @@ img, svg {
   height: 48px;
   border-radius: var(--radius-md);
   background-color: var(--accent-blue-light);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   color: var(--accent-blue);
   display: flex;
   align-items: center;
@@ -317,8 +360,9 @@ img, svg {
 
 .chip {
   display: inline-block;
-  background-color: var(--bg-surface-2);
-  color: var(--text-secondary);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d4d4d8;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -331,7 +375,7 @@ img, svg {
 .step-number {
   font-size: 4.5rem;
   font-weight: 800;
-  color: #e5e7eb;
+  color: rgba(255, 255, 255, 0.06);
   line-height: 1;
   margin-bottom: -10px;
 }
@@ -349,7 +393,7 @@ img, svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 8px 24px rgba(34, 197, 94, 0.4);
+  box-shadow: 0px 8px 28px rgba(34, 197, 94, 0.45);
   z-index: 9999;
   transition: all var(--transition-fast);
 }
@@ -357,7 +401,7 @@ img, svg {
 .floating-whatsapp:hover {
   transform: scale(1.08);
   background-color: var(--whatsapp-green-hover);
-  box-shadow: 0px 12px 28px rgba(34, 197, 94, 0.5);
+  box-shadow: 0px 12px 32px rgba(34, 197, 94, 0.6);
 }
 
 .floating-whatsapp svg, .floating-whatsapp span {
@@ -373,6 +417,7 @@ img, svg {
   padding-top: 64px;
   padding-bottom: 48px;
   margin-top: auto;
+  position: relative;
 }
 
 .partner-section-title {
@@ -392,16 +437,29 @@ img, svg {
 }
 
 .partner-logo-img {
-  height: 38px;
+  height: 40px;
   width: auto;
   object-fit: contain;
-  filter: contrast(105%);
-  transition: opacity var(--transition-fast);
-  opacity: 0.9;
+  filter: brightness(1.1) contrast(105%);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  opacity: 0.95;
 }
 
 .partner-logo-img:hover {
   opacity: 1;
+  transform: scale(1.03);
+}
+
+/* Form Inputs Dark Theme */
+input[type="text"], input[type="email"], select, textarea {
+  background-color: var(--bg-surface-2) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-light) !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3) !important;
 }
 
 /* Legal Document Styles */
@@ -448,13 +506,13 @@ img, svg {
     top: var(--header-height);
     left: 0;
     right: 0;
-    background-color: var(--bg-main);
+    background-color: var(--bg-surface-1);
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
     gap: 16px;
     border-bottom: 1px solid var(--border-light);
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
   }
 
   .nav-menu.active {
