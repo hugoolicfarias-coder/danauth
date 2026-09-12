@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    DANAUTH DESIGN SYSTEM — Modern Technological Dark Theme
    ========================================================================== */
 
@@ -437,12 +437,18 @@ img, svg {
 }
 
 .partner-logo-img {
-  height: 40px;
+  height: 46px;
   width: auto;
   object-fit: contain;
-  filter: brightness(1.1) contrast(105%);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  filter: brightness(0) invert(1);
   opacity: 0.95;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.partner-logo-img:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+  transform: scale(1.05);
 }
 
 .partner-logo-img:hover {
