@@ -437,7 +437,7 @@ img, svg {
 }
 
 .partner-logo-img {
-  height: 46px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -447,7 +447,7 @@ img, svg {
 
 .partner-logo-img:hover {
   opacity: 1;
-  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+  filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.65));
   transform: scale(1.05);
 }
 
