@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Gastos Impressão 3D - Danauth</title>
+  <meta name="description" content="Ferramenta profissional de precificação e cálculo de custos para impressão 3D (filamento, energia, falhas e lucro).">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="/index.html#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link">Contato</a>
+        <a href="/calculator.html" class="nav-link active">Calculadora 3D 🔒</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/contact.html" class="btn btn-primary header-btn-desktop">Solicitar Orçamento</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding tech-glow-bg" style="min-height: 80vh;">
+    
+    <!-- 🔒 PASSWORD GATE OVERLAY SCREEN -->
+    <div id="password-gate" class="container" style="display: flex; justify-content: center; align-items: center; padding-top: 40px; padding-bottom: 60px;">
+      <div class="password-gate-card">
+        <div class="password-gate-icon">
+          <span class="material-symbols-outlined" style="font-size: 32px;">lock</span>
+        </div>
+        <span class="chip" style="margin-bottom: 12px; display: inline-block;">Acesso Restrito</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+          Calculadora de Gastos 3D
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+          Insira a senha de acesso fornecida pela equipe Danauth para desbloquear a ferramenta.
+        </p>
+
+        <form id="gate-form" style="margin-top: 20px;">
+          <div class="gate-input-wrapper">
+            <input type="password" id="gate-password-input" placeholder="Digite a senha de acesso..." autocomplete="current-password" required>
+            <button type="button" id="toggle-pwd-btn" class="toggle-pwd-btn" title="Mostrar/Ocultar Senha">
+              <span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
+            </button>
+          </div>
+          <div id="gate-error-msg" class="gate-error-msg">Senha incorreta. Tente novamente!</div>
+          
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 12px;">
+            <span class="material-symbols-outlined">key</span> Desbloquear Acesso
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 📊 MAIN CALCULATOR APP (Hidden by default until unlocked) -->
+    <div id="calculator-app" class="container" style="display: none; position: relative; z-index: 1;">
+      
+      <!-- Top Title & Toolbar -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 24px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+            <span class="chip" style="background-color: var(--accent-blue-light); color: var(--accent-blue); border-color: rgba(59,130,246,0.3);">Ferramenta Oficial Danauth</span>
+            <span class="material-symbols-outlined" style="color: var(--whatsapp-green); font-size: 18px;">verified</span>
+          </div>
+          <h1 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary);">
+            Calculadora de Gastos & Precificação 3D
+          </h1>
+          <p style="font-size: 1rem; color: var(--text-secondary); margin-top: 4px;">
+            Calcule custos exatos de filamento, energia, falhas e margem de lucro em tempo real.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <button id="btn-example" class="btn btn-secondary btn-sm">
+            <span class="material-symbols-outlined" style="font-size: 18px;">auto_fix_high</span> Ver Exemplo
+          </button>
+          <button id="btn-clear" class="btn btn-secondary btn-sm">
+            <span class="material-symbols-outlined" style="font-size: 18px;">restart_alt</span> Limpar
+          </button>
+          <button id="btn-lock" class="btn btn-secondary btn-sm" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">
+            <span class="material-symbols-outlined" style="font-size: 18px;">lock</span> Sair / Bloquear
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Calculator Grid -->
+      <div class="calculator-container">
+        
+        <!-- LEFT COLUMN: INPUT FORM SECTIONS -->
+        <div>
+          
+          <!-- Section 1: Filamento / Material -->
+          <div class="calc-section-card">
+            <div class="calc-section-header">
+              <span class="material-symbols-outlined" style="color: var(--accent-blue);">layers</span>
+              <h2 class="calc-section-title">1. Filamento / Material <span style="color: #ef4444;">*</span></h2>
+            </div>
+
+            <div class="calc-field-group">
+              <div>
+                <label class="calc-label">Preset de Material Sugerido</label>
+                <div class="calc-input-addon">
+                  <select id="calc-preset-material">
+                    <option value="custom">Personalizado / Manual</option>
+                    <option value="pla" selected>PLA Padrão (R$ 110,00 / kg)</option>
+                    <option value="abs">ABS Resistente (R$ 120,00 / kg)</option>
+                    <option value="petg">PETG Técnico (R$ 130,00 / kg)</option>
+                    <option value="resina">Resina SLA 3D (R$ 190,00 / L)</option>
+                    <option value="tpu">TPU Flexível (R$ 160,00 / kg)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="calc-field-group-2" style="display: grid; gap: 16px; margin-top: 12px;">
+                <div>
+                  <label class="calc-label">Peso da Peça <span class="calc-label-hint">(no slicer)</span></label>
+                  <div class="calc-input-addon">
+                    <input type="number" id="calc-peso" placeholder="122.3" step="0.1" min="0" value="122.3">
+                    <span class="calc-addon-text">g (gramas)</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="calc-label">Preço do Rolo <span class="calc-label-hint">(1 kg / 1 L)</span></label>
+                  <div class="calc-input-addon">
+                    <span class="calc-addon-text" style="border-right: 1px solid var(--border-subtle); border-left: none;">R$</span>
+                    <input type="number" id="calc-preco-rolo" placeholder="110.00" step="1" min="0" value="110.00">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Impressora & Energia -->
+          <div class="calc-section-card">
+            <div class="calc-section-header">
+              <span class="material-symbols-outlined" style="color: var(--accent-blue);">schedule</span>
+              <h2 class="calc-section-title">2. Impressora & Energia</h2>
+            </div>
+
+            <div class="calc-field-group-2" style="display: grid; gap: 16px;">
+              <div>
+                <label class="calc-label">Tempo de Impressão</label>
+                <div style="display: flex; gap: 8px;">
+                  <div class="calc-input-addon" style="flex: 1;">
+                    <input type="number" id="calc-tempo-h" placeholder="7" min="0" value="7">
+                    <span class="calc-addon-text">h</span>
+                  </div>
+                  <div class="calc-input-addon" style="flex: 1;">
+                    <input type="number" id="calc-tempo-m" placeholder="15" min="0" max="59" value="15">
+                    <span class="calc-addon-text">min</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="calc-label">Potência da Máquina</label>
+                <div class="calc-input-addon">
+                  <input type="number" id="calc-potencia-w" placeholder="200" step="10" min="0" value="200">
+                  <span class="calc-addon-text">Watts (W)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-field-group-2" style="display: grid; gap: 16px; margin-top: 16px;">
+              <div>
+                <label class="calc-label">Tarifa de Energia <span class="calc-label-hint">(kWh)</span></label>
+                <div class="calc-input-addon">
+                  <span class="calc-addon-text" style="border-right: 1px solid var(--border-subtle); border-left: none;">R$</span>
+                  <input type="number" id="calc-tarifa-kwh" placeholder="0.85" step="0.05" min="0" value="0.85">
+                </div>
+              </div>
+
+              <div>
+                <label class="calc-label">Depreciação Máquina <span class="calc-label-hint">(por hora)</span></label>
+                <div class="calc-input-addon">
+                  <span class="calc-addon-text" style="border-right: 1px solid var(--border-subtle); border-left: none;">R$</span>
+                  <input type="number" id="calc-depreciacao-h" placeholder="1.00" step="0.5" min="0" value="1.00">
+                  <span class="calc-addon-text">/h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Pós-Processamento & Extras -->
+          <div class="calc-section-card">
+            <div class="calc-section-header">
+              <span class="material-symbols-outlined" style="color: var(--accent-blue);">construction</span>
+              <h2 class="calc-section-title">3. Pós-Processamento & Embalagem</h2>
+            </div>
+
+            <div class="calc-field-group-2" style="display: grid; gap: 16px;">
+              <div>
+                <label class="calc-label">Mão de Obra / Acabamento</label>
+                <div class="calc-input-addon">
+                  <span class="calc-addon-text" style="border-right: 1px solid var(--border-subtle); border-left: none;">R$</span>
+                  <input type="number" id="calc-mao-obra" placeholder="0.00" step="1" min="0" value="5.00">
+                </div>
+              </div>
+
+              <div>
+                <label class="calc-label">Embalagem / Insumos Extras</label>
+                <div class="calc-input-addon">
+                  <span class="calc-addon-text" style="border-right: 1px solid var(--border-subtle); border-left: none;">R$</span>
+                  <input type="number" id="calc-embalagem" placeholder="0.00" step="1" min="0" value="3.00">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Margens & Segurança -->
+          <div class="calc-section-card">
+            <div class="calc-section-header">
+              <span class="material-symbols-outlined" style="color: var(--accent-blue);">percent</span>
+              <h2 class="calc-section-title">4. Margens & Segurança</h2>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div>
+                <div class="calc-label">
+                  <span>Reserva para Falhas</span>
+                  <span id="label-falhas-pct" style="color: var(--accent-blue); font-weight: 700;">10%</span>
+                </div>
+                <input type="range" id="calc-falhas-pct" class="calc-range-slider" min="0" max="30" step="1" value="10">
+                <span class="calc-label-hint" style="margin-top: 4px; display: block;">Recomendado: 10% (cobre perdas de fatiamento e retrabalho)</span>
+              </div>
+
+              <div>
+                <div class="calc-label">
+                  <span>Lucro Desejado</span>
+                  <span id="label-lucro-pct" style="color: var(--whatsapp-green); font-weight: 700;">100%</span>
+                </div>
+                <input type="range" id="calc-lucro-pct" class="calc-range-slider" min="10" max="300" step="5" value="100">
+                <span class="calc-label-hint" style="margin-top: 4px; display: block;">Recomendado: 50% a 150% sobre o custo total</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: LIVE ANALYTICS DASHBOARD PANEL -->
+        <div>
+          <div class="calc-summary-panel">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge-live">
+                <span class="badge-live-dot"></span> Resultado em Tempo Real
+              </span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Danauth 3D Engine</span>
+            </div>
+
+            <!-- Hero Price Display Box -->
+            <div class="summary-hero-box">
+              <div class="summary-hero-label">Preço Sugerido de Venda</div>
+              <div class="summary-hero-value" id="res-preco-sugerido">R$ 0,00</div>
+              <div class="summary-hero-sub">
+                Lucro líquido no bolso: <strong id="res-lucro-bolso" style="color: var(--whatsapp-green);">R$ 0,00</strong>
+              </div>
+            </div>
+
+            <!-- Cost Breakdown List -->
+            <div class="summary-breakdown-list">
+              <div class="summary-breakdown-item">
+                <span>Custo do Filamento / Resina:</span>
+                <strong id="res-custo-filamento">R$ 0,00</strong>
+              </div>
+
+              <div class="summary-breakdown-item">
+                <span>Energia + Depreciação:</span>
+                <strong id="res-custo-energia">R$ 0,00</strong>
+              </div>
+
+              <div class="summary-breakdown-item">
+                <span>Acabamento & Embalagem:</span>
+                <strong id="res-custo-extras">R$ 0,00</strong>
+              </div>
+
+              <div class="summary-breakdown-item">
+                <span>Reserva para Falhas:</span>
+                <strong id="res-reserva-falhas">R$ 0,00</strong>
+              </div>
+
+              <div class="summary-breakdown-item total-item">
+                <span>CUSTO TOTAL DE PRODUÇÃO:</span>
+                <strong id="res-custo-total" style="font-size: 1.1rem;">R$ 0,00</strong>
+              </div>
+
+              <div class="summary-breakdown-item" style="border-color: rgba(34, 197, 94, 0.3); background-color: rgba(34, 197, 94, 0.05);">
+                <span style="color: var(--whatsapp-green); font-weight: 700;">LUCRO LÍQUIDO ESTIMADO:</span>
+                <strong id="res-lucro-liquido" style="color: var(--whatsapp-green); font-size: 1.1rem;">R$ 0,00</strong>
+              </div>
+            </div>
+
+            <!-- Extra Metrics Box -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-secondary);">
+              <div>
+                <span>Custo por grama:</span><br>
+                <strong id="res-custo-grama" style="color: var(--text-primary); font-size: 0.95rem;">R$ 0,00 / g</strong>
+              </div>
+              <div>
+                <span>Margem Líquida:</span><br>
+                <strong id="res-margem-pct" style="color: var(--whatsapp-green); font-size: 0.95rem;">100% sobre custo</strong>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+              <button id="btn-copy-wa" class="btn btn-whatsapp btn-lg" style="width: 100%;">
+                <span class="material-symbols-outlined fill-1">chat</span> Copiar Orçamento para WhatsApp
+              </button>
+
+              <button id="btn-print-pdf" class="btn btn-secondary btn-md" style="width: 100%;">
+                <span class="material-symbols-outlined">print</span> Imprimir / Salvar em PDF
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Soluções 3D</h4>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Modelagem CAD</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Prototipagem Rápida</a>
+        <a href="/calculator.html" style="font-size: 0.9rem; color: var(--accent-blue); font-weight: 600;">Calculadora de Gastos 🔒</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--text-secondary);">Política de Privacidade</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
+
+</body>
+</html>

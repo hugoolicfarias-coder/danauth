@@ -533,3 +533,304 @@ input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focu
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   3D PRINTING CALCULATOR & PASSWORD GATE STYLES
+   ========================================================================== */
+
+/* Password Gate Screen */
+.password-gate-card {
+  max-width: 440px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 40px 32px;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.password-gate-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-blue-light);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.gate-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 24px 0 16px 0;
+}
+
+.gate-input-wrapper input {
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface-2) !important;
+  color: var(--text-primary) !important;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.gate-input-wrapper .toggle-pwd-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.gate-error-msg {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  display: none;
+}
+
+/* Calculator Grid & Layout */
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .calculator-container {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.calc-section-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.calc-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.calc-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.calc-field-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 576px) {
+  .calc-field-group-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.calc-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.calc-label-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.calc-input-addon {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.calc-input-addon:focus-within {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+
+.calc-input-addon input, .calc-input-addon select {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-primary) !important;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.calc-addon-text {
+  padding: 0 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+/* Custom Range Slider */
+.calc-range-slider {
+  width: 100%;
+  accent-color: var(--accent-blue);
+  height: 6px;
+  background: var(--bg-surface-2);
+  border-radius: var(--radius-full);
+  outline: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Live Results Sticky Panel */
+.calc-summary-panel {
+  position: sticky;
+  top: 96px;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-hover);
+}
+
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--whatsapp-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.badge-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--whatsapp-green);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.summary-hero-box {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(59, 130, 246, 0.08));
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.summary-hero-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--whatsapp-green);
+  margin-bottom: 6px;
+}
+
+.summary-hero-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.summary-hero-sub {
+  font-size: 0.9rem;
+  color: #a1a1aa;
+  margin-top: 8px;
+}
+
+.summary-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+.summary-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+}
+
+.summary-breakdown-item.total-item {
+  background-color: var(--accent-blue-light);
+  border-color: rgba(59, 130, 246, 0.3);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Print Styles */
+@media print {
+  .header-nav, .footer, .floating-whatsapp, #password-gate, .btn, .chip-group {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .calc-section-card, .calc-summary-panel {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}

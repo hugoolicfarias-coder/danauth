@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+﻿import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         services: resolve(__dirname, 'services.html'),
         contact: resolve(__dirname, 'contact.html'),
+        calculator: resolve(__dirname, 'calculator.html'),
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         shopping: resolve(__dirname, 'shopping.html'),
