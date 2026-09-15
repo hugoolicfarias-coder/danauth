@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Peças 3D - Danauth</title>
+  <meta name="description" content="Showroom de peças e protótipos em impressão 3D fabricados pela Danauth (FDM, Resina SLA, PETG, TPU e Fibra de Carbono).">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- Header Navigation Shell -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="/gallery.html" class="nav-link active">Galeria 3D 📷</a>
+        <a href="/index.html#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link">Contato</a>
+        <a href="/calculator.html" class="nav-link">Calculadora 3D 🔒</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/contact.html" class="btn btn-primary header-btn-desktop">Solicitar Orçamento</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding tech-glow-bg">
+    
+    <!-- Hero Header Section -->
+    <div class="container" style="text-align: center; max-width: 800px; margin-bottom: 48px; position: relative; z-index: 1;">
+      <span class="chip" style="margin-bottom: 12px; display: inline-block;">Showroom de Fabricação</span>
+      <h1 style="font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 800; letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 16px;">
+        Galeria de Peças & Protótipos 3D
+      </h1>
+      <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.6;">
+        Confira exemplos visuais de peças mecânicas, modelos arquitetônicos, cases de eletrônicos e estrutura de drones produzidos com máxima precisão.
+      </p>
+
+      <!-- Filter Category Chips -->
+      <div class="chip-group" style="justify-content: center; margin-top: 24px; gap: 10px;">
+        <button class="chip gallery-filter-btn active" data-filter="all" style="cursor: pointer; border: 1px solid var(--accent-blue);">Todos os Projetos</button>
+        <button class="chip gallery-filter-btn" data-filter="mecanica" style="cursor: pointer;">Engenharia & Mecânica</button>
+        <button class="chip gallery-filter-btn" data-filter="arquitetura" style="cursor: pointer;">Arquitetura & Maquetes</button>
+        <button class="chip gallery-filter-btn" data-filter="tecnologia" style="cursor: pointer;">Drones & Robótica</button>
+        <button class="chip gallery-filter-btn" data-filter="eletronicos" style="cursor: pointer;">Cases & Eletrônicos</button>
+      </div>
+    </div>
+
+    <!-- Product Image Gallery Grid -->
+    <div class="container">
+      <div class="card-grid card-grid-2" id="gallery-grid" style="gap: 32px;">
+        
+        <!-- Gallery Item 1 -->
+        <div class="card gallery-item" data-category="mecanica" style="padding: 0; overflow: hidden; cursor: pointer;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="/assets/gallery/engrenagem_petg.jpg" alt="Engrenagem Mecânica em PETG" class="gallery-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,13,16,0.95), transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+              <span class="chip" style="width: fit-content; margin-bottom: 8px; background-color: var(--accent-blue-light); color: var(--accent-blue); border-color: rgba(59,130,246,0.3);">Engenharia & Mecânica</span>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Engrenagem Industrial PETG</h3>
+              <p style="font-size: 0.875rem; color: #a1a1aa; margin-top: 4px;">Impressão FDM de alta tolerância mecânica e resistência ao desgaste.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="card gallery-item" data-category="arquitetura" style="padding: 0; overflow: hidden; cursor: pointer;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="/assets/gallery/maquete_arquitetonica.jpg" alt="Maquete Arquitetônica em Resina SLA" class="gallery-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,13,16,0.95), transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+              <span class="chip" style="width: fit-content; margin-bottom: 8px; background-color: var(--accent-blue-light); color: var(--accent-blue); border-color: rgba(59,130,246,0.3);">Arquitetura & Maquetes</span>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Maquete Modular em Resina SLA</h3>
+              <p style="font-size: 0.875rem; color: #a1a1aa; margin-top: 4px;">Detalhamento ultra-fino de fachadas e estruturas arquitetônicas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="card gallery-item" data-category="tecnologia" style="padding: 0; overflow: hidden; cursor: pointer;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="/assets/gallery/chassis_drone.jpg" alt="Chassis de Drone em Fibra de Carbono" class="gallery-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,13,16,0.95), transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+              <span class="chip" style="width: fit-content; margin-bottom: 8px; background-color: var(--accent-blue-light); color: var(--accent-blue); border-color: rgba(59,130,246,0.3);">Drones & Robótica</span>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Chassis Quadcopter Fibra de Carbono</h3>
+              <p style="font-size: 0.875rem; color: #a1a1aa; margin-top: 4px;">Estrutura leve e de alta rigidez para competição e filmagens aéreas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="card gallery-item" data-category="eletronicos" style="padding: 0; overflow: hidden; cursor: pointer;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="/assets/gallery/case_eletronico.jpg" alt="Case de Eletrônico Customizado" class="gallery-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,13,16,0.95), transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+              <span class="chip" style="width: fit-content; margin-bottom: 8px; background-color: var(--accent-blue-light); color: var(--accent-blue); border-color: rgba(59,130,246,0.3);">Cases & Eletrônicos</span>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Case de Gabinete Personalizado TPU</h3>
+              <p style="font-size: 0.875rem; color: #a1a1aa; margin-top: 4px;">Gabinete para hardware embarcado com aberturas de conectores de precisão.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Image Lightbox Modal Preview -->
+  <div id="image-lightbox" style="position: fixed; inset: 0; z-index: 99999; background-color: rgba(0, 0, 0, 0.9); backdrop-filter: blur(16px); display: none; align-items: center; justify-content: center; padding: 24px;">
+    <button id="lightbox-close" style="position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div style="max-width: 1000px; width: 100%; text-align: center;">
+      <img id="lightbox-img" src="" alt="Ampliação" style="max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-lg); border: 1px solid var(--border-light); box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+      <h3 id="lightbox-caption" style="color: #fff; font-size: 1.25rem; font-weight: 700; margin-top: 16px;"></h3>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Soluções 3D</h4>
+        <a href="/gallery.html" style="font-size: 0.9rem; color: var(--accent-blue); font-weight: 600;">Galeria de Peças 📷</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Modelagem CAD</a>
+        <a href="/calculator.html" style="font-size: 0.9rem; color: var(--text-secondary);">Calculadora de Gastos 🔒</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--text-secondary);">Política de Privacidade</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
+
+</body>
+</html>

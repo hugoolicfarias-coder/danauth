@@ -9,6 +9,7 @@ export default defineConfig({
         services: resolve(__dirname, 'services.html'),
         contact: resolve(__dirname, 'contact.html'),
         calculator: resolve(__dirname, 'calculator.html'),
+        gallery: resolve(__dirname, 'gallery.html'),
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         shopping: resolve(__dirname, 'shopping.html'),

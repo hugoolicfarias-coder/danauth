@@ -51,6 +51,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // 4. Gallery Filter & Lightbox Preview Engine
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  if (filterBtns.length > 0 && galleryItems.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.style.borderColor = 'transparent';
+        });
+        btn.classList.add('active');
+        btn.style.borderColor = 'var(--accent-blue)';
+
+        const cat = btn.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+          if (cat === 'all' || item.getAttribute('data-category') === cat) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  if (lightbox && lightboxImg) {
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const title = item.querySelector('h3')?.innerText || '';
+        if (img) {
+          lightboxImg.src = img.src;
+          if (lightboxCaption) lightboxCaption.innerText = title;
+          lightbox.style.display = 'flex';
+        }
+      });
+    });
+
+    const closeLb = () => { lightbox.style.display = 'none'; };
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLb);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLb();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLb();
+    });
+  }
+
   // ==========================================================================
   // 🔒 3D PRINTING CALCULATOR & PASSWORD GATE ENGINE
   // ==========================================================================
