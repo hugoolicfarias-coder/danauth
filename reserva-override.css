@@ -1,0 +1,542 @@
+/*
+ * Reserva Style Override for Tray Commerce
+ * This file transforms the default FOR ME theme to look like the Reserva website.
+ * It contains styles for the top bar, header, navigation, hero banner, product cards, 
+ * newsletter, footer, and global refinements.
+ */
+
+/* ==========================================================================
+   1. TOP BAR (Announcement Bar)
+   ========================================================================== */
+/* The top-bar class already uses var(--color_base) for bg and var(--color_base_font) for text */
+/* Add refinements: */
+.top-bar {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   2. HEADER / NAVBAR
+   ========================================================================== */
+.header > .bg {
+    border-bottom: 1px solid #E5E5E5;
+}
+.header.fixed .bg {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+/* Logo centered */
+.header .logo img {
+    max-height: 50px;
+    transition: all 0.3s ease;
+}
+.header.fixed .logo img {
+    max-height: 36px;
+}
+/* Cart badge in RED */
+.header .cart-header .number {
+    background-color: #E60000 !important;
+    color: #FFFFFF !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.header .cart-header .only-bullet {
+    background-color: #E60000 !important;
+}
+/* Account and cart subtle */
+.header .cart-header:hover,
+.account a:hover {
+    opacity: 0.7;
+}
+/* Search bar cleaner */
+header .header-search-wrapper .input-search {
+    border: 1px solid #E5E5E5;
+    background: #F8F8F8;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+header .header-search-wrapper .input-search:focus {
+    border-color: #000000;
+    background: #FFFFFF;
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   3. NAVIGATION MENU
+   ========================================================================== */
+.nav .list > li > a,
+.nav .list > li > span {
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #000000;
+    transition: color 0.2s ease;
+}
+.nav .list > li > a:hover,
+.nav .list > li > span:hover {
+    color: #555555;
+}
+/* Nav line */
+.nav {
+    border-bottom: 1px solid #E5E5E5;
+}
+/* Dropdown styling - premium dark top border */
+.nav .list .second-level {
+    border-top: 2px solid #000000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    background-color: #FFFFFF;
+}
+.nav .list > li.sub > .sub-list > li a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4A4A4A;
+    transition: color 0.2s ease;
+}
+.nav .list > li.sub > .sub-list > li a:hover {
+    color: #000000;
+}
+.nav .second-level > a {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+
+/* ==========================================================================
+   4. HERO BANNER / SLIDESHOW
+   ========================================================================== */
+.section-slideshow.banner {
+    padding: 0;
+}
+.section-slideshow .item-image {
+    position: relative;
+}
+/* Add a gradient overlay at the bottom for better visual hierarchy */
+.section-slideshow .item-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+.section-slideshow .item a {
+    display: block;
+}
+.section-slideshow .item-image img {
+    width: 100%;
+    object-fit: cover;
+}
+/* Dots styling - minimal like Reserva */
+.section-slideshow .swiper-container .dots .dot::after {
+    width: 8px;
+    height: 8px;
+    border: none;
+    background-color: rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+}
+.section-slideshow .swiper-container .dots .dot-active::after {
+    background-color: #FFFFFF;
+    width: 24px;
+    border-radius: 4px;
+}
+/* Arrows */
+.swiper-carousel .prev,
+.swiper-carousel .next,
+.swiper-container .prev,
+.swiper-container .next {
+    background-color: rgba(255,255,255,0.9);
+    color: #000000;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    line-height: 44px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+.swiper-carousel .prev:hover,
+.swiper-carousel .next:hover,
+.swiper-container .prev:hover,
+.swiper-container .next:hover {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   5. SECTION HEADERS (Vitrine Titles)
+   ========================================================================== */
+.section-header .title-section {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.section-header::after {
+    /* Remove the colored underline bar, Reserva style is cleaner */
+    display: none;
+}
+.section-header .subtitle-section {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #767676;
+    margin-top: 0.25rem;
+}
+@media (max-width: 575px) {
+    .section-header .title-section {
+        font-size: 1.125rem;
+    }
+}
+
+/* ==========================================================================
+   6. PRODUCT CARDS
+   ========================================================================== */
+/* Clean card - no border by default */
+.product {
+    border: none;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+.product:hover {
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+/* Product image area */
+.product .image {
+    padding: 0;
+    background-color: #F8F8F8;
+}
+.product .space-image {
+    overflow: hidden;
+}
+.product .space-image img {
+    transition: transform 0.5s ease-out;
+}
+.product:hover .space-image img {
+    transform: scale(1.03);
+}
+/* Aspect ratio 3:4 for vertical images */
+.product .space-image::after {
+    padding-bottom: 133.33%;
+}
+/* Product info */
+.product .info {
+    padding: 0.75rem 0.5rem;
+}
+.product .product-name,
+.product .name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111111;
+    line-height: 1.35;
+}
+.product .price-box .current-price,
+.product .product-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+}
+.product .price-box .old-price {
+    font-size: 0.75rem;
+    color: #999999;
+    text-decoration: line-through;
+}
+.product .price-box .installments {
+    font-size: 0.6875rem;
+    color: #767676;
+    font-weight: 400;
+}
+/* Buy button */
+.actions .product-button {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
+}
+.actions .product-button:hover {
+    background-color: #222222;
+}
+/* Wishlist heart */
+.wishlist-button-vitrine {
+    transition: all 0.2s ease;
+}
+.wishlist-button-vitrine:hover {
+    color: #E60000;
+}
+/* Product rating */
+.product-rating .icon.active {
+    color: #000000;
+}
+
+/* ==========================================================================
+   7. BANNER GRID / CATEGORY BANNERS
+   ========================================================================== */
+.section-banners-grid {
+    padding: 1rem 0;
+}
+.section-banners-grid .item a:hover,
+.section-banners-grid .item span:hover {
+    transform: scale(1.04);
+}
+.banner-line .container {
+    gap: 0.5rem;
+}
+@media (min-width: 768px) {
+    .banner-line .container {
+        gap: 1rem;
+    }
+}
+
+/* ==========================================================================
+   8. NEWSLETTER
+   ========================================================================== */
+.newsletter {
+    background-color: #F8F8F8;
+    padding: 3rem 0;
+}
+.newsletter .title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.newsletter .form input[type='email'],
+.newsletter .form input[type='text'],
+.newsletter .form input {
+    border: 1px solid #E5E5E5;
+    background: #FFFFFF;
+    padding: 0 1rem;
+    height: 48px;
+    font-size: 0.875rem;
+    border-radius: 0;
+}
+.newsletter .form input:focus {
+    border-color: #000000;
+    box-shadow: none;
+}
+.newsletter .form button,
+.newsletter .form .btn {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    padding: 0 2rem;
+    height: 48px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 0;
+    transition: background-color 0.2s ease;
+}
+.newsletter .form button:hover,
+.newsletter .form .btn:hover {
+    background-color: #222222;
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+/* Dark premium footer */
+.footer {
+    background-color: #111111 !important;
+    color: #999999;
+    padding-top: 3rem;
+}
+.footer .container {
+    color: #999999;
+}
+.footer .title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+}
+.footer .box {
+    color: #999999;
+}
+.footer .list li a,
+.footer .box a {
+    color: #999999;
+    font-size: 0.8125rem;
+    transition: color 0.2s ease;
+    line-height: 2;
+}
+.footer .list li a:hover,
+.footer .box a:hover {
+    color: #FFFFFF;
+}
+/* Social media icons */
+.footer .social-media .icon {
+    color: #999999;
+    transition: color 0.2s ease;
+}
+.footer .social-media a:hover .icon {
+    color: #FFFFFF;
+}
+/* Payment icons */
+.footer .payment-list img {
+    filter: brightness(0) invert(0.6);
+    transition: filter 0.2s ease;
+}
+.footer .payment-list img:hover {
+    filter: brightness(0) invert(1);
+}
+/* Security seals */
+.footer .security-seals img {
+    filter: brightness(0) invert(0.6);
+}
+/* Footer copy bar */
+.footer .copy {
+    border-top: 1px solid #222222;
+    padding: 1.5rem 0;
+    background-color: #0A0A0A !important;
+}
+.footer .copy .text {
+    color: #666666;
+    font-size: 0.75rem;
+}
+.footer .copy .tray a {
+    color: #555555;
+}
+.footer .copy .tray a:hover {
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   10. GLOBAL REFINEMENTS
+   ========================================================================== */
+/* Global button commerce styling */
+.botao-commerce:not(.botao-sob-consulta):not(.botao-nao_indisponivel) {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: background-color 0.2s ease;
+}
+.botao-commerce:not(.botao-sob-consulta):not(.botao-nao_indisponivel):hover {
+    background-color: #222222;
+}
+/* Modal styling */
+.modal .modal-content {
+    border-radius: 0;
+    border: none;
+}
+.modal .modal-header {
+    border-bottom: 1px solid #EEEEEE;
+}
+.modal .close {
+    border-radius: 0;
+}
+/* Inputs */
+input.text,
+select.select,
+select.text,
+.campoform:not([type=checkbox]) {
+    border: 1px solid #E5E5E5;
+    border-radius: 0;
+    transition: border-color 0.2s ease;
+}
+input.text:focus,
+select.select:focus {
+    border-color: #000000;
+    box-shadow: none;
+}
+/* Suggestion dropdown */
+.suggestion {
+    border-radius: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.suggestion-title {
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+/* Floating WhatsApp - keep but style */
+.floating-whatsapp a {
+    background-color: #25D366;
+    box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+}
+.floating-whatsapp a:hover {
+    background-color: #20BD5A;
+    box-shadow: 0 6px 16px rgba(37,211,102,0.4);
+}
+/* Mobile menu */
+.menu-mobile {
+    background-color: #FFFFFF;
+}
+.menu-mobile .close-box {
+    color: #000000;
+}
+.nav-mobile .list li a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+.nav-mobile .first-level > li {
+    border-bottom: 1px solid #EEEEEE;
+}
+/* Smooth scrollbar for mobile nav */
+.nav-mobile::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+/* Loading spinner */
+.loader .spinner .double-bounce-one,
+.loader .spinner .double-bounce-two {
+    background-color: #000000;
+}
+/* Selection color */
+::selection {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE MOBILE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* Mobile header */
+    .header .line {
+        height: auto;
+        min-height: 60px;
+        padding: 0.75rem 0;
+    }
+    /* Mobile products - 2 columns */
+    .product .space-image::after {
+        padding-bottom: 133.33%;
+    }
+    /* Mobile footer */
+    .footer {
+        padding-top: 2rem;
+    }
+    .footer .title {
+        font-size: 0.75rem;
+    }
+    /* Newsletter mobile */
+    .newsletter {
+        padding: 2rem 0;
+    }
+    .newsletter .title {
+        font-size: 1rem;
+    }
+}

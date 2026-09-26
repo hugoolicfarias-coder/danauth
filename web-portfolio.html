@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio de Sites - Danauth Soluções Web</title>
+  <meta name="description" content="Navegue pelas demonstrações interativas de sites institucionais e e-commerces criados pela Danauth.">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo-link">
+        <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue); font-size: 28px;">view_in_ar</span>
+        <span>Danauth</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="/services.html" class="nav-link">Serviços</a>
+        <a href="/web-portfolio.html" class="nav-link active">Portfólio Web 🌐</a>
+        <a href="/gallery.html" class="nav-link">Galeria 3D 📷</a>
+        <a href="/index.html#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="/contact.html" class="nav-link">Contato</a>
+        <a href="/calculator.html" class="nav-link">Calculadora 3D 🔒</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="/contact.html" class="btn btn-primary header-btn-desktop">Solicitar Orçamento</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-padding tech-glow-bg">
+    
+    <!-- Hero Header -->
+    <div class="container" style="text-align: center; max-width: 800px; margin-bottom: 48px; position: relative; z-index: 1;">
+      <span class="chip" style="margin-bottom: 12px; display: inline-block;">Showroom de Desenvolvimento Web</span>
+      <h1 style="font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 800; letter-spacing: -0.025em; color: var(--text-primary); margin-bottom: 16px;">
+        Projetos de Sites Exclusivos
+      </h1>
+      <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.6;">
+        Explore demonstrações interativas dos sites criados pela Danauth. Teste a navegação e a responsividade em tempo real com proteção completa de código.
+      </p>
+
+      <!-- Category Filters -->
+      <div class="chip-group" style="justify-content: center; margin-top: 24px; gap: 10px;">
+        <button class="chip web-filter-btn active" data-filter="all" style="cursor: pointer; border: 1px solid var(--accent-blue);">Todos os Modelos</button>
+        <button class="chip web-filter-btn" data-filter="juridico" style="cursor: pointer;">Advocacia & Jurídico</button>
+        <button class="chip web-filter-btn" data-filter="ecommerce" style="cursor: pointer;">E-Commerce & Lojas</button>
+        <button class="chip web-filter-btn" data-filter="saude" style="cursor: pointer;">Saúde & Medicina</button>
+      </div>
+    </div>
+
+    <!-- Website Portfolio Cards Grid -->
+    <div class="container">
+      <div class="card-grid card-grid-2" id="web-portfolio-grid" style="gap: 32px;">
+        
+        <!-- Project Card 1: Almeida Advocacia -->
+        <div class="card web-project-card" data-category="juridico" style="padding: 0; overflow: hidden;">
+          <div style="background: linear-gradient(135deg, #0b131e, #1a293b); padding: 32px; border-bottom: 1px solid var(--border-light); min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="chip" style="background: rgba(212, 175, 55, 0.15); color: #d4af37; border-color: rgba(212, 175, 55, 0.3);">Advocacia & Jurídico</span>
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 12px;">Almeida Advocacia</h3>
+              <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 6px;">Escritório de Advocacia Corporativa & Consultoria Jurídica de Alta Autoridade.</p>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+              <span class="chip" style="font-size: 0.7rem;">Direito Civil</span>
+              <span class="chip" style="font-size: 0.7rem;">Empresarial</span>
+              <span class="chip" style="font-size: 0.7rem;">Agendamento</span>
+            </div>
+          </div>
+          
+          <div style="padding: 24px; display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-surface-1);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-blue);">shield</span> Protegido contra Cópia
+            </div>
+            <button class="btn btn-primary btn-sm open-demo-btn" 
+                    data-demo-url="/demos/advocacia.html" 
+                    data-demo-title="Almeida Advocacia — Consultoria Jurídica">
+              <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span> Visualizar Site
+            </button>
+          </div>
+        </div>
+
+        <!-- Project Card 2: NEXO Moda Contemporânea -->
+        <div class="card web-project-card" data-category="ecommerce" style="padding: 0; overflow: hidden;">
+          <div style="background: linear-gradient(135deg, #111111, #242424); padding: 32px; border-bottom: 1px solid var(--border-light); min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="chip" style="background: rgba(34, 197, 94, 0.15); color: var(--whatsapp-green); border-color: rgba(34, 197, 94, 0.3);">E-Commerce & Lojas</span>
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 12px;">NEXO — Moda Contemporânea</h3>
+              <p style="font-size: 0.9rem; color: #a1a1aa; margin-top: 6px;">Loja Virtual Completa com catálogo de coleções, sacola de compras e filtros.</p>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+              <span class="chip" style="font-size: 0.7rem;">Loja Completa</span>
+              <span class="chip" style="font-size: 0.7rem;">Sacola Interativa</span>
+              <span class="chip" style="font-size: 0.7rem;">Responsivo</span>
+            </div>
+          </div>
+          
+          <div style="padding: 24px; display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-surface-1);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-blue);">shield</span> Protegido contra Cópia
+            </div>
+            <button class="btn btn-primary btn-sm open-demo-btn" 
+                    data-demo-url="/demos/nexo.html" 
+                    data-demo-title="NEXO — E-Commerce de Moda">
+              <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span> Visualizar Site
+            </button>
+          </div>
+        </div>
+
+        <!-- Project Card 3: Medicina Humanizada -->
+        <div class="card web-project-card" data-category="saude" style="padding: 0; overflow: hidden;">
+          <div style="background: linear-gradient(135deg, #0b2742, #18456b); padding: 32px; border-bottom: 1px solid var(--border-light); min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="chip" style="background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border-color: rgba(59, 130, 246, 0.3);">Saúde & Medicina</span>
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 12px;">Medicina Humanizada</h3>
+              <p style="font-size: 0.9rem; color: #93c5fd; margin-top: 6px;">Site para Médicos, Clínicas e Consultórios com agendamento online e bio profissional.</p>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+              <span class="chip" style="font-size: 0.7rem;">Médicos & Clínicas</span>
+              <span class="chip" style="font-size: 0.7rem;">Consultas Online</span>
+              <span class="chip" style="font-size: 0.7rem;">Depoimentos</span>
+            </div>
+          </div>
+          
+          <div style="padding: 24px; display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-surface-1);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-blue);">shield</span> Protegido contra Cópia
+            </div>
+            <button class="btn btn-primary btn-sm open-demo-btn" 
+                    data-demo-url="/demos/medicina.html" 
+                    data-demo-title="Site Medicina Humanizada — Dr. Rafael Monteiro">
+              <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span> Visualizar Site
+            </button>
+          </div>
+        </div>
+
+        <!-- Project Card 4: Soft Pro E-Commerce -->
+        <div class="card web-project-card" data-category="ecommerce" style="padding: 0; overflow: hidden;">
+          <div style="background: linear-gradient(135deg, #2b1111, #481a1a); padding: 32px; border-bottom: 1px solid var(--border-light); min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="chip" style="background: rgba(230, 57, 70, 0.15); color: #f87171; border-color: rgba(230, 57, 70, 0.3);">E-Commerce & Lojas</span>
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 12px;">Soft Pro — Varejo Digital</h3>
+              <p style="font-size: 0.9rem; color: #fca5a5; margin-top: 6px;">Tema E-Commerce Modular de Alta Performance, banners em vídeo e vitrines.</p>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+              <span class="chip" style="font-size: 0.7rem;">Alta Performance</span>
+              <span class="chip" style="font-size: 0.7rem;">Vitrines Modulares</span>
+              <span class="chip" style="font-size: 0.7rem;">Vendas</span>
+            </div>
+          </div>
+          
+          <div style="padding: 24px; display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-surface-1);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
+              <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-blue);">shield</span> Protegido contra Cópia
+            </div>
+            <button class="btn btn-primary btn-sm open-demo-btn" 
+                    data-demo-url="/demos/ecommerce-soft.html" 
+                    data-demo-title="Soft Pro — Varejo Digital Premium">
+              <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span> Visualizar Site
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- 🖥️ INTERACTIVE PROTECTED SITE VIEWER MODAL -->
+  <div id="web-viewer-modal" style="position: fixed; inset: 0; z-index: 99999; background-color: rgba(8, 9, 12, 0.96); backdrop-filter: blur(20px); display: none; flex-direction: column; overflow: hidden;">
+    
+    <!-- Top Bar Toolbar -->
+    <div style="background-color: var(--bg-surface-1); border-bottom: 1px solid var(--border-light); padding: 12px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="material-symbols-outlined" style="color: var(--accent-blue);">language</span>
+        <div>
+          <h3 id="viewer-title" style="font-size: 1.05rem; font-weight: 700; color: #ffffff;">Demonstração de Site</h3>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">🔒 Modo Protegido Danauth • Cópia Bloqueada</span>
+        </div>
+      </div>
+
+      <!-- Device Viewport Mode Switcher Buttons -->
+      <div style="display: flex; align-items: center; gap: 6px; background-color: var(--bg-surface-2); padding: 4px; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+        <button class="device-btn active" data-device="desktop" title="Visão Computador (100%)" style="background: var(--accent-blue); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">desktop_windows</span> Desktop
+        </button>
+        <button class="device-btn" data-device="tablet" title="Visão Tablet (768px)" style="background: transparent; color: var(--text-secondary); border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">tablet_mac</span> Tablet
+        </button>
+        <button class="device-btn" data-device="mobile" title="Visão Celular (375px)" style="background: transparent; color: var(--text-secondary); border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">smartphone</span> Celular
+        </button>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a id="viewer-wa-btn" href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+          <span class="material-symbols-outlined fill-1" style="font-size: 16px;">chat</span> Solicitar Este Modelo
+        </a>
+        <button id="viewer-close-btn" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-light); color: #ffffff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Viewport Frame Area -->
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: hidden; background-color: #050608;">
+      <div id="iframe-wrapper" style="width: 100%; height: 100%; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.8); border: 1px solid var(--border-light);">
+        <iframe id="demo-iframe" src="" style="width: 100%; height: 100%; border: none; background-color: #ffffff;"></iframe>
+      </div>
+    </div>
+
+    <!-- Security Footer Bar -->
+    <div style="background-color: var(--bg-surface-1); border-top: 1px solid var(--border-light); padding: 8px 24px; text-align: center; font-size: 0.78rem; color: var(--text-muted);">
+      🔒 Demonstração Protegida Danauth • Download de Código e Cópia Desativados
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
+          <span class="material-symbols-outlined fill-1" style="color: var(--accent-blue);">view_in_ar</span>
+          <span>Danauth</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+          Soluções integradas em manufatura aditiva 3D e desenvolvimento digital para marcas inovadoras.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Web & Digital</h4>
+        <a href="/web-portfolio.html" style="font-size: 0.9rem; color: var(--accent-blue); font-weight: 600;">Portfólio de Sites 🌐</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Criação de Websites</a>
+        <a href="/services.html" style="font-size: 0.9rem; color: var(--text-secondary);">Artes & Branding</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Institucional</h4>
+        <a href="/contact.html" style="font-size: 0.9rem; color: var(--text-secondary);">Contato</a>
+        <a href="/terms.html" style="font-size: 0.9rem; color: var(--text-secondary);">Termos de Serviço</a>
+        <a href="/privacy.html" style="font-size: 0.9rem; color: var(--text-secondary);">Política de Privacidade</a>
+      </div>
+
+    </div>
+
+    <div class="container" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.875rem; color: var(--text-secondary);">
+      <p>© 2026 Danauth. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/5582987584824" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+    <span class="material-symbols-outlined fill-1">forum</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almeida Advocacia - Escritório de Advocacia & Consultoria Jurídica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+    body { font-family: 'Inter', sans-serif; background-color: #0b131e; color: #e2e8f0; line-height: 1.6; }
+    img { pointer-events: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    header { background: rgba(11, 19, 30, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: sticky; top: 0; z-index: 100; padding: 20px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: #d4af37; letter-spacing: 0.05em; text-decoration: none; }
+    .brand span { color: #ffffff; }
+    nav a { color: #94a3b8; text-decoration: none; margin-left: 28px; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: #d4af37; }
+    .btn-gold { background: linear-gradient(135deg, #d4af37, #aa820a); color: #0b131e; font-weight: 700; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3); }
+    .hero { padding: 100px 0 80px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.1), transparent 70%); }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: 3.2rem; color: #ffffff; margin-bottom: 20px; line-height: 1.2; }
+    .hero h1 span { color: #d4af37; }
+    .hero p { font-size: 1.15rem; color: #94a3b8; max-width: 720px; margin: 0 auto 36px; }
+    .services { padding: 80px 0; background: #080d15; }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: #ffffff; }
+    .section-title p { color: #d4af37; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .card { background: #0f1927; border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 10px; padding: 32px; transition: border-color 0.3s, transform 0.3s; }
+    .card:hover { border-color: #d4af37; transform: translateY(-4px); }
+    .card-icon { font-size: 2rem; color: #d4af37; margin-bottom: 16px; }
+    .card h3 { font-family: 'Cinzel', serif; font-size: 1.25rem; color: #ffffff; margin-bottom: 12px; }
+    .card p { font-size: 0.92rem; color: #94a3b8; }
+    footer { border-top: 1px solid rgba(212, 175, 55, 0.15); padding: 40px 0; text-align: center; font-size: 0.85rem; color: #64748b; background: #06090e; }
+  </style>
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12' || (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'i' || e.key === 'I' || e.key === 'c' || e.key === 'C'))) {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('dragstart', e => e.preventDefault());
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand">ALMEIDA <span>ADVOCACIA</span></a>
+      <nav>
+        <a href="#atendimento">Áreas de Atuação</a>
+        <a href="#sobre">O Escritório</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="#contato" class="btn-gold">Agendar Consulta</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p style="color: #d4af37; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 12px; font-size: 0.85rem;">Defesa Jurídica de Alta Performance</p>
+      <h1>Soluções Estratégicas em <span>Direito Corporativo & Civil</span></h1>
+      <p>Representação jurídica pautada no rigor técnico, confidencialidade e resultados para empresas e pessoas físicas.</p>
+      <a href="#contato" class="btn-gold" style="padding: 16px 36px; font-size: 1.05rem;">Falar com um Advogado</a>
+    </div>
+  </section>
+
+  <section class="services" id="atendimento">
+    <div class="container">
+      <div class="section-title">
+        <p>Especialidades</p>
+        <h2>Áreas de Atuação Jurídica</h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h3>Direito Civil & Patrimonial</h3>
+          <p>Orientação e representação estratégica em contratos complexos, responsabilidade civil e litígios patrimoniais.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚖️</div>
+          <h3>Direito Empresarial</h3>
+          <p>Assessoria preventiva para empresas, fusões, reorganização societária e mitigação de riscos contratuais.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h3>Direito Trabalhista</h3>
+          <p>Consultoria defensiva e contenciosa focada em conformidade trabalhista corporativa e negociações.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏛️</div>
+          <h3>Família & Sucessões</h3>
+          <p>Planejamento sucessório corporativo, blindagem patrimonial familiar, inventários e partilhas com alto sigilo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Almeida Advocacia. Todos os direitos reservados. OAB/SP — Modelo de Demonstração Danauth Websites.</p>
+    </div>
+  </footer>
+</body>
+</html>

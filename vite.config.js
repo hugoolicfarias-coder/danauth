@@ -10,6 +10,7 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         calculator: resolve(__dirname, 'calculator.html'),
         gallery: resolve(__dirname, 'gallery.html'),
+        web_portfolio: resolve(__dirname, 'web-portfolio.html'),
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         shopping: resolve(__dirname, 'shopping.html'),

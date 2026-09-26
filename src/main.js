@@ -350,4 +350,124 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // ==========================================================================
+  // ðŸŒ WEB PORTFOLIO SHOWROOM & INTERACTIVE VIEWER ENGINE
+  // ==========================================================================
+  const webFilters = document.querySelectorAll('.web-filter-btn');
+  const webProjects = document.querySelectorAll('.web-project-card');
+  const webViewerModal = document.getElementById('web-viewer-modal');
+  const demoIframe = document.getElementById('demo-iframe');
+  const iframeWrapper = document.getElementById('iframe-wrapper');
+  const viewerTitle = document.getElementById('viewer-title');
+  const viewerWaBtn = document.getElementById('viewer-wa-btn');
+  const viewerCloseBtn = document.getElementById('viewer-close-btn');
+  const deviceBtns = document.querySelectorAll('.device-btn');
+  const openDemoBtns = document.querySelectorAll('.open-demo-btn');
+
+  // 1. Category Filtering
+  if (webFilters.length > 0 && webProjects.length > 0) {
+    webFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        webFilters.forEach(b => {
+          b.classList.remove('active');
+          b.style.borderColor = 'transparent';
+        });
+        btn.classList.add('active');
+        btn.style.borderColor = 'var(--accent-blue)';
+
+        const category = btn.getAttribute('data-filter');
+        webProjects.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // 2. Open Interactive Demo Modal
+  if (webViewerModal && demoIframe) {
+    openDemoBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-demo-url');
+        const title = btn.getAttribute('data-demo-title') || 'DemonstraÃ§Ã£o Danauth';
+
+        if (viewerTitle) viewerTitle.textContent = title;
+        if (viewerWaBtn) {
+          const msg = `OlÃ¡ Danauth! Estive navegando no Showroom Web e gostei do modelo *${title}*. Gostaria de um orÃ§amento para um projeto similar.`;
+          viewerWaBtn.href = `https://wa.me/5582987584824?text=${encodeURIComponent(msg)}`;
+        }
+
+        // Set device to desktop by default
+        setDeviceMode('desktop');
+
+        // Load demo URL
+        demoIframe.src = url;
+        webViewerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // 3. Close Modal Handler
+    const closeWebViewer = () => {
+      webViewerModal.style.display = 'none';
+      demoIframe.src = 'about:blank';
+      document.body.style.overflow = '';
+    };
+
+    if (viewerCloseBtn) {
+      viewerCloseBtn.addEventListener('click', closeWebViewer);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && webViewerModal.style.display === 'flex') {
+        closeWebViewer();
+      }
+    });
+
+    // 4. Device Switcher (Desktop, Tablet, Mobile)
+    function setDeviceMode(mode) {
+      deviceBtns.forEach(b => {
+        if (b.getAttribute('data-device') === mode) {
+          b.classList.add('active');
+          b.style.background = 'var(--accent-blue)';
+          b.style.color = '#ffffff';
+        } else {
+          b.classList.remove('active');
+          b.style.background = 'transparent';
+          b.style.color = 'var(--text-secondary)';
+        }
+      });
+
+      if (!iframeWrapper) return;
+      if (mode === 'desktop') {
+        iframeWrapper.style.width = '100%';
+        iframeWrapper.style.maxWidth = '100%';
+        iframeWrapper.style.height = '100%';
+      } else if (mode === 'tablet') {
+        iframeWrapper.style.width = '768px';
+        iframeWrapper.style.maxWidth = '100%';
+        iframeWrapper.style.height = '100%';
+      } else if (mode === 'mobile') {
+        iframeWrapper.style.width = '375px';
+        iframeWrapper.style.maxWidth = '100%';
+        iframeWrapper.style.height = '100%';
+      }
+    }
+
+    deviceBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-device');
+        if (mode) setDeviceMode(mode);
+      });
+    });
+
+    // 5. Code Copy & Inspect Protection on Viewer Modal
+    webViewerModal.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+  }
 });
